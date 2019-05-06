@@ -1,1 +1,1 @@
-# prometheus-notes
+# Prometheus Notes
