@@ -2,17 +2,16 @@
 
 * [Introduction](README.md)
 
-* [Introduction](README.md)
 
------
-* [个人简历](ABOUT_ME.md)
+### Part Ⅰ 基础篇
 
------
-* [关于博客](ABOUT_BLOG.md)
+* [第一章 基础入门](ch01/README.md)
+    * [1.1 Prometheus 介绍](ch01/1.1-prometheus-introduce.md)
+* [第二章 基础操作](ch02/README.md)
+* []()
+* []()
 
------
-* [知识库](knowledge.md)
-    * [操作系统](OS/os.md)
-        * [Linux](OS/linux/linux.md)
-        * [windows](OS/win/windows.md)
-        * [Unix](OS/unix/unix.md)
+### Part ⅠⅠ 进阶篇
+
+
+### Part ⅠⅠⅠ 实战篇
