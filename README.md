@@ -4,6 +4,7 @@
   <a href="https://github.com/erdong/prometheus-notes/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/erdong/prometheus-notes.svg?style=popout"></a>
   <a href="https://github.com/erdong/prometheus-notes/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/erdong/prometheus-notes.svg?style=popout"></a>
   <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en"><img alt="Notes License" src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg?style=popout"></a>
+  <a href="https://erdong.site/about/"><img alt="Author" src="https://img.shields.io/badge/Author-Erdong-important.svg?style=popout"></a>
 </p>
 
 # 目录
@@ -12,14 +13,51 @@
 
 * [第一章 基础入门](ch01/README.md)
     * [1.1 Prometheus 介绍](ch01/1.1-prometheus-introduce.md)
-* [第二章 基础操作](ch02/README.md)
-* []()
-* []()
+    * [1.2 Prometheus 安装](ch01/1.2-prometheus-install.md)
+    * [1.3 时序数据库为什么选 Prometheus](ch01/1.3-tsdb-comparison.md)
+    * [1.4 术语解释](ch01/1.4-glossary.md)
+    * [1.5 数据模型](ch01/1.5-data-model.md)
+    * [1.6 Metric 类型](ch01/1.6-metric-types.md)
+    * [1.7 Job 和 Instances](ch01/1.7-job-and-instances.md)
+    * [小结](ch01/END.md)
+* [第二章 Prometehus 数据库](ch02/README.md)
+    * [2.1 开始]()
+    * [2.2 安装]()
+    * [2.3 配置]()
+    * [2.4 查询]()
+    * [2.5 存储]()
+    * [2.6 安装]()
+    * [小结](ch02/END.md)
 
 ### Part ⅠⅠ 进阶篇
-* [第x 章 采集器 todo]()
-* [第x 章 可视化 todo]()
-* [第x 章 告警推送 todo]()
+* [第三章 采集器 todo]()
+    * [3.1 主机信息采集]()
+    * [3.2 容器信息采集]()
+    * [3.3 其他信息采集]()
+    * [小结](ch03/END.md)
+* [第四章 可视化 todo]()
+    * [4.1 浏览器]()
+    * [4.2 Grafana]()
+    * [小结](ch04/END.md)
+* [第五章 告警推送 todo]()
+    * [5.1 Alertmanager]()
+    * [5.2 Alert 配置]()
+    * [小结](ch05/END.md)
+* [第六章 PromQL todo]()
+    * [6.1 基础]()
+    * [6.2 操作]()
+    * [6.3 功能]()
+    * [6.4 示例]()
+    * [6.5 API]()
+    * [小结](ch06/END.md)
+* [第七章 插件编写 todo]()
+    * [小结](ch07/END.md)
+* [第八章 集群与高可用 todo]()
+    * [小结](ch08/END.md)
+* [第九章 服务发现 todo]()
+    * [小结](ch09/END.md)
+* [第十章 最佳实践 todo]()
+    * [小结](ch10/END.md)
 
 ### Part ⅠⅠⅠ 实战篇
 
