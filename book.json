@@ -1,0 +1,38 @@
+{
+    "author": "Er Dong <erdong@mail.erdong.site>",
+    "title": "Prometheus Notes",
+    "description": "This is a note of prometheus",
+    "extension": null,
+    "generator": "site",
+    "links": {
+        "sharing": {
+            "all": null,
+            "facebook": null,
+            "google": null,
+            "twitter": null,
+            "weibo": null
+        },
+        "sidebar": {
+            "Erdong's Blog": "https://erdong.site"
+        }
+    },
+    "output": null,
+    "pdf": {
+        "fontSize": 12,
+        "footerTemplate": null,
+        "headerTemplate": null,
+        "margin": {
+            "bottom": 36,
+            "left": 62,
+            "right": 62,
+            "top": 36
+        },
+        "pageNumbers": false,
+        "paperSize": "a4"
+    },
+    "plugins": [
+        "pageview-count",
+        "back-to-top-button"
+    ],
+    "variables": {}
+}
