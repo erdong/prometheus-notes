@@ -129,7 +129,7 @@
                 <a href="ch01/">
             
                     
-                    第一章 基础入门
+                    第一章 认识 Prometheus
             
                 </a>
             
@@ -138,12 +138,38 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.1" data-path="ch01/1.1-prometheus-introduce.md">
+        <li class="chapter " data-level="2.1.1" data-path="ch01/1.1-prometheus-introduction.html">
             
-                <span>
+                <a href="ch01/1.1-prometheus-introduction.html">
             
                     
                     1.1 Prometheus 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="ch01/1.2-prometheus-install.html">
+            
+                <a href="ch01/1.2-prometheus-install.html">
+            
+                    
+                    1.2 Prometheus 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="ch01/1.3-tsdb-comparison.html">
+            
+                <a href="ch01/1.3-tsdb-comparison.html">
+            
+                    
+                    1.3 时序数据库为什么选 Prometheus
             
                 </a>
             
@@ -233,24 +259,80 @@
   <a href="https://github.com/erdong/prometheus-notes/stargazers" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/erdong/prometheus-notes.svg?style=popout"></a>
   <a href="https://github.com/erdong/prometheus-notes/issues" target="_blank"><img alt="GitHub issues" src="https://img.shields.io/github/issues/erdong/prometheus-notes.svg?style=popout"></a>
   <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en" target="_blank"><img alt="Notes License" src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg?style=popout"></a>
+  <a href="https://erdong.site/about/" target="_blank"><img alt="Author" src="https://img.shields.io/badge/Author-Erdong-important.svg?style=popout"></a>
 </p>
 
 <h1 id="&#x76EE;&#x5F55;">&#x76EE;&#x5F55;</h1>
 <h3 id="part-&#x2170;-&#x57FA;&#x7840;&#x7BC7;">Part &#x2160; &#x57FA;&#x7840;&#x7BC7;</h3>
 <ul>
-<li><a href="ch01/">&#x7B2C;&#x4E00;&#x7AE0; &#x57FA;&#x7840;&#x5165;&#x95E8;</a><ul>
-<li><a href="ch01/1.1-prometheus-introduce.md">1.1 Prometheus &#x4ECB;&#x7ECD;</a></li>
+<li><a href="ch01/">&#x7B2C;&#x4E00;&#x7AE0; &#x8BA4;&#x8BC6; Prometheus</a><ul>
+<li><a href="ch01/1.1-prometheus-introduction.html">1.1 Prometheus &#x4ECB;&#x7ECD;</a></li>
+<li><a href="ch01/1.2-prometheus-install.html">1.2 Prometheus &#x5B89;&#x88C5;</a></li>
+<li><a href="ch01/1.3-tsdb-comparison.html">1.3 &#x65F6;&#x5E8F;&#x6570;&#x636E;&#x5E93;&#x4E3A;&#x4EC0;&#x4E48;&#x9009; Prometheus</a></li>
+<li><a href="ch01/1.4-glossary.md">1.4 &#x672F;&#x8BED;&#x89E3;&#x91CA;</a></li>
+<li><a href="ch01/1.5-data-model.md">1.5 &#x6570;&#x636E;&#x6A21;&#x578B;</a></li>
+<li><a href="ch01/1.6-metric-types.md">1.6 Metric &#x7C7B;&#x578B;</a></li>
+<li><a href="ch01/1.7-job-and-instances.md">1.7 Job &#x548C; Instances</a></li>
+<li><a href="ch01/END.md">&#x5C0F;&#x7ED3;</a></li>
 </ul>
 </li>
-<li><a href="ch02/README.md">&#x7B2C;&#x4E8C;&#x7AE0; &#x57FA;&#x7840;&#x64CD;&#x4F5C;</a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
+<li><a href="ch02/README.md">&#x7B2C;&#x4E8C;&#x7AE0; Prometehus &#x6570;&#x636E;&#x5E93;</a><ul>
+<li><a href="">2.1 &#x5F00;&#x59CB;</a></li>
+<li><a href="">2.2 &#x5B89;&#x88C5;</a></li>
+<li><a href="">2.3 &#x914D;&#x7F6E;</a></li>
+<li><a href="">2.4 &#x67E5;&#x8BE2;</a></li>
+<li><a href="">2.5 &#x5B58;&#x50A8;</a></li>
+<li><a href="">2.6 &#x5B89;&#x88C5;</a></li>
+<li><a href="ch02/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="part-&#x2170;&#x2170;-&#x8FDB;&#x9636;&#x7BC7;">Part &#x2160;&#x2160; &#x8FDB;&#x9636;&#x7BC7;</h3>
 <ul>
-<li><a href="">&#x7B2C;x &#x7AE0; &#x91C7;&#x96C6;&#x5668; todo</a></li>
-<li><a href="">&#x7B2C;x &#x7AE0; &#x53EF;&#x89C6;&#x5316; todo</a></li>
-<li><a href="">&#x7B2C;x &#x7AE0; &#x544A;&#x8B66;&#x63A8;&#x9001; todo</a></li>
+<li><a href="">&#x7B2C;&#x4E09;&#x7AE0; &#x91C7;&#x96C6;&#x5668; todo</a><ul>
+<li><a href="">3.1 &#x4E3B;&#x673A;&#x4FE1;&#x606F;&#x91C7;&#x96C6;</a></li>
+<li><a href="">3.2 &#x5BB9;&#x5668;&#x4FE1;&#x606F;&#x91C7;&#x96C6;</a></li>
+<li><a href="">3.3 &#x5176;&#x4ED6;&#x4FE1;&#x606F;&#x91C7;&#x96C6;</a></li>
+<li><a href="ch03/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
+<li><a href="">&#x7B2C;&#x56DB;&#x7AE0; &#x53EF;&#x89C6;&#x5316; todo</a><ul>
+<li><a href="">4.1 &#x6D4F;&#x89C8;&#x5668;</a></li>
+<li><a href="">4.2 Grafana</a></li>
+<li><a href="ch04/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
+<li><a href="">&#x7B2C;&#x4E94;&#x7AE0; &#x544A;&#x8B66;&#x63A8;&#x9001; todo</a><ul>
+<li><a href="">5.1 Alertmanager</a></li>
+<li><a href="">5.2 Alert &#x914D;&#x7F6E;</a></li>
+<li><a href="ch05/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
+<li><a href="">&#x7B2C;&#x516D;&#x7AE0; PromQL todo</a><ul>
+<li><a href="">6.1 &#x57FA;&#x7840;</a></li>
+<li><a href="">6.2 &#x64CD;&#x4F5C;</a></li>
+<li><a href="">6.3 &#x529F;&#x80FD;</a></li>
+<li><a href="">6.4 &#x793A;&#x4F8B;</a></li>
+<li><a href="">6.5 API</a></li>
+<li><a href="ch06/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
+<li><a href="">&#x7B2C;&#x4E03;&#x7AE0; &#x63D2;&#x4EF6;&#x7F16;&#x5199; todo</a><ul>
+<li><a href="ch07/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
+<li><a href="">&#x7B2C;&#x516B;&#x7AE0; &#x96C6;&#x7FA4;&#x4E0E;&#x9AD8;&#x53EF;&#x7528; todo</a><ul>
+<li><a href="ch08/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
+<li><a href="">&#x7B2C;&#x4E5D;&#x7AE0; &#x670D;&#x52A1;&#x53D1;&#x73B0; todo</a><ul>
+<li><a href="ch09/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
+<li><a href="">&#x7B2C;&#x5341;&#x7AE0; &#x6700;&#x4F73;&#x5B9E;&#x8DF5; todo</a><ul>
+<li><a href="ch10/END.md">&#x5C0F;&#x7ED3;</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="part-&#x2170;&#x2170;&#x2170;-&#x5B9E;&#x6218;&#x7BC7;">Part &#x2160;&#x2160;&#x2160; &#x5B9E;&#x6218;&#x7BC7;</h3>
 <p>&#x6301;&#x7EED;&#x66F4;&#x65B0;&#x4E2D;~~~</p>
@@ -288,7 +370,7 @@
             
                 
                 
-                <a href="ch01/" class="navigation navigation-next navigation-unique" aria-label="Next page: 第一章 基础入门">
+                <a href="ch01/" class="navigation navigation-next navigation-unique" aria-label="Next page: 第一章 认识 Prometheus">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -299,7 +381,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"第一章 基础入门","level":"2.1","depth":1,"path":"ch01/README.md","ref":"ch01/README.md","articles":[{"title":"1.1 Prometheus 介绍","level":"2.1.1","depth":2,"path":"ch01/1.1-prometheus-introduce.md","ref":"ch01/1.1-prometheus-introduce.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"README.md","mtime":"2019-05-13T02:08:43.088Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-13T02:09:00.372Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"第一章 认识 Prometheus","level":"2.1","depth":1,"path":"ch01/README.md","ref":"ch01/README.md","articles":[{"title":"1.1 Prometheus 介绍","level":"2.1.1","depth":2,"path":"ch01/1.1-prometheus-introduction.md","ref":"ch01/1.1-prometheus-introduction.md","articles":[]},{"title":"1.2 Prometheus 安装","level":"2.1.2","depth":2,"path":"ch01/1.2-prometheus-install.md","ref":"ch01/1.2-prometheus-install.md","articles":[]},{"title":"1.3 时序数据库为什么选 Prometheus","level":"2.1.3","depth":2,"path":"ch01/1.3-tsdb-comparison.md","ref":"ch01/1.3-tsdb-comparison.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"README.md","mtime":"2019-05-14T02:00:31.168Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T14:15:41.509Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
