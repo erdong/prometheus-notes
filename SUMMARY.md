@@ -22,3 +22,9 @@
 
 
 ### Part ⅠⅠⅠ 实战篇
+
+* [第八章 集群与高可用](chapter08/README.md)
+    * [8.1 MinIO 搭建](chapter08/minio-introduction.md)
+    * [8.2 MinIO 分布式集群](chapter08/minio-cluster.md)
+    * [8.3 MinIO 参数和限制](chapter08/minio-parameter-and-limit.md)
+    * [8.4 MniIO 性能对比](chapter08/minio-benchmark.md)
