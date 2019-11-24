@@ -26,12 +26,11 @@
     * [1.7 Job 和 Instances](chapter01/1.7-job-and-instances.md)
     * [小结](chapter01/END.md)
 * [第二章 Prometehus 数据库](chapter02/README.md)
-    * [2.1 开始]()
-    * [2.2 安装]()
-    * [2.3 配置]()
-    * [2.4 查询]()
-    * [2.5 存储]()
-    * [2.6 安装]()
+    * [2.1 开始](chapter02/2.1-getting-started.md)
+    * [2.2 安装](chapter02/2.2-installation.md)
+    * [2.3 配置](chapter02/2.3-configuration.md)
+    * [2.4 查询](chapter02/2.4-querying.md)
+    * [2.5 存储](chapter02/2.5-storage.md)
     * [小结](chapter02/END.md)
 
 ### Part ⅠⅠ 进阶篇
