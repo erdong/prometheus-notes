@@ -31,9 +31,17 @@
 
 
 ### Part ⅠⅠⅠ 实战篇
-
-* [第八章 集群与高可用](chapter08/README.md)
-    * [8.1 MinIO 搭建](chapter08/minio-introduction.md)
-    * [8.2 MinIO 分布式集群](chapter08/minio-cluster.md)
-    * [8.3 MinIO 参数和限制](chapter08/minio-parameter-and-limit.md)
-    * [8.4 MniIO 性能对比](chapter08/minio-benchmark.md)
+* [第八章 集群与高可用 todo](chapter08/README.md)
+    * [8.1 MinIO 搭建](chapter08/8.1-minio-introduction.md)
+    * [8.2 MinIO 分布式集群](chapter08/8.2-minio-cluster.md)
+    * [8.3 MinIO 参数和限制](chapter08/8.3-minio-parameter-and-limit.md)
+    * [8.4 MniIO 性能对比](chapter08/8.4-minio-benchmark.md)
+    * [8.5 MniIO 客户端工具 mc](chapter08/8.5-minio-mc-tool.md)
+    * [8.6 Thanos 是什么](chapter08/8.6-thanos-introduction.md)
+    * [8.7 Thanos query](chapter08/8.7-thanos-query.md)
+    * [8.8 Thanos sidecar](chapter08/8.8-thanos-sidecar.md)
+    * [8.9 Thanos store](chapter08/8.9-thanos-store.md)
+    * [8.10 Thanos rule](chapter08/8.10-thanos-rule.md)
+    * [8.11 Thanos tools](chapter08/8.11-thanos-tools.md)
+    * [8.12 Cortex  是什么](chapter08/8.12-cortex-introduction.md)
+    * [小结](chapter08/END.md)
