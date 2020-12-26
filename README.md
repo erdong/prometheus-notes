@@ -75,6 +75,7 @@
     * [8.10 Thanos rule](chapter08/8.10-thanos-rule.md)
     * [8.11 Thanos tools](chapter08/8.11-thanos-tools.md)
     * [8.12 Cortex  是什么](chapter08/8.12-cortex-introduction.md)
+    * [8.13 Kvass  是什么](chapter08/8.12-kvass-introduction.md)
     * [小结](chapter08/END.md)
 * [第九章 服务发现 todo](chapter09/README.md)
     * [9.1  静态文件服务发现](chapter09/file-sd.md)
@@ -93,6 +94,8 @@
 
 
 持续更新中~~~
+
+目录中的每篇文章可能会经常进行排序上的调整，请尽量从根目录来查找，而不是保留固定的 URL 来使用。
 
 # Feedback
 
