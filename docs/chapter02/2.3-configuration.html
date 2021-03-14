@@ -464,20 +464,33 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.5" >
+        <li class="chapter " data-level="3.1.5" data-path="../chapter03/3.5-ovirt-exporter.html">
             
-                <span>
+                <a href="../chapter03/3.5-ovirt-exporter.html">
             
                     
-                    3.3 其他信息采集
+                    3.5 oVirt信息采集
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="3.1.6" data-path="../chapter03/END.html">
+        <li class="chapter " data-level="3.1.6" data-path="../chapter03/3.6-blackbox-exporter.html">
+            
+                <a href="../chapter03/3.6-blackbox-exporter.html">
+            
+                    
+                    3.6 BlackBox 网络探测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../chapter03/END.html">
             
                 <a href="../chapter03/END.html">
             
@@ -794,9 +807,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.5" data-path="../chapter08/8.5-minio-mc-tool.md">
+        <li class="chapter " data-level="4.1.5" data-path="../chapter08/8.5-minio-mc-tool.html">
             
-                <span>
+                <a href="../chapter08/8.5-minio-mc-tool.html">
             
                     
                     8.5 MniIO 客户端工具 mc
@@ -872,12 +885,25 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.11" data-path="../chapter08/8.11-thanos-tools.md">
+        <li class="chapter " data-level="4.1.11" data-path="../chapter08/8.11-thanos-compactor.html">
+            
+                <a href="../chapter08/8.11-thanos-compactor.html">
+            
+                    
+                    8.11 Thanos Compactor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.12" data-path="../chapter08/8.12-thanos-tools.md">
             
                 <span>
             
                     
-                    8.11 Thanos tools
+                    8.12 Thanos tools
             
                 </a>
             
@@ -885,12 +911,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.12" data-path="../chapter08/8.12-cortex-introduction.html">
+        <li class="chapter " data-level="4.1.13" data-path="../chapter08/8.13-cortex-introduction.html">
             
-                <a href="../chapter08/8.12-cortex-introduction.html">
+                <a href="../chapter08/8.13-cortex-introduction.html">
             
                     
-                    8.12 Cortex  是什么
+                    8.13 Cortex  是什么
             
                 </a>
             
@@ -898,7 +924,20 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.13" data-path="../chapter08/END.html">
+        <li class="chapter " data-level="4.1.14" data-path="../chapter08/8.14-kvass-introduction.html">
+            
+                <a href="../chapter08/8.14-kvass-introduction.html">
+            
+                    
+                    8.14 Kvass  是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.15" data-path="../chapter08/END.html">
             
                 <a href="../chapter08/END.html">
             
@@ -916,9 +955,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../chapter09/README.md">
+        <li class="chapter " data-level="4.2" data-path="../chapter09/">
             
-                <span>
+                <a href="../chapter09/">
             
                     
                     第九章 服务发现 todo
@@ -956,7 +995,33 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.3" data-path="../chapter09/END.md">
+        <li class="chapter " data-level="4.2.3" data-path="../chapter09/9.3-consul-kv-backup-restore.html">
+            
+                <a href="../chapter09/9.3-consul-kv-backup-restore.html">
+            
+                    
+                    9.3  Consul key/value 备份和还原
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../chapter09/9.4-dns-sd.html">
+            
+                <a href="../chapter09/9.4-dns-sd.html">
+            
+                    
+                    9.4  DNS 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../chapter09/END.md">
             
                 <span>
             
@@ -1079,7 +1144,20 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3.8" data-path="../chapter10/END.md">
+        <li class="chapter " data-level="4.3.8" data-path="../chapter10/10.6-prometheus-problem-sets-1.md">
+            
+                <span>
+            
+                    
+                    10.6 Prometheus 故障汇总（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.9" data-path="../chapter10/END.md">
             
                 <span>
             
@@ -1155,7 +1233,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h1>
+<h2 id="relabel">relabel</h2>
+<p>relabel &#x914D;&#x7F6E;&#x6A21;&#x677F;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x91C7;&#x96C6;&#x7684; instance label &#x7684;&#x7AEF;&#x53E3;&#x663E;&#x793A;&#x53BB;&#x6389;&#xFF0C;&#x65B9;&#x4FBF;&#x544A;&#x8B66;&#x65F6;&#x4F7F;&#x7528;&#x8BE5;&#x5B57;&#x6BB5;&#x3002;</p>
+<pre><code>  - job_name: node
+    static_configs:
+    - targets:
+      - 192.168.0.1:9100
+      - 192.168.0.2:9100
+    relabel_configs:
+      - source_labels: [__address__]
+        regex: &quot;(.*):9100&quot;
+        target_label: &quot;instance&quot;
+        action: replace
+        replacement: &quot;$1&quot;
+</code></pre><p>&#x8BF4;&#x4E0B;&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
+<p>source<em>labels &#x6307;&#x5B9A;&#x6211;&#x4EEC;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5904;&#x7406;&#x7684;&#x6E90;&#x6807;&#x7B7E;&#xFF0C; &#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x5904;&#x7406;<strong>address</strong>
+target<em>labels &#x6307;&#x5B9A;&#x4E86;&#x6211;&#x4EEC;&#x8981; replace &#x540E;&#x7684;&#x6807;&#x7B7E;&#x540D;&#x5B57;&#xFF0C; &#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x9009;&#x62E9;instance
+action &#x6307;&#x5B9A; relabel &#x52A8;&#x4F5C;&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528; replace &#x66FF;&#x6362;&#x52A8;&#x4F5C;&#x3002;
+regex &#x53BB;&#x5339;&#x914D;&#x6E90;&#x6807;&#x7B7E;__address</em></em>&#x7684;&#x503C;&#xFF0C;&quot;(.*):9100&quot;&#x4EE3;&#x8868;&#x5339;&#x914D;&#x8FD9;&#x4E2A;&#x6807;&#x7B7E; 9100&#x524D;&#x90E8;&#x5206;
+replacement &#x6307;&#x5B9A;&#x7684;&#x66FF;&#x6362;&#x540E;&#x7684;&#x6807;&#x7B7E;&#xFF08;target_label&#xFF09;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x503C;&#xFF0C;&#x91C7;&#x7528;&#x6B63;&#x5219;&#x5F15;&#x7528;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#x7684;&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -1198,7 +1296,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.3 配置","level":"2.2.3","depth":2,"next":{"title":"2.4 查询","level":"2.2.4","depth":2,"path":"chapter02/2.4-querying.md","ref":"chapter02/2.4-querying.md","articles":[]},"previous":{"title":"2.2 安装","level":"2.2.2","depth":2,"path":"chapter02/2.2-installation.md","ref":"chapter02/2.2-installation.md","articles":[]},"dir":"neutral"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter02/2.3-configuration.md","mtime":"2020-11-15T14:37:42.455Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-15T14:40:33.674Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.3 配置","level":"2.2.3","depth":2,"next":{"title":"2.4 查询","level":"2.2.4","depth":2,"path":"chapter02/2.4-querying.md","ref":"chapter02/2.4-querying.md","articles":[]},"previous":{"title":"2.2 安装","level":"2.2.2","depth":2,"path":"chapter02/2.2-installation.md","ref":"chapter02/2.2-installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter02/2.3-configuration.md","mtime":"2021-03-14T01:16:04.467Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-14T04:25:06.260Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
