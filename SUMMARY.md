@@ -28,13 +28,15 @@
 
 ### Part ⅠⅠ 进阶篇
 
-* [第三章 采集器 todo](chapter03/README.md)
+* [第三章 采集器 ](chapter03/README.md)
     * [3.1 PushGateway](chapter03/3.1-pushgateway.md)
     * [3.2 Linux 主机信息采集](chapter03/3.2-node-exporter.md)
-    * [3.3 Windows 主机信息采集]()
-    * [3.4 容器信息采集]()
+    * [3.3 Windows 主机信息采集](chapter03/3.3-windows-exporter.md)
+    * [3.4 容器信息采集](chapter03/3.4-cadvisor.md)
     * [3.5 oVirt信息采集](chapter03/3.5-ovirt-exporter.md)
     * [3.6 BlackBox 网络探测](chapter03/3.6-blackbox-exporter.md)
+    * [3.7 SNMP 数据采集](chapter03/3.7-snmp-exporter.md)
+    * [3.8  ClickHouse 数据采集](chapter03/3.8-clickhouse-exporter.md)
     * [小结](chapter03/END.md)
 * [第四章 可视化 todo]()
     * [4.1 原生可视化界面]()
