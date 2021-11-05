@@ -29,8 +29,13 @@
     * [2.1 开始](chapter02-TSDB/2.1-getting-started.md)
     * [2.2 安装](chapter02-TSDB/2.2-installation.md)
     * [2.3 配置](chapter02-TSDB/2.3-configuration.md)
-    * [2.4 查询](chapter02-TSDB/2.4-querying.md)
-    * [2.5 存储](chapter02-TSDB/2.5-storage.md)
+    * [2.4 基础查询](chapter02-TSDB/2.4-querying-basics.md)
+    * [2.5 操作符查询](chapter02-TSDB/2.5-querying-operators.md)
+    * [2.6 操作符查询示例](chapter02-TSDB/2.6-querying-operator-examples.md)
+    * [2.7 查询函数](chapter02-TSDB/2.7-querying-functions.md)
+    * [2.8 查询示例](chapter02-TSDB/2.8-querying-functions-examples.md)
+    * [2.9 HTTP API 查询](chapter02-TSDB/2.9-querying-http-api.md)
+    * [2.10 存储](chapter02-TSDB/2.10-storage.md)
     * [小结](chapter02-TSDB/END.md)
 
 ### Part ⅠⅠ 进阶篇
