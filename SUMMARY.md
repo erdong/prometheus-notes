@@ -27,7 +27,8 @@
     * [2.7 查询函数](chapter02-TSDB/2.7-querying-functions.md)
     * [2.8 查询示例](chapter02-TSDB/2.8-querying-functions-examples.md)
     * [2.9 HTTP API 查询](chapter02-TSDB/2.9-querying-http-api.md)
-    * [2.10 存储](chapter02-TSDB/2.10-storage.md)
+    * [2.10  管理员 HTTP API 查询](chapter02-TSDB/2.10-querying-http-admin-api.md)
+    * [2.11 存储](chapter02-TSDB/2.11-storage.md)
     * [小结](chapter02-TSDB/END.md)
 
 
