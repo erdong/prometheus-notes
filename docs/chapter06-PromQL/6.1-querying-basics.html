@@ -1,0 +1,1763 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6.1 基础查询 · Prometheus Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Er Dong <erdong@mail.erdong.site>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="6.2-querying-operators.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://erdong.site" target="_blank" class="custom-link">Erdong's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    [前言]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter00/0.1-release.html">
+            
+                <a href="../chapter00/0.1-release.html">
+            
+                    
+                    发行注记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter00/0.2-contribution.html">
+            
+                <a href="../chapter00/0.2-contribution.html">
+            
+                    
+                    贡献指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅰ 基础篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../chapter01-Basic/">
+            
+                <a href="../chapter01-Basic/">
+            
+                    
+                    第一章 认识 Prometheus
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../chapter01-Basic/1.1-prometheus-introduction.html">
+            
+                <a href="../chapter01-Basic/1.1-prometheus-introduction.html">
+            
+                    
+                    1.1 Prometheus 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../chapter01-Basic/1.2-prometheus-install.html">
+            
+                <a href="../chapter01-Basic/1.2-prometheus-install.html">
+            
+                    
+                    1.2 Prometheus 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../chapter01-Basic/1.3-tsdb-comparison.html">
+            
+                <a href="../chapter01-Basic/1.3-tsdb-comparison.html">
+            
+                    
+                    1.3 时序数据库为什么选 Prometheus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../chapter01-Basic/1.4-glossary.html">
+            
+                <a href="../chapter01-Basic/1.4-glossary.html">
+            
+                    
+                    1.4 术语解释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../chapter01-Basic/1.5-data-model.html">
+            
+                <a href="../chapter01-Basic/1.5-data-model.html">
+            
+                    
+                    1.5 数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../chapter01-Basic/1.6-metric-types.html">
+            
+                <a href="../chapter01-Basic/1.6-metric-types.html">
+            
+                    
+                    1.6 Metric 类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../chapter01-Basic/1.7-job-and-instances.html">
+            
+                <a href="../chapter01-Basic/1.7-job-and-instances.html">
+            
+                    
+                    1.7 Job 和 Instances
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../chapter01-Basic/END.html">
+            
+                <a href="../chapter01-Basic/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../chapter02-TimeSeriesDB/">
+            
+                <a href="../chapter02-TimeSeriesDB/">
+            
+                    
+                    第二章 Prometehus 数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../chapter02-TimeSeriesDB/2.1-getting-started.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.1-getting-started.html">
+            
+                    
+                    2.1 开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../chapter02-TimeSeriesDB/2.2-installation.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.2-installation.html">
+            
+                    
+                    2.2 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../chapter02-TimeSeriesDB/2.3-configuration.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.3-configuration.html">
+            
+                    
+                    2.3 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../chapter02-TimeSeriesDB/2.4-querying-basics.md">
+            
+                <span>
+            
+                    
+                    2.4 基础查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../chapter02-TimeSeriesDB/2.5-querying-operators.md">
+            
+                <span>
+            
+                    
+                    2.5 操作符查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../chapter02-TimeSeriesDB/2.6-querying-operator-examples.md">
+            
+                <span>
+            
+                    
+                    2.6 操作符查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../chapter02-TimeSeriesDB/2.7-querying-functions.md">
+            
+                <span>
+            
+                    
+                    2.7 查询函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8" data-path="../chapter02-TimeSeriesDB/2.8-querying-functions-examples.md">
+            
+                <span>
+            
+                    
+                    2.8 查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.9" data-path="../chapter02-TimeSeriesDB/2.9-querying-http-api.md">
+            
+                <span>
+            
+                    
+                    2.9 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.10" data-path="../chapter02-TimeSeriesDB/2.10-querying-http-admin-api.md">
+            
+                <span>
+            
+                    
+                    2.10  管理员 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.11" data-path="../chapter02-TimeSeriesDB/2.11-storage.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.11-storage.html">
+            
+                    
+                    2.11 存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.12" data-path="../chapter02-TimeSeriesDB/END.html">
+            
+                <a href="../chapter02-TimeSeriesDB/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part ⅠⅠ 进阶篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../chapter03-Exporter/">
+            
+                <a href="../chapter03-Exporter/">
+            
+                    
+                    第三章 采集器 
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../chapter03-Exporter/3.1-pushgateway.html">
+            
+                <a href="../chapter03-Exporter/3.1-pushgateway.html">
+            
+                    
+                    3.1 PushGateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../chapter03-Exporter/3.2-node-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.2-node-exporter.html">
+            
+                    
+                    3.2 Linux 主机信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../chapter03-Exporter/3.3-windows-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.3-windows-exporter.html">
+            
+                    
+                    3.3 Windows 主机信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../chapter03-Exporter/3.4-cadvisor.html">
+            
+                <a href="../chapter03-Exporter/3.4-cadvisor.html">
+            
+                    
+                    3.4 容器信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../chapter03-Exporter/3.5-ovirt-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.5-ovirt-exporter.html">
+            
+                    
+                    3.5 oVirt信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../chapter03-Exporter/3.6-blackbox-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.6-blackbox-exporter.html">
+            
+                    
+                    3.6 BlackBox 网络探测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../chapter03-Exporter/3.7-snmp-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.7-snmp-exporter.html">
+            
+                    
+                    3.7 SNMP 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../chapter03-Exporter/3.8-clickhouse-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.8-clickhouse-exporter.html">
+            
+                    
+                    3.8 ClickHouse 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../chapter03-Exporter/END.html">
+            
+                <a href="../chapter03-Exporter/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../chapter04-Visualization/README.md">
+            
+                <span>
+            
+                    
+                    第四章 可视化 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" >
+            
+                <span>
+            
+                    
+                    4.1 原生可视化界面
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" >
+            
+                <span>
+            
+                    
+                    4.2 Grafana
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../chapter04-Visualization/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../chapter05-AlarmManager/">
+            
+                <a href="../chapter05-AlarmManager/">
+            
+                    
+                    第五章 告警管理 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" >
+            
+                <span>
+            
+                    
+                    5.1 Alertmanager
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" >
+            
+                <span>
+            
+                    
+                    5.2 Alert 配置
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" >
+            
+                <span>
+            
+                    
+                    5.3 Bosun 
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../chapter05-AlarmManager/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第六章 Prometehus 查询语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.4.1" data-path="6.1-querying-basics.html">
+            
+                <a href="6.1-querying-basics.html">
+            
+                    
+                    6.1 基础查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="6.2-querying-operators.html">
+            
+                <a href="6.2-querying-operators.html">
+            
+                    
+                    6.2 操作符查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3" data-path="6.3-querying-operator-examples.md">
+            
+                <span>
+            
+                    
+                    6.3 操作符查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4" data-path="6.4-querying-functions.html">
+            
+                <a href="6.4-querying-functions.html">
+            
+                    
+                    6.4 查询函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.5" data-path="6.5-querying-functions-examples.html">
+            
+                <a href="6.5-querying-functions-examples.html">
+            
+                    
+                    6.5 查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.6" data-path="6.6-querying-http-api.html">
+            
+                <a href="6.6-querying-http-api.html">
+            
+                    
+                    6.6 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.7" data-path="6.7-querying-http-admin-api.html">
+            
+                <a href="6.7-querying-http-admin-api.html">
+            
+                    
+                    6.7 管理员 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.8" data-path="END.html">
+            
+                <a href="END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part ⅠⅠⅠ 实战篇</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../chapter07-Instrumenting/README.md">
+            
+                <span>
+            
+                    
+                    第七章 插件编写 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../chapter07-Instrumenting/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../chapter08-ClusterAndHA/">
+            
+                <a href="../chapter08-ClusterAndHA/">
+            
+                    
+                    第八章 集群与高可用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../chapter08-ClusterAndHA/8.1-minio-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.1-minio-introduction.html">
+            
+                    
+                    8.1 MinIO 搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../chapter08-ClusterAndHA/8.2-minio-cluster.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.2-minio-cluster.html">
+            
+                    
+                    8.2 MinIO 分布式集群
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../chapter08-ClusterAndHA/8.3-minio-parameter-and-limit.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.3-minio-parameter-and-limit.html">
+            
+                    
+                    8.3 MinIO 参数和限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../chapter08-ClusterAndHA/8.4-minio-benchmark.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.4-minio-benchmark.html">
+            
+                    
+                    8.4 MniIO 性能对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../chapter08-ClusterAndHA/8.5-minio-mc-tool.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.5-minio-mc-tool.html">
+            
+                    
+                    8.5 MniIO 客户端工具 mc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../chapter08-ClusterAndHA/8.6-thanos-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.6-thanos-introduction.html">
+            
+                    
+                    8.6 Thanos 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.7" data-path="../chapter08-ClusterAndHA/8.7-thanos-query.md">
+            
+                <span>
+            
+                    
+                    8.7 Thanos query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.8" data-path="../chapter08-ClusterAndHA/8.8-thanos-sidecar.md">
+            
+                <span>
+            
+                    
+                    8.8 Thanos sidecar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.9" data-path="../chapter08-ClusterAndHA/8.9-thanos-store.md">
+            
+                <span>
+            
+                    
+                    8.9 Thanos store
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.10" data-path="../chapter08-ClusterAndHA/8.10-thanos-rule.md">
+            
+                <span>
+            
+                    
+                    8.10 Thanos rule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.11" data-path="../chapter08-ClusterAndHA/8.11-thanos-compactor.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.11-thanos-compactor.html">
+            
+                    
+                    8.11 Thanos Compactor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.12" data-path="../chapter08-ClusterAndHA/8.12-thanos-tools.md">
+            
+                <span>
+            
+                    
+                    8.12 Thanos tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.13" data-path="../chapter08-ClusterAndHA/8.13-cortex-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.13-cortex-introduction.html">
+            
+                    
+                    8.13 Cortex 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.14" data-path="../chapter08-ClusterAndHA/8.14-kvass-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.14-kvass-introduction.html">
+            
+                    
+                    8.14 Kvass 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.15" data-path="../chapter08-ClusterAndHA/END.html">
+            
+                <a href="../chapter08-ClusterAndHA/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../chapter09-ServiceDiscovery/">
+            
+                <a href="../chapter09-ServiceDiscovery/">
+            
+                    
+                    第九章 服务发现
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../chapter09-ServiceDiscovery/9.1-file-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.1-file-sd.html">
+            
+                    
+                    9.1  静态文件服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../chapter09-ServiceDiscovery/9.2-consul-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.2-consul-sd.html">
+            
+                    
+                    9.2  Consul 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../chapter09-ServiceDiscovery/9.3-consul-kv-backup-restore.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.3-consul-kv-backup-restore.html">
+            
+                    
+                    9.3  Consul key/value 备份和还原
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.4" data-path="../chapter09-ServiceDiscovery/9.4-dns-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.4-dns-sd.html">
+            
+                    
+                    9.4  DNS 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.5" data-path="../chapter09-ServiceDiscovery/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../chapter10-BestPractices/">
+            
+                <a href="../chapter10-BestPractices/">
+            
+                    
+                    第十章 最佳实践 
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../chapter10-BestPractices/10.1-node.md">
+            
+                <span>
+            
+                    
+                    10.1 主机监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../chapter10-BestPractices/10.2-storage.md">
+            
+                <span>
+            
+                    
+                    10.2 存储系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../chapter10-BestPractices/10.3-docker.md">
+            
+                <span>
+            
+                    
+                    10.3 无编排系统容器监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../chapter10-BestPractices/10.4-kubernetes.html">
+            
+                <a href="../chapter10-BestPractices/10.4-kubernetes.html">
+            
+                    
+                    10.4 Kubernetes监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" >
+            
+                <span>
+            
+                    
+                    10.5 Blackbox 网络监控
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.6" data-path="../chapter10-BestPractices/10.8-clickhouse.html">
+            
+                <a href="../chapter10-BestPractices/10.8-clickhouse.html">
+            
+                    
+                    10.8 ClickHouse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.7" data-path="../chapter10-BestPractices/10.9-kafka.html">
+            
+                <a href="../chapter10-BestPractices/10.9-kafka.html">
+            
+                    
+                    10.9 Kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.8" data-path="../chapter10-BestPractices/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../chapter11-CCSP/">
+            
+                <a href="../chapter11-CCSP/">
+            
+                    
+                    第十一章 云计算服务提供商
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../chapter11-CCSP/11.1-aliyun-cms.html">
+            
+                <a href="../chapter11-CCSP/11.1-aliyun-cms.html">
+            
+                    
+                    11.1 阿里云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../chapter11-CCSP/11.2-huaweicloud-cloudeye.html">
+            
+                <a href="../chapter11-CCSP/11.2-huaweicloud-cloudeye.html">
+            
+                    
+                    11.2 华为云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../chapter11-CCSP/11.3-aws-cloudwatch.html">
+            
+                <a href="../chapter11-CCSP/11.3-aws-cloudwatch.html">
+            
+                    
+                    11.3 AWS 监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../chapter11-CCSP/11.4-tencentcloud.md">
+            
+                <span>
+            
+                    
+                    11.4 腾讯云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.5" data-path="../chapter11-CCSP/11.5-azure-metrics.html">
+            
+                <a href="../chapter11-CCSP/11.5-azure-metrics.html">
+            
+                    
+                    11.5 Azure监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.6" data-path="../chapter11-CCSP/END.html">
+            
+                <a href="../chapter11-CCSP/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../chapter12-Troubleshoot/">
+            
+                <a href="../chapter12-Troubleshoot/">
+            
+                    
+                    第十二章 问题排查
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../chapter12-Troubleshoot/12.1-prometheus-time.html">
+            
+                <a href="../chapter12-Troubleshoot/12.1-prometheus-time.html">
+            
+                    
+                    12.1 Prometheus 时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../chapter12-Troubleshoot/12.2-prometheus-problem-sets-1.html">
+            
+                <a href="../chapter12-Troubleshoot/12.2-prometheus-problem-sets-1.html">
+            
+                    
+                    12.2 Prometheus 故障汇总（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../chapter12-Troubleshoot/END.html">
+            
+                <a href="../chapter12-Troubleshoot/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6.1 基础查询</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="prometheus-&#x57FA;&#x7840;&#x67E5;&#x8BE2;">Prometheus &#x57FA;&#x7840;&#x67E5;&#x8BE2;</h1>
+<p>Prometheus &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; PromQL (Prometheus query language) &#x7684;&#x51FD;&#x6570;&#x5F0F;&#x67E5;&#x8BE2;&#x8BED;&#x8A00;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x5B9E;&#x65F6;&#x9009;&#x62E9;&#x548C;&#x805A;&#x5408;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x3002;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x4E3A;&#x56FE;&#x5F62;&#xFF0C;&#x5728; Prometheus &#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F5C;&#x4E3A;&#x8868;&#x683C;&#x6570;&#x636E;&#x67E5;&#x770B;&#xFF0C;&#x6216;&#x8005;&#x7531;&#x5916;&#x90E8;&#x7CFB;&#x7EDF;&#x901A;&#x8FC7; HTTP API &#x4F7F;&#x7528;&#x3002;</p>
+<h1 id="&#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x8A00;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x8A00;&#x6570;&#x636E;&#x7C7B;&#x578B;</h1>
+<p>&#x5728; Prometheus &#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x8868;&#x8FBE;&#x5F0F;&#x6216;&#x5B50;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x88AB;&#x8BA1;&#x7B97;&#x4E3A;&#x4EE5;&#x4E0B;&#x56DB;&#x79CD;&#x7C7B;&#x578B;&#x4E4B;&#x4E00;:</p>
+<ul>
+<li>Instant vector &#x77AC;&#x65F6;&#x5411;&#x91CF;&#x662F;&#x4E00;&#x7EC4;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#xFF0C;&#x5305;&#x542B;&#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x5355;&#x4E2A;&#x6837;&#x672C;&#xFF0C;&#x6240;&#x6709;&#x6570;&#x503C;&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;&#x65F6;&#x95F4;&#x6233;</li>
+<li>Range vector &#x8303;&#x56F4;&#x5411;&#x91CF;&#x662F;&#x4E00;&#x7EC4;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#xFF0C;&#x5305;&#x542B;&#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x968F;&#x65F6;&#x95F4;&#x53D8;&#x5316;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x6570;&#x636E;&#x70B9;</li>
+<li>Scalar &#x6807;&#x91CF;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6570;&#x5B57;&#x6D6E;&#x70B9;&#x503C;</li>
+<li>String &#x7B80;&#x5355;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x503C;&#xFF0C;&#x76EE;&#x524D;&#x672A;&#x4F7F;&#x7528;</li>
+</ul>
+<p>&#x6839;&#x636E;&#x7528;&#x4F8B;&#x7684;&#x4E0D;&#x540C;(&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x56FE;&#x5F62;&#x5316;&#x548C;&#x663E;&#x793A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x8F93;&#x51FA;&#x65F6;)&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E9B;&#x7C7B;&#x578B;&#x662F;&#x5408;&#x6CD5;&#x7684;&#xFF0C;&#x4F5C;&#x4E3A;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x8FD4;&#x56DE;&#x5373;&#x65F6;&#x5411;&#x91CF;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x552F;&#x4E00;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7ED8;&#x5236;&#x56FE;&#x5F62;&#x7684;&#x7C7B;&#x578B;&#x3002;</p>
+<h1 id="literal">Literal</h1>
+<h2 id="&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;">&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</h2>
+<p>&#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E3A;&#x5355;&#x5F15;&#x53F7;&#x3001;&#x53CC;&#x5F15;&#x53F7;&#x6216;&#x53CD;&#x5F15;&#x53F7;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#x3002;</p>
+<p>PromQL &#x9075;&#x5FAA;&#x4E0E; Go &#x76F8;&#x540C;&#x7684;&#x8F6C;&#x4E49;&#x89C4;&#x5219;&#x3002;&#x5728;&#x5355;&#x5F15;&#x53F7;&#x6216;&#x53CC;&#x5F15;&#x53F7;&#x4E2D;&#xFF0C;&#x53CD;&#x659C;&#x6760;&#x5F00;&#x59CB;&#x8F6C;&#x4E49;&#x5E8F;&#x5217;&#xFF0C;&#x8F6C;&#x4E49;&#x5E8F;&#x5217;&#x540E;&#x9762;&#x53EF;&#x80FD;&#x8DDF;&#x7740; a, b, f, n, r, t, v&#x6216;\&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x516B;&#x8FDB;&#x5236;(\nnn)&#x6216;&#x5341;&#x516D;&#x8FDB;&#x5236;(\xnn&#xFF0C; \unnnn&#x548C;\ unnnnnnn)&#x6765;&#x63D0;&#x4F9B;&#x7279;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x3002;</p>
+<p>&#x53CD;&#x5F15;&#x53F7;&#x5185;&#x4E0D;&#x5904;&#x7406;&#x8F6C;&#x4E49;&#x3002;&#x4E0E; Go &#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;Prometheus &#x4E0D;&#x4F1A;&#x4E22;&#x5F03;&#x53CD;&#x5F15;&#x53F7;&#x5185;&#x7684;&#x6362;&#x884C;&#x7B26;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:</p>
+<pre><code>&quot;this is a string&quot;
+&apos;these are unescaped: \n \\ \t&apos;
+`these are not unescaped: \n &apos; &quot; \t`
+</code></pre><h2 id="&#x6D6E;&#x70B9;&#x7C7B;&#x578B;">&#x6D6E;&#x70B9;&#x7C7B;&#x578B;</h2>
+<p>&#x6807;&#x91CF;&#x6D6E;&#x70B9;&#x503C;&#x53EF;&#x4EE5;&#x5199;&#x6210;&#x6587;&#x5B57;&#x6574;&#x6570;&#x6216;&#x6D6E;&#x70B9;&#x6570;&#x7684;&#x683C;&#x5F0F;(&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#xFF0C;&#x53EA;&#x5305;&#x542B;&#x7A7A;&#x683C;):</p>
+<pre><code>[-+]?(
+      [0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?
+    | 0[xX][0-9a-fA-F]+
+    | [nN][aA][nN]
+    | [iI][nN][fF]
+)
+</code></pre><p>&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>23
+-2.43
+3.4e-9
+0x8f
+-Inf
+NaN
+</code></pre><h1 id="&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x9009;&#x62E9;&#x5668;">&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x9009;&#x62E9;&#x5668;</h1>
+<h2 id="&#x77AC;&#x65F6;&#x5411;&#x91CF;">&#x77AC;&#x65F6;&#x5411;&#x91CF;</h2>
+<p>&#x77AC;&#x65F6;&#x5411;&#x91CF;&#x5141;&#x8BB8;&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x4E2D;&#x9009;&#x62E9;&#x4E00;&#x7EC4;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x548C;&#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684;&#x5355;&#x4E2A;&#x6570;&#x503C;:&#x5728;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5F62;&#x5F0F;&#x4E2D;&#xFF0C;&#x53EA;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x6307;&#x6807;&#x540D;&#x79F0;&#x3002;&#x8FD9;&#x5C06;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x6240;&#x6709;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5143;&#x7D20;&#x7684;&#x77AC;&#x65F6;&#x5411;&#x91CF;&#xFF0C;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x5177;&#x6709;&#x8FD9;&#x4E2A;&#x6307;&#x6807;&#x540D;&#x79F0;&#x3002;</p>
+<p>&#x6BD4;&#x5982; http_requests_total &#x8FD9;&#x4E2A;&#x6307;&#x6807;&#x540D;&#x79F0;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;:</p>
+<pre><code>http_requests_total
+</code></pre><p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x82B1;&#x62EC;&#x53F7;({})&#x4E2D;&#x6DFB;&#x52A0;&#x9017;&#x53F7;&#x5206;&#x9694;&#x7684;&#x6807;&#x7B7E;&#x5339;&#x914D;&#x5668;&#x5217;&#x8868;&#x6765;&#x8FDB;&#x4E00;&#x6B65;&#x7B5B;&#x9009;&#x8FD9;&#x4E9B;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x3002;</p>
+<p>&#x8FD9;&#x6B21;&#x4F9D;&#x7136;&#x9009;&#x62E9; http_requests_total &#x6307;&#x6807;&#x540D;&#x79F0;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#xFF0C;&#x8FD9;&#x4E9B;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x7684; <code>job</code> &#x6807;&#x7B7E;&#xFF08;label&#xFF09;&#x8BBE;&#x7F6E;&#x4E3A; <code>prometheus</code>&#xFF0C;group &#x6807;&#x7B7E;&#xFF08;label&#xFF09;&#x8BBE;&#x7F6E;&#x4E3A;<code>canary</code>:</p>
+<pre><code>http_requests_total{job=&quot;prometheus&quot;,group=&quot;canary&quot;}
+</code></pre><p>&#x5728;&#x5339;&#x914D;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5426;&#x5B9A;&#x5339;&#x914D;&#x6807;&#x7B7E;&#x503C;&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#x6807;&#x7B7E;&#x503C;&#x3002;&#x5B58;&#x5728;&#x4EE5;&#x4E0B;&#x7684;&#x6807;&#x7B7E;&#x5339;&#x914D;&#x64CD;&#x4F5C;&#x7B26;:</p>
+<ul>
+<li>=: &#x9009;&#x62E9;&#x4E0E;&#x63D0;&#x4F9B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5B8C;&#x5168;&#x76F8;&#x7B49;&#x7684;&#x6807;&#x7B7E;&#x3002;</li>
+<li>!=: &#x9009;&#x62E9;&#x4E0D;&#x7B49;&#x4E8E;&#x63D0;&#x4F9B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6807;&#x7B7E;&#x3002;</li>
+<li>=~: &#x9009;&#x62E9;&#x4E0E;&#x63D0;&#x4F9B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#x7684;&#x6807;&#x7B7E;&#x3002;</li>
+<li>~:  &#x9009;&#x62E9;&#x4E0E;&#x63D0;&#x4F9B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x5339;&#x914D;&#x7684;&#x6807;&#x7B7E;&#x3002;</li>
+</ul>
+<p>&#x4F8B;&#x5982;&#x4E0B;&#x5217;&#x7684;&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x67E5;&#x8BE2; http_requests_total &#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E3A; staging, testing,  development &#x7684;&#x6570;&#x636E;&#x67E5;&#x8BE2;&#x51FA;&#x6765; &#xFF0C;&#x5E76;&#x4E14;&#x6392;&#x9664;&#x6389; HTTP &#x65B9;&#x6CD5;&#x4E3A; GET &#x7684;&#x6570;&#x636E;&#x3002;</p>
+<pre><code>http_requests_total{environment=~&quot;staging|testing|development&quot;,method!=&quot;GET&quot;}
+</code></pre><p>&#x5339;&#x914D;&#x7A7A;&#x6807;&#x7B7E;&#x503C;&#x7684;&#x6807;&#x7B7E;&#x5339;&#x914D;&#x5668;&#x4E5F;&#x4F1A;&#x9009;&#x62E9;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x7279;&#x5B9A;&#x6807;&#x7B7E;&#x96C6;&#x7684;&#x6240;&#x6709;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x3002;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#x5B8C;&#x5168;&#x951A;&#x5B9A;&#x3002;&#x5BF9;&#x4E8E;&#x76F8;&#x540C;&#x7684;&#x6807;&#x7B7E;&#x540D;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x5339;&#x914D;&#x5668;&#x3002;</p>
+<p>&#x5411;&#x91CF;&#x67E5;&#x8BE2;&#x5FC5;&#x987B;&#x6307;&#x5B9A;&#x4E0E;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x5339;&#x914D;&#x7684;&#x540D;&#x79F0;&#x6216;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#xFF0C;&#x4E0D;&#x80FD;&#x5339;&#x914D;&#x5230;&#x5E76;&#x4E14;&#x53EA;&#x5339;&#x914D;&#x5230;&#x7A7A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x9519;&#x8BEF;&#x7684;:</p>
+<pre><code># &#x9519;&#x8BEF;&#x7684;&#x67E5;&#x8BE2;
+{job=~&quot;.*&quot;}
+</code></pre><p>&#x76F8;&#x53CD;&#xFF0C;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x90FD;&#x6709;&#x4E0D;&#x5339;&#x914D;&#x7A7A;&#x6807;&#x7B7E;&#x503C;&#x7684;&#x9009;&#x62E9;&#x5668;&#x3002;</p>
+<pre><code># &#x6B63;&#x786E;&#x7684;&#x67E5;&#x8BE2;
+{job=~&quot;.+&quot;}              
+{job=~&quot;.*&quot;,method=&quot;get&quot;}
+</code></pre><p>&#x901A;&#x8FC7;&#x5339;&#x914D;&#x5185;&#x90E8;&#x7684;<code>__name__</code>&#x6807;&#x7B7E;(&#x53CC;&#x4E0B;&#x5212;&#x7EBF;&#x5F00;&#x5934;&#x7684;&#x540D;&#x79F0;&#x90FD;&#x662F;&#x5185;&#x90E8;&#x4FDD;&#x7559;&#x7684;&#x6307;&#x6807;&#x540D;&#x79F0;)&#xFF0C;&#x6807;&#x7B7E;&#x4E5F;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x4E8E;&#x6307;&#x6807;&#x540D;&#x79F0;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x8868;&#x8FBE;&#x5F0F;http<em>requests<em>total&#x7B49;&#x4EF7;&#x4E8E;`{__name</em></em>=&quot;http_requests_total&quot;}`&#x3002;</p>
+<p><code>=</code>&#xFF0C; <code>!=</code>&#xFF0C; <code>=~</code>&#xFF0C; <code>!~</code>&#x8FD9;&#x4E9B;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x9009;&#x62E9;&#x6240;&#x6709;&#x540D;&#x79F0;&#x4EE5;job&#x5F00;&#x5934;&#x7684;&#x6307;&#x6807;</p>
+<pre><code>{__name__=~&quot;job:.*&quot;}
+</code></pre><p>&#x6307;&#x6807;&#x540D;&#x79F0;&#x4E0D;&#x80FD;&#x662F;bool&#x3001;on&#x3001;ignore&#x3001;group_left&#x548C; group_right &#x8FD9;&#x4E9B;&#x5173;&#x952E;&#x5B57;&#x4E4B;&#x4E00;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x9519;&#x8BEF;&#x7684;:</p>
+<pre><code># &#x9519;&#x8BEF;&#x7684;&#x67E5;&#x8BE2;
+on{}
+</code></pre><p>&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x9650;&#x5236;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;<code>__name__</code>&#x6807;&#x7B7E;:</p>
+<pre><code># &#x6B63;&#x786E;&#x7528;&#x6CD5;
+{__name__=&quot;on&quot;}
+</code></pre><h2 id="&#x8303;&#x56F4;&#x5411;&#x91CF;">&#x8303;&#x56F4;&#x5411;&#x91CF;</h2>
+<p>&#x8303;&#x56F4;&#x5411;&#x91CF;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#x4E8E;&#x77AC;&#x65F6;&#x5411;&#x91CF;&#xFF0C;&#x9664;&#x4E86;&#x5B83;&#x4EEC;&#x4ECE;&#x5F53;&#x524D;&#x77AC;&#x95F4;&#x9009;&#x62E9;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x8303;&#x56F4;&#x3002;&#x4ECE;&#x8BED;&#x6CD5;&#x4E0A;&#x8BB2;&#xFF0C;&#x5728;&#x5411;&#x91CF;&#x9009;&#x62E9;&#x5668;&#x7684;&#x672B;&#x5C3E;&#x7528;&#x65B9;&#x62EC;&#x53F7;([])&#x9644;&#x52A0;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x6307;&#x5B9A;&#x6BCF;&#x4E2A;&#x7ED3;&#x679C;&#x8303;&#x56F4;&#x5411;&#x91CF;&#x5143;&#x7D20;&#x5E94;&#x8BE5;&#x83B7;&#x53D6;&#x7684;&#x65F6;&#x95F4;&#x503C;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x6307;&#x6807;&#x540D;&#x79F0;&#x4E3A; <code>http_requests_total</code> &#x4E14; <code>job</code> label &#x8BBE;&#x7F6E;&#x4E3A; <code>prometheus</code> &#x7684;&#x6240;&#x6709;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5728;&#x8FC7;&#x53BB;5&#x5206;&#x949F;&#x5185;&#x8BB0;&#x5F55;&#x7684;&#x6240;&#x6709;&#x503C;:</p>
+<pre><code>http_requests_total{job=&quot;prometheus&quot;}[5m]
+</code></pre><h3 id="&#x65F6;&#x95F4;&#x8303;&#x56F4;">&#x65F6;&#x95F4;&#x8303;&#x56F4;</h3>
+<p>&#x65F6;&#x95F4;&#x957F;&#x5EA6;&#x6307;&#x5B9A;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x540E;&#x9762;&#x7D27;&#x8DDF;&#x7740;&#x4E0B;&#x5217;&#x5355;&#x4F4D;&#x4E4B;&#x4E00;:</p>
+<ul>
+<li>ms - milliseconds &#x6BEB;&#x79D2;</li>
+<li>s - seconds &#x79D2;</li>
+<li>m - minutes &#x5206;&#x949F;</li>
+<li>h - hours &#x5C0F;&#x65F6;</li>
+<li>d - days &#x5929;&#xFF0C;&#x5047;&#x8BBE;&#x4E00;&#x5929;&#x603B;&#x662F; 24h&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5047;&#x8BBE;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x662F;&#x4F5C;&#x4E3A;&#x8BA1;&#x91CF;&#x5355;&#x4F4D;&#x6765;&#x8FDB;&#x884C;&#x63CF;&#x8FF0;&#xFF0C;&#x5982;&#x679C;&#x6309;&#x7167;&#x81EA;&#x7136;&#x5730;&#x7403;&#x65E5;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x5404;&#x79CD;&#x5386;&#x6CD5;&#xFF0C;&#x4E00;&#x5929;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5B8C;&#x6574;&#x7684;&#xFF0C;&#x6B63;&#x6B63;&#x597D;&#x597D;&#x7684; 24 h &#x3002;</li>
+<li>w - weeks  &#x5468;&#xFF0C;&#x5047;&#x8BBE;&#x4E00;&#x5468;&#x603B;&#x662F; 7 &#x5929;&#x3002;&#x540C;&#x7406;&#x4E0A;&#x4E00;&#x6761;&#x3002;</li>
+<li>y - years  &#x5E74;&#xFF0C;&#x5047;&#x8BBE;&#x4E00;&#x5E74;&#x603B;&#x662F; 365 &#x5929;&#x3002;&#x95F0;&#x5E74;&#x662F; 366 &#x5929;&#x561B;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x8BA1;&#x91CF;&#x5355;&#x4F4D;&#x662F;&#x4E0D;&#x5206;&#x5E73;&#x5E74;&#x548C;&#x95F0;&#x5E74;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x65F6;&#x95F4;&#x6301;&#x7EED;&#x8303;&#x56F4;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FDE;&#x63A5;&#x6765;&#x7EC4;&#x5408;&#x3002;&#x5355;&#x4F4D;&#x5FC5;&#x987B;&#x6309;&#x4ECE;&#x5927;&#x5230;&#x5C0F;&#x7684;&#x987A;&#x5E8F;&#x6392;&#x5217;&#x3002;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;&#x5355;&#x4F4D;&#x5728;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5185;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x3002;
+&#x6BD4;&#x5982;</p>
+<pre><code>1h
+2h20m
+5m
+15s
+</code></pre><h2 id="offset-&#x504F;&#x79FB;&#x91CF;&#x4FEE;&#x9970;&#x7B26;">offset &#x504F;&#x79FB;&#x91CF;&#x4FEE;&#x9970;&#x7B26;</h2>
+<p>offset &#x504F;&#x79FB;&#x91CF;&#x4FEE;&#x9970;&#x7B26;&#x5141;&#x8BB8;&#x66F4;&#x6539;&#x67E5;&#x8BE2;&#x4E2D;&#x5355;&#x4E2A;&#x77AC;&#x65F6;&#x5411;&#x91CF;&#x548C;&#x8303;&#x56F4;&#x5411;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x504F;&#x79FB;&#x91CF;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x8FD4;&#x56DE; <code>http_requests_total</code> &#x76F8;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x67E5;&#x8BE2;&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x8FC7;&#x53BB;5&#x5206;&#x949F;&#x7684;&#x503C;:</p>
+<pre><code>http_requests_total offset 5m
+</code></pre><p>&#x6CE8;&#x610F;&#xFF0C;&#x504F;&#x79FB;&#x91CF;&#x4FEE;&#x9970;&#x7B26;&#x603B;&#x662F;&#x9700;&#x8981;&#x7D27;&#x8DDF;&#x5728;&#x5411;&#x91CF;&#x540E;&#x9762;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<pre><code># &#x6B63;&#x786E;&#x5199;&#x6CD5;
+sum(http_requests_total{method=&quot;GET&quot;} offset 5m) 
+
+# &#x9519;&#x8BEF;&#x5199;&#x6CD5;
+sum(http_requests_total{method=&quot;GET&quot;}) offset 5m
+</code></pre><p>&#x5BF9;&#x4E8E;&#x8303;&#x56F4;&#x5411;&#x91CF;&#x4E5F;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5C06;&#x8FD4;&#x56DE; <code>http_requests_total</code> &#x4E00;&#x5468;&#x524D;&#x7684;5&#x5206;&#x949F;&#x901F;&#x7387;:</p>
+<pre><code>rate(http_requests_total[5m] offset 1w)
+</code></pre><p>&#x4E3A;&#x4E86;&#x4E0E;&#x65F6;&#x95F4;&#x524D;&#x79FB;&#x7684;&#x65F6;&#x95F4;&#x6BD4;&#x8F83;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x8D1F;&#x504F;&#x79FB;:</p>
+<pre><code>rate(http_requests_total[5m] offset -1w)
+</code></pre><p>&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; <code>--enable-feature=promql-negative-offset</code>&#x6807;&#x5FD7;&#x6765;&#x542F;&#x7528;&#x3002;</p>
+<h2 id="&#x4FEE;&#x9970;&#x7B26;">@ &#x4FEE;&#x9970;&#x7B26;</h2>
+<p><code>@</code> &#x4FEE;&#x9970;&#x7B26;&#x5141;&#x8BB8;&#x5728;&#x67E5;&#x8BE2;&#x4E2D;&#x66F4;&#x6539;&#x5355;&#x4E2A;&#x77AC;&#x65F6;&#x5411;&#x91CF;&#x548C;&#x8303;&#x56F4;&#x5411;&#x91CF;&#x7684;&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x3002;&#x63D0;&#x4F9B;&#x7ED9;<code>@</code> &#x4FEE;&#x9970;&#x7B26;&#x7684;&#x65F6;&#x95F4;&#x662F;&#x4E00;&#x4E2A;unix&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x7528;&#x6D6E;&#x70B9;&#x6570;&#x503C;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A; &#x4F8B;&#x5B50;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE; <code>http_requests_total</code> &#x5728;2021-01-04T07:40:00+00:00 &#x7684;&#x503C;&#x3002;</p>
+<pre><code>http_requests_total @ 1609746000
+</code></pre><p>&#x6CE8;&#x610F;&#xFF0C;&#x504F;&#x79FB;&#x91CF;&#x4FEE;&#x9970;&#x7B26;&#x603B;&#x662F;&#x9700;&#x8981;&#x7D27;&#x8DDF;&#x5728;&#x5411;&#x91CF;&#x540E;&#x9762;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<pre><code># &#x6B63;&#x786E;&#x5199;&#x6CD5;
+sum(http_requests_total{method=&quot;GET&quot;} @ 1609746000)
+
+# &#x9519;&#x8BEF;&#x5199;&#x6CD5;
+sum(http_requests_total{method=&quot;GET&quot;}) @ 1609746000
+</code></pre><p>&#x5BF9;&#x4E8E;&#x8303;&#x56F4;&#x5411;&#x91CF;&#x4E5F;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5C06;&#x8FD4;&#x56DE; <code>http_requests_total</code>  &#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x7684;&#x503C;:</p>
+<pre><code>rate(http_requests_total[5m] @ 1609746000)
+</code></pre><p><code>@</code> &#x4FEE;&#x9970;&#x7B26;&#x5728;int64&#x8303;&#x56F4;&#x5185;&#x652F;&#x6301;&#x4E0A;&#x8FF0;&#x6D6E;&#x70B9;&#x503C;&#x7684;&#x6240;&#x6709;&#x8868;&#x793A;&#x3002;&#x5B83;&#x8FD8;&#x53EF;&#x4EE5;&#x4E0E;<code>offset</code>&#x4FEE;&#x9970;&#x7B26;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x5176;&#x4E2D;<code>offset</code>&#x662F;&#x76F8;&#x5BF9;&#x4E8E;<code>@</code>&#x4FEE;&#x9970;&#x7B26;&#x65F6;&#x95F4;&#x5E94;&#x7528;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x7BA1;&#x54EA;&#x4E2A;&#x4FEE;&#x9970;&#x7B26;&#x5148;&#x5199;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x67E5;&#x8BE2;&#x5C06;&#x4EA7;&#x751F;&#x76F8;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code># offset after @
+http_requests_total @ 1609746000 offset 5m
+# offset before @
+http_requests_total offset 5m @ 1609746000
+</code></pre><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x4FEE;&#x9970;&#x7B26;&#x662F;&#x7981;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7834;&#x574F;&#x4E86; PromQL &#x4E0D;&#x80FD;&#x63D0;&#x524D;&#x67E5;&#x770B;&#x793A;&#x4F8B;&#x7684;&#x8BC4;&#x4F30;&#x65F6;&#x95F4;&#x7684;&#x4E0D;&#x53D8;&#x6761;&#x4EF6;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;<code>--enable-feature=promql-at-modifier</code>&#x6807;&#x5FD7;&#x6765;&#x542F;&#x7528;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;<code>start()</code>&#x548C;<code>end()</code>&#x4E5F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;<code>@</code>&#x4FEE;&#x9970;&#x7B26;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x8303;&#x56F4;&#x67E5;&#x8BE2;&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x89E3;&#x6790;&#x5230;&#x8303;&#x56F4;&#x67E5;&#x8BE2;&#x7684;&#x5F00;&#x59CB;&#x548C;&#x7ED3;&#x675F;&#xFF0C;&#x5E76;&#x5BF9;&#x6240;&#x6709;&#x6B65;&#x9AA4;&#x4FDD;&#x6301;&#x76F8;&#x540C;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5373;&#x65F6;&#x67E5;&#x8BE2;&#xFF0C;<code>start()</code>&#x548C;<code>end()</code>&#x90FD;&#x89E3;&#x6790;&#x4E3A;&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x3002;</p>
+<pre><code>http_requests_total @ start()
+rate(http_requests_total[5m] @ end())
+</code></pre><h1 id="&#x5B50;&#x67E5;&#x8BE2;">&#x5B50;&#x67E5;&#x8BE2;</h1>
+<p>&#x5B50;&#x67E5;&#x8BE2;&#x5141;&#x8BB8;&#x60A8;&#x9488;&#x5BF9;&#x7ED9;&#x5B9A;&#x7684;&#x8303;&#x56F4;&#x548C;&#x5206;&#x8FA8;&#x7387;&#x8FD0;&#x884C;&#x5373;&#x65F6;&#x67E5;&#x8BE2;&#x3002;&#x5B50;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x4E2A;&#x8303;&#x56F4;&#x5411;&#x91CF;&#x3002;</p>
+<p>&#x8BED;&#x6CD5;: <instant_query> &apos;[&apos; <range> &apos;:&apos; [<resolution>] &apos;]&apos; [ @ <float_literal> ] [ offset <duration> ]</duration></float_literal></resolution></range></instant_query></p>
+<p><resolution>&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x5168;&#x5C40;&#x8BA1;&#x7B97;&#x95F4;&#x9694;&#x3002;</resolution></p>
+<h1 id="&#x64CD;&#x4F5C;&#x7B26;">&#x64CD;&#x4F5C;&#x7B26;</h1>
+<p>Prometheus &#x652F;&#x6301;&#x8BB8;&#x591A;&#x4E8C;&#x8FDB;&#x5236;&#x548C;&#x805A;&#x5408;&#x64CD;&#x4F5C;&#x7B26;&#x3002;&#x8FD9;&#x4E9B;&#x5728;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x8A00;&#x64CD;&#x4F5C;&#x7B26;&#x9875;&#x9762;&#x4E2D;&#x6709;&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;&#x3002;</p>
+<h1 id="&#x51FD;&#x6570;">&#x51FD;&#x6570;</h1>
+<p>Prometheus &#x652F;&#x6301;&#x51E0;&#x4E2A;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#x51FD;&#x6570;&#x3002;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x9875;&#x9762;&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;&#x4E86;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x3002;</p>
+<h1 id="&#x8BC4;&#x8BBA;">&#x8BC4;&#x8BBA;</h1>
+<p>PromQL&#x652F;&#x6301;&#x4EE5; # &#x5F00;&#x5934;&#x7684;&#x884C;&#x6CE8;&#x91CA;&#x3002;&#x4F8B;&#x5B50;:</p>
+<pre><code> # This is a comment
+</code></pre><h1 id="promql-&#x67E5;&#x8BE2;&#x7684;&#x7F3A;&#x9677;">PromQL &#x67E5;&#x8BE2;&#x7684;&#x7F3A;&#x9677;</h1>
+<h2 id="&#x8FC7;&#x671F;&#x6570;&#x636E;">&#x8FC7;&#x671F;&#x6570;&#x636E;</h2>
+<p>&#x5728;&#x6267;&#x884C;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x65F6;&#xFF0C;&#x62BD;&#x6837;&#x6570;&#x636E;&#x6240;&#x5728;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x5C06;&#x72EC;&#x7ACB;&#x4E8E;&#x5F53;&#x524D;&#x7684;&#x5B9E;&#x9645;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x9009;&#x62E9;&#x3002;&#x8FD9;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x50CF;&#x805A;&#x5408;(sum&#x3001;avg&#x7B49;)&#x8FD9;&#x6837;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x591A;&#x4E2A;&#x805A;&#x5408;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x4E0D;&#x80FD;&#x5728;&#x65F6;&#x95F4;&#x4E0A;&#x7CBE;&#x786E;&#x5BF9;&#x9F50;&#x3002;&#x7531;&#x4E8E;&#x5B83;&#x4EEC;&#x7684;&#x72EC;&#x7ACB;&#x6027;&#xFF0C;Prometheus &#x9700;&#x8981;&#x5728;&#x8FD9;&#x4E9B;&#x65F6;&#x95F4;&#x6233;&#x4E0A;&#x4E3A;&#x6BCF;&#x4E2A;&#x76F8;&#x5173;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x503C;&#x3002;&#x5B83;&#x53EA;&#x9700;&#x8981;&#x5728;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x6233;&#x4E4B;&#x524D;&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x7684;&#x6837;&#x672C;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x6807;&#x83B7;&#x53D6;&#x6216;&#x89C4;&#x5219;&#x8BC4;&#x4F30;&#x4E0D;&#x518D;&#x8FD4;&#x56DE;&#x4EE5;&#x524D;&#x5B58;&#x5728;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x5219;&#x8BE5;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5C06;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x9648;&#x65E7;&#x3002;&#x5982;&#x679C;&#x5220;&#x9664;&#x4E86;&#x76EE;&#x6807;&#xFF0C;&#x90A3;&#x4E48;&#x4E4B;&#x524D;&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x5F88;&#x5FEB;&#x5C31;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x8FC7;&#x65F6;&#x7684;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x8FC7;&#x65F6;&#x4E4B;&#x540E;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x91C7;&#x6837;&#x65F6;&#x95F4;&#x6233;&#x4E0A;&#x8BA1;&#x7B97;&#x67E5;&#x8BE2;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x4E3A;&#x8BE5;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x5982;&#x679C;&#x968F;&#x540E;&#x5728;&#x8BE5;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x4E2D;&#x6444;&#x5165;&#x4E86;&#x65B0;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5B83;&#x4EEC;&#x5C06;&#x88AB;&#x6B63;&#x5E38;&#x9000;&#x56DE;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x91C7;&#x6837;&#x65F6;&#x95F4;&#x6233;5&#x5206;&#x949F;&#x524D;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x6570;&#x636E;(&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;)&#xFF0C;&#x5219;&#x8BE5;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5728;&#x6B64;&#x65F6;&#x95F4;&#x70B9;&#x4E0A;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x8FD9;&#x5B9E;&#x9645;&#x4E0A;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5F53;&#x6700;&#x65B0;&#x6536;&#x96C6;&#x7684;&#x6837;&#x672C;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;5&#x5206;&#x949F;&#xFF0C;&#x6216;&#x8005;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x9648;&#x65E7;&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5C31;&#x4F1A;&#x4ECE;&#x56FE;&#x8868;&#x4E2D;&#x201C;&#x6D88;&#x5931;&#x201D;&#x3002;</p>
+<p>&#x5728;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x4E2D;&#x5305;&#x542B;&#x65F6;&#x95F4;&#x6233;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x8FC7;&#x65F6;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EA;&#x5E94;&#x7528;5&#x5206;&#x949F;&#x9608;&#x503C;&#x3002;</p>
+<h2 id="&#x907F;&#x514D;&#x6162;&#x67E5;&#x8BE2;&#x548C;&#x91CD;&#x8F7D;">&#x907F;&#x514D;&#x6162;&#x67E5;&#x8BE2;&#x548C;&#x91CD;&#x8F7D;</h2>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x9700;&#x8981;&#x64CD;&#x4F5C;&#x5927;&#x91CF;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x628A;&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x7ED8;&#x5236;&#x6210;&#x56FE;&#x5F62;&#x53EF;&#x80FD;&#x4F1A;&#x8D85;&#x65F6;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x4F7F;Prometheus &#x670D;&#x52A1;&#x6216;&#x8005;&#x6D4F;&#x89C8;&#x5668;&#x5D29;&#x6E83;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x5BF9;&#x672A;&#x77E5;&#x6570;&#x636E;&#x7684;&#x67E5;&#x8BE2;&#x65F6;&#xFF0C;&#x5C3D;&#x91CF;&#x6216;&#x8005;&#x5E94;&#x5F53;&#x9996;&#x5148;&#x5728; Prometheus &#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x8868;&#x683C;&#x89C6;&#x56FE;&#x4E2D;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x67E5;&#x8BE2;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5148;&#x67E5;&#x8BE2;&#x4E00;&#x4E2A;&#x77AC;&#x65F6;&#x503C;&#xFF0C;&#x76F4;&#x5230;&#x7ED3;&#x679C;&#x96C6;&#x770B;&#x8D77;&#x6765;&#x5408;&#x7406;&#x4E3A;&#x6B62;(&#x6700;&#x591A;&#x662F;&#x6570;&#x767E;&#x4E2A;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6570;&#x5343;&#x4E2A;&#x65F6;&#x95F4;&#x5E8F;&#x5217;)&#x3002;&#x5F53;&#x7ECF;&#x8FC7;&#x5145;&#x5206;&#x5730;&#x8FC7;&#x6EE4;&#x6216;&#x805A;&#x5408;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x8FBE;&#x5230;&#x4E00;&#x4E2A;&#x5408;&#x7406;&#x7684;&#x60C5;&#x51B5;&#x65F6;&#xFF0C;&#x5207;&#x6362;&#x5230;&#x56FE;&#x5F62;&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x7ED8;&#x56FE;&#x3002;&#x5982;&#x679C;&#x8868;&#x8FBE;&#x5F0F;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x5F88;&#x957F;&#x65F6;&#x95F4;&#x624D;&#x80FD;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x76F8;&#x5173;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x9884;&#x5904;&#x7406;&#x6570;&#x636E;&#x4EE5;&#x540E;&#x8F7D;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x8FD9;&#x4E0E; Prometheus &#x7684;&#x67E5;&#x8BE2;&#x8BED;&#x8A00;&#x7279;&#x522B;&#x76F8;&#x5173;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x50CF; api_http_requests_total &#x8FD9;&#x6837;&#x7684;&#x6307;&#x6807;&#x540D;&#x79F0;&#x9009;&#x62E9;&#x5668;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x5230;&#x6570;&#x5343;&#x4E2A;&#x5E26;&#x6709;&#x4E0D;&#x540C;&#x6807;&#x7B7E;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x3002;&#x8FD8;&#x8981;&#x8BB0;&#x4F4F;&#xFF0C;&#x5728;&#x591A;&#x4E2A;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x4E0A;&#x805A;&#x5408;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x5C06;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x751F;&#x6210;&#x8D1F;&#x8F7D;&#xFF0C;&#x5373;&#x4F7F;&#x8F93;&#x51FA;&#x53EA;&#x662F;&#x5C11;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x3002;&#x8FD9;&#x7C7B;&#x4F3C;&#x4E8E;&#x5728;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5BF9;&#x4E00;&#x5217;&#x7684;&#x6240;&#x6709;&#x503C;&#x6C42;&#x548C;&#xFF0C;&#x5373;&#x4F7F;&#x8F93;&#x51FA;&#x503C;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x4E5F;&#x662F;&#x5F88;&#x6162;&#x7684;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 第六章 Prometehus 查询语言">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="6.2-querying-operators.html" class="navigation navigation-next " aria-label="Next page: 6.2 操作符查询">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6.1 基础查询","level":"3.4.1","depth":2,"next":{"title":"6.2 操作符查询","level":"3.4.2","depth":2,"path":"chapter06-PromQL/6.2-querying-operators.md","ref":"chapter06-PromQL/6.2-querying-operators.md","articles":[]},"previous":{"title":"第六章 Prometehus 查询语言","level":"3.4","depth":1,"path":"chapter06-PromQL/README.md","ref":"chapter06-PromQL/README.md","articles":[{"title":"6.1 基础查询","level":"3.4.1","depth":2,"path":"chapter06-PromQL/6.1-querying-basics.md","ref":"chapter06-PromQL/6.1-querying-basics.md","articles":[]},{"title":"6.2 操作符查询","level":"3.4.2","depth":2,"path":"chapter06-PromQL/6.2-querying-operators.md","ref":"chapter06-PromQL/6.2-querying-operators.md","articles":[]},{"title":"6.3 操作符查询示例","level":"3.4.3","depth":2,"path":"chapter06-PromQL/6.3-querying-operator-examples.md","ref":"chapter06-PromQL/6.3-querying-operator-examples.md","articles":[]},{"title":"6.4 查询函数","level":"3.4.4","depth":2,"path":"chapter06-PromQL/6.4-querying-functions.md","ref":"chapter06-PromQL/6.4-querying-functions.md","articles":[]},{"title":"6.5 查询示例","level":"3.4.5","depth":2,"path":"chapter06-PromQL/6.5-querying-functions-examples.md","ref":"chapter06-PromQL/6.5-querying-functions-examples.md","articles":[]},{"title":"6.6 HTTP API 查询","level":"3.4.6","depth":2,"path":"chapter06-PromQL/6.6-querying-http-api.md","ref":"chapter06-PromQL/6.6-querying-http-api.md","articles":[]},{"title":"6.7 管理员 HTTP API 查询","level":"3.4.7","depth":2,"path":"chapter06-PromQL/6.7-querying-http-admin-api.md","ref":"chapter06-PromQL/6.7-querying-http-admin-api.md","articles":[]},{"title":"小结","level":"3.4.8","depth":2,"path":"chapter06-PromQL/END.md","ref":"chapter06-PromQL/END.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter06-PromQL/6.1-querying-basics.md","mtime":"2021-11-20T15:15:59.820Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-20T15:25:02.774Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

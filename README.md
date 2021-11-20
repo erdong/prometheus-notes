@@ -98,7 +98,7 @@
     * [10.1 主机监控](chapter10-BestPractices/10.1-node.md)
     * [10.2 存储系统监控](chapter10-BestPractices/10.2-storage.md)
     * [10.3 无编排系统容器监控](chapter10-BestPractices/)
-    * [10.4 Kubernetes监控]()
+    * [10.4 Kubernetes监控](chapter10-BestPractices/10.4-kubernetes.md)
     * [10.5 Blackbox 网络监控]()
     * [10.8 ClickHouse](chapter10-BestPractices/10.8-clickhouse.md)
     * [10.9 Kafka](chapter10-BestPractices/10.9-kafka.md)

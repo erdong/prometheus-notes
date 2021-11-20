@@ -1,0 +1,2232 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6.6 HTTP API 查询 · Prometheus Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Er Dong <erdong@mail.erdong.site>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="6.7-querying-http-admin-api.html" />
+    
+    
+    <link rel="prev" href="6.5-querying-functions-examples.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://erdong.site" target="_blank" class="custom-link">Erdong's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    [前言]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter00/0.1-release.html">
+            
+                <a href="../chapter00/0.1-release.html">
+            
+                    
+                    发行注记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter00/0.2-contribution.html">
+            
+                <a href="../chapter00/0.2-contribution.html">
+            
+                    
+                    贡献指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅰ 基础篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../chapter01-Basic/">
+            
+                <a href="../chapter01-Basic/">
+            
+                    
+                    第一章 认识 Prometheus
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../chapter01-Basic/1.1-prometheus-introduction.html">
+            
+                <a href="../chapter01-Basic/1.1-prometheus-introduction.html">
+            
+                    
+                    1.1 Prometheus 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../chapter01-Basic/1.2-prometheus-install.html">
+            
+                <a href="../chapter01-Basic/1.2-prometheus-install.html">
+            
+                    
+                    1.2 Prometheus 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../chapter01-Basic/1.3-tsdb-comparison.html">
+            
+                <a href="../chapter01-Basic/1.3-tsdb-comparison.html">
+            
+                    
+                    1.3 时序数据库为什么选 Prometheus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../chapter01-Basic/1.4-glossary.html">
+            
+                <a href="../chapter01-Basic/1.4-glossary.html">
+            
+                    
+                    1.4 术语解释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../chapter01-Basic/1.5-data-model.html">
+            
+                <a href="../chapter01-Basic/1.5-data-model.html">
+            
+                    
+                    1.5 数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../chapter01-Basic/1.6-metric-types.html">
+            
+                <a href="../chapter01-Basic/1.6-metric-types.html">
+            
+                    
+                    1.6 Metric 类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../chapter01-Basic/1.7-job-and-instances.html">
+            
+                <a href="../chapter01-Basic/1.7-job-and-instances.html">
+            
+                    
+                    1.7 Job 和 Instances
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../chapter01-Basic/END.html">
+            
+                <a href="../chapter01-Basic/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../chapter02-TimeSeriesDB/">
+            
+                <a href="../chapter02-TimeSeriesDB/">
+            
+                    
+                    第二章 Prometehus 数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../chapter02-TimeSeriesDB/2.1-getting-started.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.1-getting-started.html">
+            
+                    
+                    2.1 开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../chapter02-TimeSeriesDB/2.2-installation.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.2-installation.html">
+            
+                    
+                    2.2 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../chapter02-TimeSeriesDB/2.3-configuration.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.3-configuration.html">
+            
+                    
+                    2.3 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../chapter02-TimeSeriesDB/2.4-querying-basics.md">
+            
+                <span>
+            
+                    
+                    2.4 基础查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../chapter02-TimeSeriesDB/2.5-querying-operators.md">
+            
+                <span>
+            
+                    
+                    2.5 操作符查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../chapter02-TimeSeriesDB/2.6-querying-operator-examples.md">
+            
+                <span>
+            
+                    
+                    2.6 操作符查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../chapter02-TimeSeriesDB/2.7-querying-functions.md">
+            
+                <span>
+            
+                    
+                    2.7 查询函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8" data-path="../chapter02-TimeSeriesDB/2.8-querying-functions-examples.md">
+            
+                <span>
+            
+                    
+                    2.8 查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.9" data-path="../chapter02-TimeSeriesDB/2.9-querying-http-api.md">
+            
+                <span>
+            
+                    
+                    2.9 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.10" data-path="../chapter02-TimeSeriesDB/2.10-querying-http-admin-api.md">
+            
+                <span>
+            
+                    
+                    2.10  管理员 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.11" data-path="../chapter02-TimeSeriesDB/2.11-storage.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.11-storage.html">
+            
+                    
+                    2.11 存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.12" data-path="../chapter02-TimeSeriesDB/END.html">
+            
+                <a href="../chapter02-TimeSeriesDB/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part ⅠⅠ 进阶篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../chapter03-Exporter/">
+            
+                <a href="../chapter03-Exporter/">
+            
+                    
+                    第三章 采集器 
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../chapter03-Exporter/3.1-pushgateway.html">
+            
+                <a href="../chapter03-Exporter/3.1-pushgateway.html">
+            
+                    
+                    3.1 PushGateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../chapter03-Exporter/3.2-node-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.2-node-exporter.html">
+            
+                    
+                    3.2 Linux 主机信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../chapter03-Exporter/3.3-windows-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.3-windows-exporter.html">
+            
+                    
+                    3.3 Windows 主机信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../chapter03-Exporter/3.4-cadvisor.html">
+            
+                <a href="../chapter03-Exporter/3.4-cadvisor.html">
+            
+                    
+                    3.4 容器信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../chapter03-Exporter/3.5-ovirt-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.5-ovirt-exporter.html">
+            
+                    
+                    3.5 oVirt信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../chapter03-Exporter/3.6-blackbox-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.6-blackbox-exporter.html">
+            
+                    
+                    3.6 BlackBox 网络探测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../chapter03-Exporter/3.7-snmp-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.7-snmp-exporter.html">
+            
+                    
+                    3.7 SNMP 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../chapter03-Exporter/3.8-clickhouse-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.8-clickhouse-exporter.html">
+            
+                    
+                    3.8 ClickHouse 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../chapter03-Exporter/END.html">
+            
+                <a href="../chapter03-Exporter/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../chapter04-Visualization/README.md">
+            
+                <span>
+            
+                    
+                    第四章 可视化 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" >
+            
+                <span>
+            
+                    
+                    4.1 原生可视化界面
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" >
+            
+                <span>
+            
+                    
+                    4.2 Grafana
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../chapter04-Visualization/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../chapter05-AlarmManager/">
+            
+                <a href="../chapter05-AlarmManager/">
+            
+                    
+                    第五章 告警管理 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" >
+            
+                <span>
+            
+                    
+                    5.1 Alertmanager
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" >
+            
+                <span>
+            
+                    
+                    5.2 Alert 配置
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" >
+            
+                <span>
+            
+                    
+                    5.3 Bosun 
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../chapter05-AlarmManager/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第六章 Prometehus 查询语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="6.1-querying-basics.html">
+            
+                <a href="6.1-querying-basics.html">
+            
+                    
+                    6.1 基础查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="6.2-querying-operators.html">
+            
+                <a href="6.2-querying-operators.html">
+            
+                    
+                    6.2 操作符查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3" data-path="6.3-querying-operator-examples.md">
+            
+                <span>
+            
+                    
+                    6.3 操作符查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4" data-path="6.4-querying-functions.html">
+            
+                <a href="6.4-querying-functions.html">
+            
+                    
+                    6.4 查询函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.5" data-path="6.5-querying-functions-examples.html">
+            
+                <a href="6.5-querying-functions-examples.html">
+            
+                    
+                    6.5 查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.4.6" data-path="6.6-querying-http-api.html">
+            
+                <a href="6.6-querying-http-api.html">
+            
+                    
+                    6.6 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.7" data-path="6.7-querying-http-admin-api.html">
+            
+                <a href="6.7-querying-http-admin-api.html">
+            
+                    
+                    6.7 管理员 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.8" data-path="END.html">
+            
+                <a href="END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part ⅠⅠⅠ 实战篇</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../chapter07-Instrumenting/README.md">
+            
+                <span>
+            
+                    
+                    第七章 插件编写 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../chapter07-Instrumenting/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../chapter08-ClusterAndHA/">
+            
+                <a href="../chapter08-ClusterAndHA/">
+            
+                    
+                    第八章 集群与高可用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../chapter08-ClusterAndHA/8.1-minio-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.1-minio-introduction.html">
+            
+                    
+                    8.1 MinIO 搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../chapter08-ClusterAndHA/8.2-minio-cluster.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.2-minio-cluster.html">
+            
+                    
+                    8.2 MinIO 分布式集群
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../chapter08-ClusterAndHA/8.3-minio-parameter-and-limit.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.3-minio-parameter-and-limit.html">
+            
+                    
+                    8.3 MinIO 参数和限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../chapter08-ClusterAndHA/8.4-minio-benchmark.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.4-minio-benchmark.html">
+            
+                    
+                    8.4 MniIO 性能对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../chapter08-ClusterAndHA/8.5-minio-mc-tool.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.5-minio-mc-tool.html">
+            
+                    
+                    8.5 MniIO 客户端工具 mc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../chapter08-ClusterAndHA/8.6-thanos-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.6-thanos-introduction.html">
+            
+                    
+                    8.6 Thanos 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.7" data-path="../chapter08-ClusterAndHA/8.7-thanos-query.md">
+            
+                <span>
+            
+                    
+                    8.7 Thanos query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.8" data-path="../chapter08-ClusterAndHA/8.8-thanos-sidecar.md">
+            
+                <span>
+            
+                    
+                    8.8 Thanos sidecar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.9" data-path="../chapter08-ClusterAndHA/8.9-thanos-store.md">
+            
+                <span>
+            
+                    
+                    8.9 Thanos store
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.10" data-path="../chapter08-ClusterAndHA/8.10-thanos-rule.md">
+            
+                <span>
+            
+                    
+                    8.10 Thanos rule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.11" data-path="../chapter08-ClusterAndHA/8.11-thanos-compactor.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.11-thanos-compactor.html">
+            
+                    
+                    8.11 Thanos Compactor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.12" data-path="../chapter08-ClusterAndHA/8.12-thanos-tools.md">
+            
+                <span>
+            
+                    
+                    8.12 Thanos tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.13" data-path="../chapter08-ClusterAndHA/8.13-cortex-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.13-cortex-introduction.html">
+            
+                    
+                    8.13 Cortex 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.14" data-path="../chapter08-ClusterAndHA/8.14-kvass-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.14-kvass-introduction.html">
+            
+                    
+                    8.14 Kvass 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.15" data-path="../chapter08-ClusterAndHA/END.html">
+            
+                <a href="../chapter08-ClusterAndHA/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../chapter09-ServiceDiscovery/">
+            
+                <a href="../chapter09-ServiceDiscovery/">
+            
+                    
+                    第九章 服务发现
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../chapter09-ServiceDiscovery/9.1-file-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.1-file-sd.html">
+            
+                    
+                    9.1  静态文件服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../chapter09-ServiceDiscovery/9.2-consul-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.2-consul-sd.html">
+            
+                    
+                    9.2  Consul 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../chapter09-ServiceDiscovery/9.3-consul-kv-backup-restore.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.3-consul-kv-backup-restore.html">
+            
+                    
+                    9.3  Consul key/value 备份和还原
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.4" data-path="../chapter09-ServiceDiscovery/9.4-dns-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.4-dns-sd.html">
+            
+                    
+                    9.4  DNS 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.5" data-path="../chapter09-ServiceDiscovery/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../chapter10-BestPractices/">
+            
+                <a href="../chapter10-BestPractices/">
+            
+                    
+                    第十章 最佳实践 
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../chapter10-BestPractices/10.1-node.md">
+            
+                <span>
+            
+                    
+                    10.1 主机监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../chapter10-BestPractices/10.2-storage.md">
+            
+                <span>
+            
+                    
+                    10.2 存储系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../chapter10-BestPractices/10.3-docker.md">
+            
+                <span>
+            
+                    
+                    10.3 无编排系统容器监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../chapter10-BestPractices/10.4-kubernetes.html">
+            
+                <a href="../chapter10-BestPractices/10.4-kubernetes.html">
+            
+                    
+                    10.4 Kubernetes监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" >
+            
+                <span>
+            
+                    
+                    10.5 Blackbox 网络监控
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.6" data-path="../chapter10-BestPractices/10.8-clickhouse.html">
+            
+                <a href="../chapter10-BestPractices/10.8-clickhouse.html">
+            
+                    
+                    10.8 ClickHouse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.7" data-path="../chapter10-BestPractices/10.9-kafka.html">
+            
+                <a href="../chapter10-BestPractices/10.9-kafka.html">
+            
+                    
+                    10.9 Kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.8" data-path="../chapter10-BestPractices/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../chapter11-CCSP/">
+            
+                <a href="../chapter11-CCSP/">
+            
+                    
+                    第十一章 云计算服务提供商
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../chapter11-CCSP/11.1-aliyun-cms.html">
+            
+                <a href="../chapter11-CCSP/11.1-aliyun-cms.html">
+            
+                    
+                    11.1 阿里云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../chapter11-CCSP/11.2-huaweicloud-cloudeye.html">
+            
+                <a href="../chapter11-CCSP/11.2-huaweicloud-cloudeye.html">
+            
+                    
+                    11.2 华为云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../chapter11-CCSP/11.3-aws-cloudwatch.html">
+            
+                <a href="../chapter11-CCSP/11.3-aws-cloudwatch.html">
+            
+                    
+                    11.3 AWS 监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../chapter11-CCSP/11.4-tencentcloud.md">
+            
+                <span>
+            
+                    
+                    11.4 腾讯云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.5" data-path="../chapter11-CCSP/11.5-azure-metrics.html">
+            
+                <a href="../chapter11-CCSP/11.5-azure-metrics.html">
+            
+                    
+                    11.5 Azure监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.6" data-path="../chapter11-CCSP/END.html">
+            
+                <a href="../chapter11-CCSP/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../chapter12-Troubleshoot/">
+            
+                <a href="../chapter12-Troubleshoot/">
+            
+                    
+                    第十二章 问题排查
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../chapter12-Troubleshoot/12.1-prometheus-time.html">
+            
+                <a href="../chapter12-Troubleshoot/12.1-prometheus-time.html">
+            
+                    
+                    12.1 Prometheus 时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../chapter12-Troubleshoot/12.2-prometheus-problem-sets-1.html">
+            
+                <a href="../chapter12-Troubleshoot/12.2-prometheus-problem-sets-1.html">
+            
+                    
+                    12.2 Prometheus 故障汇总（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../chapter12-Troubleshoot/END.html">
+            
+                <a href="../chapter12-Troubleshoot/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6.6 HTTP API 查询</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="prometheus-http-api-&#x67E5;&#x8BE2;">Prometheus HTTP API &#x67E5;&#x8BE2;</h1>
+<p>&#x5728; Prometheus &#x670D;&#x52A1;&#x5668;&#x7684; <code>/api/v1</code> &#x4E0B;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5F53;&#x524D;&#x7A33;&#x5B9A;&#x7684; HTTP API&#x3002;&#x65B0;&#x6DFB;&#x52A0;&#x7684; API &#x63A5;&#x53E3;&#x5728;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4EFB;&#x52A1;&#x7834;&#x574F;&#x6027;&#xFF0C;&#x4E5F;&#x4F1A;&#x52A0;&#x5728;&#x8FD9;&#x4E2A; endpoint &#x3002;</p>
+<h1 id="&#x63A5;&#x53E3;&#x683C;&#x5F0F;">&#x63A5;&#x53E3;&#x683C;&#x5F0F;</h1>
+<p>Prometheus &#x7684; API &#x54CD;&#x5E94;&#x683C;&#x5F0F;&#x662F; JSON&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x6210;&#x529F;&#x7684; API &#x8BF7;&#x6C42;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE; <code>2xx</code> &#x7684;&#x72B6;&#x6001;&#x7801;&#x3002;</p>
+<p>&#x9488;&#x5BF9; Prometheus &#x7684; API &#x7684;&#x65E0;&#x6548;&#x8BF7;&#x6C42;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; JSON &#x7684;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x4F1A;&#x8FD4;&#x56DE;&#x4E0B;&#x5217; HTTP &#x54CD;&#x5E94;&#x7801;&#xFF1A;</p>
+<ul>
+<li>400 Bad Request  &#xFF1A; &#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x53C2;&#x6570;&#x4E22;&#x5931;&#x6216;&#x8005;&#x9519;&#x8BEF;&#x9020;&#x6210;&#x7684;&#x3002;</li>
+<li>422 Unprocessable Entity &#xFF1A;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x8868;&#x8FBE;&#x5F0F;&#x65E0;&#x6CD5;&#x6267;&#x884C;&#x3002;</li>
+<li>503 Service Unavailable &#xFF1A; &#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x8BF7;&#x6C42;&#x8D85;&#x65F6;&#x6216;&#x8005;&#x88AB;&#x4E2D;&#x6B62;&#x4E86;&#x3002;</li>
+</ul>
+<p>&#x5F53;&#x8BF7;&#x6C42;&#x6CA1;&#x6709;&#x5230;&#x8FBE; API &#x5C31;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x5176;&#x4ED6;&#x975E; 2xx &#x7684;&#x72B6;&#x6001;&#x7801;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x4E2D;&#x5B58;&#x5728;&#x4E0D;&#x59A8;&#x788D;&#x8BF7;&#x6C42;&#x6267;&#x884C;&#x7684;&#x9519;&#x8BEF;&#xFF0C; Prometheus &#x53EF;&#x80FD;&#x8FD4;&#x56DE;&#x4E00;&#x7EC4;&#x8B66;&#x544A;&#x3002;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x6210;&#x529F;&#x7684;&#x6570;&#x636E;&#x5C06;&#x5728;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x5B57;&#x6BB5;&#x4E2D;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>JSON  &#x54CD;&#x5E94;&#x7684;&#x8FD4;&#x56DE;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>{
+  &quot;status&quot;: &quot;success&quot; | &quot;error&quot;,
+  &quot;data&quot;: &lt;data&gt;,
+
+  // &#x4EC5;&#x5F53; status &#x4E3A; error &#x65F6;&#x8BBE;&#x7F6E;&#x3002;&#x6570;&#x636E;&#x5B57;&#x6BB5;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x989D;&#x5916;&#x7684;&#x6570;&#x636E;&#x3002;
+  &quot;errorType&quot;: &quot;&lt;string&gt;&quot;,
+  &quot;error&quot;: &quot;&lt;string&gt;&quot;,
+
+  // &#x4EC5;&#x5F53;&#x6267;&#x884C;&#x8BF7;&#x6C42;&#x65F6;&#x6709;&#x8B66;&#x544A;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x5B57;&#x6BB5;&#x4E2D;&#x4ECD;&#x7136;&#x6709;&#x6570;&#x636E;.
+
+  &quot;warnings&quot;: [&quot;&lt;string&gt;&quot;]
+}
+</code></pre><p>&#x901A;&#x7528;&#x7684;&#x5360;&#x4F4D;&#x7B26;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li><rfc3339 |="" unix_timestamp="">: &#x4E00;&#x822C;&#x8F93;&#x5165;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x4EE5; RFC3339 &#x7684;&#x683C;&#x5F0F;&#x6765;&#x8FDB;&#x884C;&#x63D0;&#x4F9B;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x4F4D;&#x662F;&#x79D2;&#x7684; Unix &#x65F6;&#x95F4;&#x6233;&#xFF0C; &#x53EF;&#x9009;&#x7684;&#x5C0F;&#x6570;&#x4F4D;&#x6570;&#x8868;&#x793A;&#x79D2;&#x7EA7;&#x7CBE;&#x5EA6;&#x3002;&#x8F93;&#x51FA;&#x65F6;&#x95F4;&#x6233;&#x662F; Unix&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x5355;&#x4F4D;&#x4E3A;&#x79D2;&#x3002; </rfc3339></li>
+<li><p><series_selector>: Prometheus &#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x9009;&#x62E9;&#x5668;&#x50CF;<code>http_requests_total</code> &#x6216; <code>http_requests_total{&#x65B9;&#x6CD5;=~&quot;(GET|POST)}</code>&#xFF0C;&#x9700;&#x8981; URL-encoded&#x3002;</series_selector></p>
+</li>
+<li><p><duration>: Prometheus &#x7684;&#x65F6;&#x95F4;&#x5B57;&#x7B26;&#x3002;&#x6BD4;&#x5982; <code>5m</code> &#x8868;&#x793A; 5 &#x5206;&#x949F;&#x3002;</duration></p>
+</li>
+<li><bool>: &#x5E03;&#x5C14;&#x503C;&#xFF0C; true &#x6216;&#x8005; false &#x3002;</bool></li>
+</ul>
+<h1 id="&#x8868;&#x8FBE;&#x5F0F;&#x67E5;&#x8BE2;">&#x8868;&#x8FBE;&#x5F0F;&#x67E5;&#x8BE2;</h1>
+<p>&#x67E5;&#x8BE2;&#x8BED;&#x8A00;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x5728;&#x8BA1;&#x7B97;&#x77AC;&#x95F4;&#x5411;&#x91CF;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x8BA1;&#x7B97;&#x8303;&#x56F4;&#x5411;&#x91CF;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x5C0F;&#x8282;&#x63CF;&#x8FF0;&#x6BCF;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x67E5;&#x8BE2;&#x7684;API&#x7AEF;&#x70B9;&#x3002;</p>
+<h2 id="&#x77AC;&#x65F6;&#x67E5;&#x8BE2;">&#x77AC;&#x65F6;&#x67E5;&#x8BE2;</h2>
+<p>&#x4F7F;&#x7528; GET &#x6216;&#x8005; POST &#x8BBF;&#x95EE;&#x4E0B;&#x5217; API &#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5355;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#x8BA1;&#x7B97;&#x77AC;&#x65F6;&#x67E5;&#x8BE2;:</p>
+<pre><code>GET /api/v1/query
+POST /api/v1/query
+</code></pre><p><code>URL</code> &#x67E5;&#x8BE2;&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li>query=<string> : Prometheus &#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</string></li>
+<li>time=<rfc3339 |="" unix_timestamp=""> : &#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x53EF;&#x9009;&#x7684;&#x4E00;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x4E0D;&#x586B;&#x7684;&#x8BDD;&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x7684;&#x503C;&#xFF0C;&#x652F;&#x6301; UNIX &#x65F6;&#x95F4;&#x6233;&#x548C; RFC 3339 &#x683C;&#x5F0F;&#x7684;&#x65F6;&#x95F4;&#x63CF;&#x8FF0;&#x3002;</rfc3339></li>
+<li>timeout=<duration> : &#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x9009;&#x9879;&#x3002;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528; <code>-query.timeout</code>  &#x6307;&#x5B9A;&#x7684;&#x503C;&#x3002;</duration></li>
+</ul>
+<p>&#x5728;&#x8BF7;&#x6C42; API &#x63A5;&#x53E3;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; POST &#x65B9;&#x6CD5; &#x5E76;&#x4E14; header &#x5934;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Content-Type: application/x-www-form-urlencoded</code> , &#x5F53;&#x5927;&#x67E5;&#x8BE2;&#x4E2D;&#x5305;&#x542B;&#x8FDD;&#x53CD;&#x670D;&#x52A1;&#x7AEF; URL &#x5B57;&#x7B26;&#x9650;&#x5236;&#x65F6;&#x6BD4;&#x8F83;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x7684;&#x6570;&#x636E;&#x90E8;&#x5206;&#x683C;&#x5F0F;&#x5982;&#x4E0B;:</p>
+<pre><code>{
+  &quot;resultType&quot;: &quot;matrix&quot; | &quot;vector&quot; | &quot;scalar&quot; | &quot;string&quot;,
+  &quot;result&quot;: &lt;value&gt;
+}
+</code></pre><p><code>&lt;value&gt;</code> &#x662F;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#xFF0C;&#x6839;&#x636E;&#x67E5;&#x8BE2;&#x7684;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#xFF0C;&#x683C;&#x5F0F;&#x4E5F;&#x4E0D;&#x4E00;&#x6837;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4F1A;&#x67E5;&#x8BE2; <code>up</code> &#x6307;&#x6807;&#x5728; <code>2021-11-08T23:10:51.781Z</code> &#x65F6;&#x95F4;&#x7684;&#x503C;&#x3002;</p>
+<pre><code>$ curl &apos;http://localhost:9090/api/v1/query?query=up&amp;time=2021-11-08T23:10:51.781Z&apos;
+{
+   &quot;status&quot; : &quot;success&quot;,
+   &quot;data&quot; : {
+      &quot;resultType&quot; : &quot;vector&quot;,
+      &quot;result&quot; : [
+         {
+            &quot;metric&quot; : {
+               &quot;__name__&quot; : &quot;up&quot;,
+               &quot;job&quot; : &quot;prometheus&quot;,
+               &quot;instance&quot; : &quot;localhost:9090&quot;
+            },
+            &quot;value&quot;: [ 1636384171.781, &quot;1&quot; ]
+         },
+         {
+            &quot;metric&quot; : {
+               &quot;__name__&quot; : &quot;up&quot;,
+               &quot;job&quot; : &quot;node&quot;,
+               &quot;instance&quot; : &quot;localhost:9100&quot;
+            },
+            &quot;value&quot; : [ 1636384171.781, &quot;0&quot; ]
+         }
+      ]
+   }
+}
+</code></pre><h2 id="&#x8303;&#x56F4;&#x65F6;&#x95F4;&#x67E5;&#x8BE2;">&#x8303;&#x56F4;&#x65F6;&#x95F4;&#x67E5;&#x8BE2;</h2>
+<p>&#x4F7F;&#x7528; GET &#x6216;&#x8005; POST &#x8BBF;&#x95EE;&#x4E0B;&#x5217; API &#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#x8BA1;&#x7B97;&#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;</p>
+<pre><code>GET /api/v1/query_range
+POST /api/v1/query_range
+</code></pre><p><code>URL</code> &#x67E5;&#x8BE2;&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li>query=<string> : Prometheus &#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;</string></li>
+<li>start=<rfc3339 |="" unix_timestamp=""> : &#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x6233;</rfc3339></li>
+<li>end=<rfc3339 |="" unix_timestamp=""> : &#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x6233;</rfc3339></li>
+<li>step=<duration |="" float=""> : &#x6B65;&#x957F;&#x3002;&#x7B80;&#x5355;&#x7406;&#x89E3;&#x5C31;&#x662F;&#x67E5;&#x8BE2;&#x7684;&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x4E2D;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x70B9;&#x7684;&#x95F4;&#x9694;&#x662F;&#x591A;&#x957F;&#x65F6;&#x95F4;&#xFF0C;&#x6BD4;&#x5982;&#x6BCF;&#x5206;&#x949F;&#x4E00;&#x4E2A;&#x70B9;&#xFF0C;&#x6216;&#x8005;&#x6BCF;&#x5341;&#x79D2;&#x4E00;&#x4E2A;&#x70B9;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x6B65;&#x957F;&#x3002;&#x683C;&#x5F0F;&#x662F; 1m &#x3001;10s &#x8FD9;&#x79CD;&#x3002;</duration></li>
+<li>timeout=<duration> : &#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x9009;&#x9879;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528; <code>-query.timeout</code>  &#x6307;&#x5B9A;&#x7684;&#x503C;&#x3002;</duration></li>
+</ul>
+<p>&#x548C;&#x8FDB;&#x884C;&#x77AC;&#x65F6;&#x67E5;&#x8BE2;&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x8BF7;&#x6C42; API &#x63A5;&#x53E3;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; POST &#x65B9;&#x6CD5; &#x5E76;&#x4E14; header &#x5934;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Content-Type: application/x-www-form-urlencoded</code> , &#x5F53;&#x5927;&#x67E5;&#x8BE2;&#x4E2D;&#x5305;&#x542B;&#x8FDD;&#x53CD;&#x670D;&#x52A1;&#x7AEF; URL &#x5B57;&#x7B26;&#x9650;&#x5236;&#x65F6;&#x6BD4;&#x8F83;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x7684;&#x6570;&#x636E;&#x90E8;&#x5206;&#x683C;&#x5F0F;&#x5982;&#x4E0B;:</p>
+<pre><code>{
+  &quot;resultType&quot;: &quot;matrix&quot;,
+  &quot;result&quot;: &lt;value&gt;
+}
+</code></pre><p><code>&lt;value&gt;</code> &#x662F;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#xFF0C;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x5728; 30 &#x79D2;&#x8303;&#x56F4;&#x5185;&#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F; <code>up</code> &#x7684;&#x503C;&#xFF0C;&#x67E5;&#x8BE2;&#x6B65;&#x957F;&#x4E3A;15&#x79D2;&#x3002;</p>
+<pre><code>$ curl &apos;http://localhost:9090/api/v1/query_range?query=up&amp;start=2021-11-08T23:10:51.781Z&amp;end=2021-11-08T23:10:51.781Z&amp;step=15s&apos;
+{
+   &quot;status&quot; : &quot;success&quot;,
+   &quot;data&quot; : {
+      &quot;resultType&quot; : &quot;matrix&quot;,
+      &quot;result&quot; : [
+         {
+            &quot;metric&quot; : {
+               &quot;__name__&quot; : &quot;up&quot;,
+               &quot;job&quot; : &quot;prometheus&quot;,
+               &quot;instance&quot; : &quot;localhost:9090&quot;
+            },
+            &quot;values&quot; : [
+               [ 1636384171.781, &quot;1&quot; ],
+               [ 1636384186.781, &quot;1&quot; ],
+               [ 1636384201.781, &quot;1&quot; ]
+            ]
+         },
+         {
+            &quot;metric&quot; : {
+               &quot;__name__&quot; : &quot;up&quot;,
+               &quot;job&quot; : &quot;node&quot;,
+               &quot;instance&quot; : &quot;localhost:9091&quot;
+            },
+            &quot;values&quot; : [
+               [ 1636384171.781, &quot;0&quot; ],
+               [ 1636384186.781, &quot;0&quot; ],
+               [ 1636384201.781, &quot;1&quot; ]
+            ]
+         }
+      ]
+   }
+}
+</code></pre><h1 id="&#x67E5;&#x8BE2;&#x5143;&#x6570;&#x636E;">&#x67E5;&#x8BE2;&#x5143;&#x6570;&#x636E;</h1>
+<p>Prometheus &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7EC4; API &#x63A5;&#x53E3;&#x6765;&#x67E5;&#x8BE2;&#x5173;&#x4E8E; series &#x53CA;&#x5176; label &#x7684;&#x5143;&#x6570;&#x636E;&#x3002;</p>
+<h2 id="&#x901A;&#x8FC7;-label-&#x67E5;&#x627E;-series">&#x901A;&#x8FC7; Label &#x67E5;&#x627E; Series</h2>
+<p>&#x4E2A;&#x4EBA;&#x7406;&#x89E3;&#xFF0C;&#x4E0D;&#x4E00;&#x5B9A;&#x5BF9;&#x3002;Label &#x662F; Metric &#x7684;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#xFF0C;&#x4E00;&#x4E2A; Metric &#x7684;&#x6240;&#x6709; Label &#x6784;&#x6210;&#x4E86;&#x8FD9;&#x4E2A; Metric &#x7684; Series&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x63A5;&#x53E3;&#x4F1A;&#x8FD4;&#x56DE;&#x5339;&#x914D; Label &#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x5217;&#x8868;</p>
+<pre><code>GET /api/v1/series
+POST /api/v1/series
+</code></pre><p>URL &#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>match[]=<series_selector> : &#x8981;&#x67E5;&#x8BE2;&#x7684;&#x6307;&#x6807;&#x7684; Series&#xFF0C;&#x8981;&#x81F3;&#x5C11;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;<code>match[]</code> &#x53C2;&#x6570;&#x3002;</series_selector></li>
+<li>start=<rfc3339 |="" unix_timestamp=""> : &#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x6233;</rfc3339></li>
+<li>end=<rfc3339 |="" unix_timestamp=""> : &#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x6233;</rfc3339></li>
+</ul>
+<p>&#x5728;&#x8BF7;&#x6C42; API &#x63A5;&#x53E3;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; POST &#x65B9;&#x6CD5; &#x5E76;&#x4E14; header &#x5934;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Content-Type: application/x-www-form-urlencoded</code> , &#x5F53;&#x5927;&#x67E5;&#x8BE2;&#x4E2D;&#x5305;&#x542B;&#x8FDD;&#x53CD;&#x670D;&#x52A1;&#x7AEF; URL &#x5B57;&#x7B26;&#x9650;&#x5236;&#x65F6;&#x6BD4;&#x8F83;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x7684;&#x6570;&#x636E;&#x90E8;&#x5206;&#x7531;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5217;&#x8868;&#x7EC4;&#x6210;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x6807;&#x8BC6;&#x6BCF;&#x4E2A; series &#x7684; label &#x540D;&#x79F0;&#x548C; label&#x503C;&#xFF0C;&#x4EE5;&#x6210;&#x5BF9;&#x7684;&#x65B9;&#x5F0F;&#x51FA;&#x73B0;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4F1A;&#x8FD4;&#x56DE; <code>up</code> &#x548C; <code>process_start_time_seconds{job=&quot;prometheus&quot;}</code> &#x6240;&#x6709;&#x5339;&#x914D;&#x7684; Series :</p>
+<pre><code>$ curl -g &apos;http://localhost:9090/api/v1/series?&apos; --data-urlencode &apos;match[]=up&apos; --data-urlencode &apos;match[]=process_start_time_seconds{job=&quot;prometheus&quot;}&apos;
+{
+   &quot;status&quot; : &quot;success&quot;,
+   &quot;data&quot; : [
+      {
+         &quot;__name__&quot; : &quot;up&quot;,
+         &quot;job&quot; : &quot;prometheus&quot;,
+         &quot;instance&quot; : &quot;localhost:9090&quot;
+      },
+      {
+         &quot;__name__&quot; : &quot;up&quot;,
+         &quot;job&quot; : &quot;node&quot;,
+         &quot;instance&quot; : &quot;localhost:9091&quot;
+      },
+      {
+         &quot;__name__&quot; : &quot;process_start_time_seconds&quot;,
+         &quot;job&quot; : &quot;prometheus&quot;,
+         &quot;instance&quot; : &quot;localhost:9090&quot;
+      }
+   ]
+}
+</code></pre><h2 id="&#x83B7;&#x53D6;-label-&#x540D;&#x79F0;">&#x83B7;&#x53D6; label &#x540D;&#x79F0;</h2>
+<p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Label &#x540D;&#x79F0;&#x7684;&#x5217;&#x8868;&#xFF1A;</p>
+<pre><code>GET /api/v1/labels
+POST /api/v1/labels
+</code></pre><p>URL &#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>match[]=<series_selector> : &#x8981;&#x67E5;&#x8BE2;&#x7684;&#x6307;&#x6807;&#x7684; Series&#xFF0C;&#x53EF;&#x9009;&#x3002;</series_selector></li>
+<li>start=<rfc3339 |="" unix_timestamp=""> : &#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x53EF;&#x9009;&#x3002;</rfc3339></li>
+<li>end=<rfc3339 |="" unix_timestamp=""> : &#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x53EF;&#x9009;&#x3002;</rfc3339></li>
+</ul>
+<p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x6700;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; JSON &#x683C;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7C7B;&#x578B;&#x7684; Label &#x540D;&#x79F0;&#x5217;&#x8868;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>$ curl &apos;localhost:9090/api/v1/labels&apos;
+{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;data&quot;: [
+        &quot;__name__&quot;,
+        &quot;call&quot;,
+        &quot;code&quot;,
+        &quot;config&quot;,
+        &quot;dialer_name&quot;,
+        &quot;endpoint&quot;,
+        &quot;event&quot;,
+        &quot;goversion&quot;,
+        &quot;handler&quot;,
+        &quot;instance&quot;,
+        &quot;interval&quot;,
+        &quot;job&quot;,
+        &quot;le&quot;,
+        &quot;listener_name&quot;,
+        &quot;name&quot;,
+        &quot;quantile&quot;,
+        &quot;reason&quot;,
+        &quot;role&quot;,
+        &quot;scrape_job&quot;,
+        &quot;slice&quot;,
+        &quot;version&quot;
+    ]
+}
+</code></pre><h2 id="&#x83B7;&#x53D6;-label-&#x7684;&#x503C;">&#x83B7;&#x53D6; label &#x7684;&#x503C;</h2>
+<p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6307;&#x5B9A; Label &#x540D;&#x79F0;&#x7684;&#x503C;&#xFF1A;</p>
+<pre><code>GET /api/v1/label/&lt;label_name&gt;/values
+</code></pre><p>URL &#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>match[]=<series_selector> : &#x8981;&#x67E5;&#x8BE2;&#x7684;&#x6307;&#x6807;&#x7684; Series&#xFF0C;&#x53EF;&#x9009;&#x3002;</series_selector></li>
+<li>start=<rfc3339 |="" unix_timestamp=""> : &#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x53EF;&#x9009;&#x3002;</rfc3339></li>
+<li>end=<rfc3339 |="" unix_timestamp=""> : &#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x53EF;&#x9009;&#x3002;</rfc3339></li>
+</ul>
+<p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x6700;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; JSON &#x683C;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7C7B;&#x578B;&#x7684; Label &#x540D;&#x79F0;&#x5217;&#x8868;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x6307;&#x5B9A;&#x4E00;&#x4E2A; Label &#x540D;&#x79F0; <code>job</code>&#xFF0C;</p>
+<pre><code>$ curl http://localhost:9090/api/v1/label/job/values
+{
+   &quot;status&quot; : &quot;success&quot;,
+   &quot;data&quot; : [
+      &quot;node&quot;,
+      &quot;prometheus&quot;
+   ]
+}
+</code></pre><h1 id="&#x67E5;&#x8BE2;-exemplar">&#x67E5;&#x8BE2; Exemplar</h1>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x9A8C;&#x6027;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x672A;&#x6765;&#x53EF;&#x80FD;&#x4F1A;&#x6539;&#x53D8;&#xFF0C;&#x5F53;&#x524D;&#x7248;&#x672C;&#x662F; v2.31.0&#x3002; &#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x9700;&#x8981;&#x4F7F;&#x7528; <code>--enable-feature=exemplar-storage</code> &#x6765;&#x8FDB;&#x884C;&#x5F00;&#x542F;&#xFF0C;&#x4E0D;&#x5F00;&#x542F;&#x662F;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x7684;&#x3002;</p>
+<p>Exemplars &#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5305;&#x542B; <code>seriesLabels</code> &#x3001;<code>exemplars</code> &#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;</p>
+<p><code>seriesLabels</code> &#x662F;&#x4E00;&#x4E2A; Label &#x952E;&#x503C;&#x5BF9;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x5217;&#x4E3E;&#x4E86;&#x5F53;&#x524D; Metric &#x7684;&#x6240;&#x6709; Label&#x3002;</p>
+<p><code>exemplars</code> &#x662F;&#x5217;&#x4E3E;&#x4E86;&#x5B58;&#x50A8;&#x7684; traceID=<jaeger-trace-id> &#x548C;&#x4ED6;&#x7684;&#x503C;&#x3002;</jaeger-trace-id></p>
+<p>&#x540E;&#x8FB9;&#x6211;&#x4EEC;&#x4E13;&#x95E8;&#x627E;&#x4E2A;&#x65F6;&#x95F4;&#x804A;&#x804A;&#x8FD9;&#x4E9B;&#x5B9E;&#x9A8C;&#x7279;&#x6027;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x8303;&#x56F4;&#x5185;&#x6709;&#x6548; PromQL &#x67E5;&#x8BE2;&#x7684;&#x793A;&#x4F8B;&#x5217;&#x8868;:</p>
+<pre><code>GET /api/v1/query_exemplars
+POST /api/v1/query_exemplars
+</code></pre><p>URL &#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>query=<string> : Prometheus &#x8868;&#x8FBE;&#x5F0F;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x3002;</string></li>
+<li>start=<rfc3339 |="" unix_timestamp=""> : &#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x6233;&#x3002;</rfc3339></li>
+<li>end=<rfc3339 |="" unix_timestamp=""> : &#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x6233;&#x3002;</rfc3339></li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6307;&#x5B9A; <code>test_exemplar_metric_total</code> &#x8FD9;&#x4E2A; Metric &#x53BB;&#x67E5;&#x8BE2;</p>
+<pre><code>$ curl -g &apos;http://localhost:9090/api/v1/query_exemplars?query=test_exemplar_metric_total&amp;start=2020-09-14T15:22:25.479Z&amp;end=2020-09-14T15:23:25.479Z&apos;
+{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;seriesLabels&quot;: {
+                &quot;__name__&quot;: &quot;test_exemplar_metric_total&quot;,
+                &quot;instance&quot;: &quot;localhost:8090&quot;,
+                &quot;job&quot;: &quot;prometheus&quot;,
+                &quot;service&quot;: &quot;bar&quot;
+            },
+            &quot;exemplars&quot;: [
+                {
+                    &quot;labels&quot;: {
+                        &quot;traceID&quot;: &quot;EpTxMJ40fUus7aGY&quot;
+                    },
+                    &quot;value&quot;: &quot;6&quot;,
+                    &quot;timestamp&quot;: 1600096945.479,
+                }
+            ]
+        },
+        {
+            &quot;seriesLabels&quot;: {
+                &quot;__name__&quot;: &quot;test_exemplar_metric_total&quot;,
+                &quot;instance&quot;: &quot;localhost:8090&quot;,
+                &quot;job&quot;: &quot;prometheus&quot;,
+                &quot;service&quot;: &quot;foo&quot;
+            },
+            &quot;exemplars&quot;: [
+                {
+                    &quot;labels&quot;: {
+                        &quot;traceID&quot;: &quot;Olp9XHlq763ccsfa&quot;
+                    },
+                    &quot;value&quot;: &quot;19&quot;,
+                    &quot;timestamp&quot;: 1600096955.479,
+                },
+                {
+                    &quot;labels&quot;: {
+                        &quot;traceID&quot;: &quot;hCtjygkIHwAN9vs4&quot;
+                    },
+                    &quot;value&quot;: &quot;20&quot;,
+                    &quot;timestamp&quot;: 1600096965.489,
+                },
+            ]
+        }
+    ]
+}
+</code></pre><h1 id="target-&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x683C;&#x5F0F;">Target &#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x683C;&#x5F0F;</h1>
+<h1 id="target">Target</h1>
+<p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4F1A;&#x8FD4;&#x56DE; Prometheus Target &#x53D1;&#x73B0;&#x7684;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x3002;</p>
+<pre><code>GET /api/v1/targets
+</code></pre><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B; <code>activeTargets</code> &#x548C; <code>droppedTargets</code> &#x90FD;&#x662F;&#x8BF7;&#x6C42;&#x54CD;&#x5E94;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;</p>
+<p><code>discoveredLabels</code> &#x8868;&#x793A;&#x5728;&#x8FDB;&#x884C; Label &#x91CD;&#x65B0;&#x6807;&#x8BB0;&#x53D1;&#x751F;&#x4E4B;&#x524D;&#xFF0C;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x627E;&#x5230;&#x7684;&#x672A;&#x4FEE;&#x6539;&#x7684;&#x539F;&#x59CB; Label&#x3002;</p>
+<p><code>labels</code> &#x8868;&#x793A; Label &#x91CD;&#x65B0;&#x6807;&#x8BB0;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code>$ curl http://localhost:9090/api/v1/targets
+{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: {
+    &quot;activeTargets&quot;: [
+      {
+        &quot;discoveredLabels&quot;: {
+          &quot;__address__&quot;: &quot;127.0.0.1:9090&quot;,
+          &quot;__metrics_path__&quot;: &quot;/metrics&quot;,
+          &quot;__scheme__&quot;: &quot;http&quot;,
+          &quot;job&quot;: &quot;prometheus&quot;
+        },
+        &quot;labels&quot;: {
+          &quot;instance&quot;: &quot;127.0.0.1:9090&quot;,
+          &quot;job&quot;: &quot;prometheus&quot;
+        },
+        &quot;scrapePool&quot;: &quot;prometheus&quot;,
+        &quot;scrapeUrl&quot;: &quot;http://127.0.0.1:9090/metrics&quot;,
+        &quot;globalUrl&quot;: &quot;http://example-prometheus:9090/metrics&quot;,
+        &quot;lastError&quot;: &quot;&quot;,
+        &quot;lastScrape&quot;: &quot;2017-01-17T15:07:44.723715405+01:00&quot;,
+        &quot;lastScrapeDuration&quot;: 0.050688943,
+        &quot;health&quot;: &quot;up&quot;,
+        &quot;scrapeInterval&quot;: &quot;1m&quot;,
+        &quot;scrapeTimeout&quot;: &quot;10s&quot;
+      }
+    ],
+    &quot;droppedTargets&quot;: [
+      {
+        &quot;discoveredLabels&quot;: {
+          &quot;__address__&quot;: &quot;127.0.0.1:9100&quot;,
+          &quot;__metrics_path__&quot;: &quot;/metrics&quot;,
+          &quot;__scheme__&quot;: &quot;http&quot;,
+          &quot;__scrape_interval__&quot;: &quot;1m&quot;,
+          &quot;__scrape_timeout__&quot;: &quot;10s&quot;,
+          &quot;job&quot;: &quot;node&quot;
+        },
+      }
+    ]
+  }
+}
+</code></pre><p>&#x5BF9;&#x4E8E;&#x4E0A;&#x8FB9;&#x7684;&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#xFF0C;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x53C2;&#x6570; <code>state</code> &#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5BF9;&#x5E94;&#x7684; Target &#x72B6;&#x6001;&#xFF0C;&#x6BD4;&#x5982; <code>state=active</code>, <code>state=dropped</code>, <code>state=any</code> &#x3002;&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x662F;&#x4E2A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5BF9;&#x4E8E;&#x8FC7;&#x6EE4;&#x6389;&#x7684;&#x76EE;&#x6807;&#xFF0C;&#x4ECD;&#x7136;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x6570;&#x7EC4;&#xFF0C;&#x91CC;&#x8FB9;&#x7684;&#x503C;&#x4F1A;&#x4E22;&#x6389;&#x3002;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>$ curl &apos;http://localhost:9090/api/v1/targets?state=active&apos;
+{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: {
+    &quot;activeTargets&quot;: [
+      {
+        &quot;discoveredLabels&quot;: {
+          &quot;__address__&quot;: &quot;127.0.0.1:9090&quot;,
+          &quot;__metrics_path__&quot;: &quot;/metrics&quot;,
+          &quot;__scheme__&quot;: &quot;http&quot;,
+          &quot;job&quot;: &quot;prometheus&quot;
+        },
+        &quot;labels&quot;: {
+          &quot;instance&quot;: &quot;127.0.0.1:9090&quot;,
+          &quot;job&quot;: &quot;prometheus&quot;
+        },
+        &quot;scrapePool&quot;: &quot;prometheus&quot;,
+        &quot;scrapeUrl&quot;: &quot;http://127.0.0.1:9090/metrics&quot;,
+        &quot;globalUrl&quot;: &quot;http://example-prometheus:9090/metrics&quot;,
+        &quot;lastError&quot;: &quot;&quot;,
+        &quot;lastScrape&quot;: &quot;2017-01-17T15:07:44.723715405+01:00&quot;,
+        &quot;lastScrapeDuration&quot;: 50688943,
+        &quot;health&quot;: &quot;up&quot;
+      }
+    ],
+    &quot;droppedTargets&quot;: []
+  }
+}
+</code></pre><h1 id="&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x683C;&#x5F0F;">&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x683C;&#x5F0F;</h1>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8868;&#x8FBE;&#x5F0F;&#x5BF9; Prometheus &#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#xFF0C;&#x4F1A;&#x5C06;&#x8FD4;&#x56DE;&#x7684;&#x503C;&#x653E;&#x5728;&#x7ED3;&#x679C;&#x7684; <code>data</code> &#x90E8;&#x5206;&#x3002;</p>
+<p><code>&lt;sample_value&gt;</code> &#x662F;&#x6570;&#x503C;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>JSON &#x4E0D;&#x652F;&#x6301;&#x7279;&#x6B8A;&#x6D6E;&#x70B9;&#x503C;&#xFF0C;&#x6BD4;&#x5982; <code>NaN</code> &#x3001;<code>Inf</code> &#x3001;<code>-Inf</code> &#xFF0C;&#x6240;&#x4EE5;&#x6837;&#x672C;&#x503C;&#x662F;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x7684; JSON &#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x662F;&#x539F;&#x59CB;&#x6570;&#x5B57;&#x4F20;&#x8F93;&#x7684;&#x3002;</p>
+<h2 id="&#x8303;&#x56F4;&#x5411;&#x91CF;">&#x8303;&#x56F4;&#x5411;&#x91CF;</h2>
+<p>&#x8303;&#x56F4;&#x5411;&#x91CF;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x7C7B;&#x578B;&#x662F; <code>matrix</code> &#x3002;&#x5BF9;&#x5E94;&#x7684;result &#x5C5E;&#x6027;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;:</p>
+<pre><code>[
+  {
+    &quot;metric&quot;: { &quot;&lt;label_name&gt;&quot;: &quot;&lt;label_value&gt;&quot;, ... },
+    &quot;values&quot;: [ [ &lt;unix_time&gt;, &quot;&lt;sample_value&gt;&quot; ], ... ]
+  },
+  ...
+]
+</code></pre><h2 id="&#x77AC;&#x65F6;&#x5411;&#x91CF;">&#x77AC;&#x65F6;&#x5411;&#x91CF;</h2>
+<p>&#x77AC;&#x65F6;&#x5411;&#x91CF;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x7C7B;&#x578B;&#x662F; <code>vector</code> &#x3002;&#x5BF9;&#x5E94;&#x7684;result &#x5C5E;&#x6027;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;:</p>
+<pre><code>[
+  {
+    &quot;metric&quot;: { &quot;&lt;label_name&gt;&quot;: &quot;&lt;label_value&gt;&quot;, ... },
+    &quot;value&quot;: [ &lt;unix_time&gt;, &quot;&lt;sample_value&gt;&quot; ]
+  },
+  ...
+]
+</code></pre><h2 id="&#x6807;&#x91CF;">&#x6807;&#x91CF;</h2>
+<p>&#x6807;&#x91CF;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x7C7B;&#x578B;&#x662F; <code>scalar</code> &#x3002;&#x5BF9;&#x5E94;&#x7684;result &#x5C5E;&#x6027;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;:</p>
+<pre><code>[ &lt;unix_time&gt;, &quot;&lt;scalar_value&gt;&quot; ]
+</code></pre><h2 id="&#x5B57;&#x7B26;&#x4E32;">&#x5B57;&#x7B26;&#x4E32;</h2>
+<p>&#x5B57;&#x7B26;&#x4E32;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x7C7B;&#x578B;&#x662F; <code>string</code> &#x3002;&#x5BF9;&#x5E94;&#x7684;result &#x5C5E;&#x6027;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;:</p>
+<pre><code>[ &lt;unix_time&gt;, &quot;&lt;string_value&gt;&quot; ]
+</code></pre><h1 id="alertmanagers">Alertmanagers</h1>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4F1A;&#x8FD4;&#x56DE; Prometheus &#x5F53;&#x524D;&#x7684;&#x544A;&#x8B66;&#x7BA1;&#x7406;&#x72B6;&#x6001;&#x3002;&#x6211;&#x60F3;&#x4E86;&#x4E00;&#x9635;&#x5B50;&#xFF0C;&#x6682;&#x65F6;&#x6CA1;&#x60F3;&#x5230;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF0C;&#x5927;&#x5BB6;&#x6709;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x53EF;&#x4EE5;&#x544A;&#x8BC9;&#x6211;&#x4E00;&#x4E0B;&#x3002;</p>
+<pre><code>GET /api/v1/alertmanagers
+</code></pre><p>&#x5728;&#x54CD;&#x5E94;&#x91CC;&#x4F1A;&#x5305;&#x542B;&#x6D3B;&#x8DC3;&#x7684;&#x544A;&#x8B66;&#x7BA1;&#x7406;&#x548C;&#x88AB;&#x9057;&#x5F03;&#x7684;&#x544A;&#x8B66;&#x7BA1;&#x7406;&#x3002;</p>
+<pre><code>$ curl http://localhost:9090/api/v1/alertmanagers
+{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: {
+    &quot;activeAlertmanagers&quot;: [
+      {
+        &quot;url&quot;: &quot;http://127.0.0.1:9090/api/v1/alerts&quot;
+      }
+    ],
+    &quot;droppedAlertmanagers&quot;: [
+      {
+        &quot;url&quot;: &quot;http://127.0.0.1:9093/api/v1/alerts&quot;
+      }
+    ]
+  }
+}
+</code></pre><h1 id="rules">Rules</h1>
+<p>Prometheus &#x7684; <code>/rules</code> &#x63A5;&#x53E3;&#x4F1A;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x52A0;&#x8F7D;&#x7684;&#x5DF2;&#x7ECF;&#x89E6;&#x53D1;&#x7684;&#x544A;&#x8B66;&#x89C4;&#x5219;&#x548C;&#x8BB0;&#x5F55;&#x7684;&#x544A;&#x8B66;&#x89C4;&#x5219;&#x5217;&#x8868;&#x3002;
+&#x6B64;&#x5916;&#xFF0C;&#x5B83;&#x8FD8;&#x8FD4;&#x56DE;&#x7531;&#x6BCF;&#x4E2A;&#x8B66;&#x62A5;&#x89C4;&#x5219;&#x7684; Prometheus &#x5B9E;&#x4F8B;&#x89E6;&#x53D1;&#x7684;&#x5F53;&#x524D;&#x5904;&#x4E8E; <code>active</code> &#x72B6;&#x6001;&#x7684;&#x544A;&#x8B66;&#x3002;</p>
+<p><code>/rules</code> &#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5F53;&#x7136;&#x548C;&#x603B;&#x4F53;&#x7684; API v1 &#x63A5;&#x53E3;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x76F8;&#x6BD4;&#x8FD8;&#x5DEE;&#x4E00;&#x4E9B;&#x3002;</p>
+<pre><code>GET /api/v1/rules
+</code></pre><p>&#x5BF9;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;<code>type</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x5BF9;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x503C;&#xFF0C;&#x5F53; <code>type=alert</code> &#x65F6;&#x53EA;&#x8FD4;&#x56DE;&#x544A;&#x8B66;&#x89C4;&#x5219;&#xFF0C;&#x5F53;<code>type=record</code>&#x65F6;&#xFF0C;&#x53EA;&#x8FD4;&#x56DE;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x3002;&#x5F53;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x6216;&#x8005;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x5BF9;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#x3002;</p>
+<pre><code>$ curl http://localhost:9090/api/v1/rules
+
+{
+    &quot;data&quot;: {
+        &quot;groups&quot;: [
+            {
+                &quot;rules&quot;: [
+                    {
+                        &quot;alerts&quot;: [
+                            {
+                                &quot;activeAt&quot;: &quot;2018-07-04T20:27:12.60602144+02:00&quot;,
+                                &quot;annotations&quot;: {
+                                    &quot;summary&quot;: &quot;High request latency&quot;
+                                },
+                                &quot;labels&quot;: {
+                                    &quot;alertname&quot;: &quot;HighRequestLatency&quot;,
+                                    &quot;severity&quot;: &quot;page&quot;
+                                },
+                                &quot;state&quot;: &quot;firing&quot;,
+                                &quot;value&quot;: &quot;1e+00&quot;
+                            }
+                        ],
+                        &quot;annotations&quot;: {
+                            &quot;summary&quot;: &quot;High request latency&quot;
+                        },
+                        &quot;duration&quot;: 600,
+                        &quot;health&quot;: &quot;ok&quot;,
+                        &quot;labels&quot;: {
+                            &quot;severity&quot;: &quot;page&quot;
+                        },
+                        &quot;name&quot;: &quot;HighRequestLatency&quot;,
+                        &quot;query&quot;: &quot;job:request_latency_seconds:mean5m{job=\&quot;myjob\&quot;} &gt; 0.5&quot;,
+                        &quot;type&quot;: &quot;alerting&quot;
+                    },
+                    {
+                        &quot;health&quot;: &quot;ok&quot;,
+                        &quot;name&quot;: &quot;job:http_inprogress_requests:sum&quot;,
+                        &quot;query&quot;: &quot;sum by (job) (http_inprogress_requests)&quot;,
+                        &quot;type&quot;: &quot;recording&quot;
+                    }
+                ],
+                &quot;file&quot;: &quot;/rules.yaml&quot;,
+                &quot;interval&quot;: 60,
+                &quot;name&quot;: &quot;example&quot;
+            }
+        ]
+    },
+    &quot;status&quot;: &quot;success&quot;
+}
+</code></pre><h1 id="alerts">Alerts</h1>
+<p><code>/alerts</code> &#x63A5;&#x53E3;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6D3B;&#x8DC3;&#x7684;&#x544A;&#x8B66;&#x5217;&#x8868;&#x3002;</p>
+<p>&#x548C; <code>/rules</code> &#x4E00;&#x6837;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684; &#x63A5;&#x53E3;&#xFF0C;&#x7A33;&#x5B9A;&#x6027;&#x8FD8;&#x5728;&#x8FDB;&#x4E00;&#x6B65;&#x9A8C;&#x8BC1;&#x5F53;&#x4E2D;&#x3002;</p>
+<pre><code>GET /api/v1/alerts
+</code></pre><p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code>$ curl http://localhost:9090/api/v1/alerts
+
+{
+    &quot;data&quot;: {
+        &quot;alerts&quot;: [
+            {
+                &quot;activeAt&quot;: &quot;2018-07-04T20:27:12.60602144+02:00&quot;,
+                &quot;annotations&quot;: {},
+                &quot;labels&quot;: {
+                    &quot;alertname&quot;: &quot;my-alert&quot;
+                },
+                &quot;state&quot;: &quot;firing&quot;,
+                &quot;value&quot;: &quot;1e+00&quot;
+            }
+        ]
+    },
+    &quot;status&quot;: &quot;success&quot;
+}
+</code></pre><h1 id="&#x67E5;&#x8BE2;-target-&#x548C;-metric-&#x5143;&#x6570;&#x636E;">&#x67E5;&#x8BE2; Target &#x548C; Metric &#x5143;&#x6570;&#x636E;</h1>
+<h2 id="&#x67E5;&#x8BE2;-target-&#x5143;&#x6570;&#x636E;">&#x67E5;&#x8BE2; Target &#x5143;&#x6570;&#x636E;</h2>
+<p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4F1A;&#x8FD4;&#x56DE; Metric &#x5F53;&#x524D;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x6240;&#x6709; Target &#x7684;&#x5143;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x9A8C;&#x6027;&#x7684;&#x63A5;&#x53E3;&#x3002;</p>
+<pre><code>GET /api/v1/targets/metadata
+</code></pre><p>URL query parameters:</p>
+<ul>
+<li>match_target=<label_selectors>: Label &#x9009;&#x9879;&#xFF0C;&#x4F1A;&#x5339;&#x914D;&#x6307;&#x5B9A;&#x597D;&#x7684; Label&#xFF0C;&#x5982;&#x679C;&#x4E3A;&#x7A7A;&#x4F1A;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x3002;</label_selectors></li>
+<li>metric=<string>: &#x6307;&#x5B9A;&#x8981;&#x67E5;&#x8BE2;&#x7684; Metric &#x540D;&#x5B57;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#x4F1A;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#xFF0C;&#x5EFA;&#x8BAE;&#x6307;&#x5B9A;&#xFF0C;&#x4E0D;&#x7136;&#x592A;&#x6050;&#x6016;&#x3002;</string></li>
+<li>limit=<number>: &#x4E00;&#x4E2A;&#x9650;&#x5236;&#xFF0C;&#x6700;&#x5927;&#x8981;&#x8FD4;&#x56DE;&#x7684; Target &#x7684;&#x6570;&#x91CF;&#x3002;</number></li>
+</ul>
+<pre><code>curl -G http://localhost:9091/api/v1/targets/metadata \
+    --data-urlencode &apos;metric=go_goroutines&apos; \
+    --data-urlencode &apos;match_target={job=&quot;prometheus&quot;}&apos; \
+    --data-urlencode &apos;limit=2&apos;
+{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;target&quot;: {
+        &quot;instance&quot;: &quot;127.0.0.1:9090&quot;,
+        &quot;job&quot;: &quot;prometheus&quot;
+      },
+      &quot;type&quot;: &quot;gauge&quot;,
+      &quot;help&quot;: &quot;Number of goroutines that currently exist.&quot;,
+      &quot;unit&quot;: &quot;&quot;
+    },
+    {
+      &quot;target&quot;: {
+        &quot;instance&quot;: &quot;127.0.0.1:9091&quot;,
+        &quot;job&quot;: &quot;prometheus&quot;
+      },
+      &quot;type&quot;: &quot;gauge&quot;,
+      &quot;help&quot;: &quot;Number of goroutines that currently exist.&quot;,
+      &quot;unit&quot;: &quot;&quot;
+    }
+  ]
+}
+</code></pre><p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4F1A;&#x8FD4;&#x56DE; Target &#x4E2D;&#x6240;&#x6709;&#x5305;&#x542B; <code>instance=&quot;127.0.0.1:9090</code> &#x8FD9;&#x4E2A; Label &#x7684; Metric .</p>
+<pre><code>curl -G http://localhost:9091/api/v1/targets/metadata \
+    --data-urlencode &apos;match_target={instance=&quot;127.0.0.1:9090&quot;}&apos;
+{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: [
+    // ...
+    {
+      &quot;target&quot;: {
+        &quot;instance&quot;: &quot;127.0.0.1:9090&quot;,
+        &quot;job&quot;: &quot;prometheus&quot;
+      },
+      &quot;metric&quot;: &quot;prometheus_treecache_zookeeper_failures_total&quot;,
+      &quot;type&quot;: &quot;counter&quot;,
+      &quot;help&quot;: &quot;The total number of ZooKeeper failures.&quot;,
+      &quot;unit&quot;: &quot;&quot;
+    },
+    {
+      &quot;target&quot;: {
+        &quot;instance&quot;: &quot;127.0.0.1:9090&quot;,
+        &quot;job&quot;: &quot;prometheus&quot;
+      },
+      &quot;metric&quot;: &quot;prometheus_tsdb_reloads_total&quot;,
+      &quot;type&quot;: &quot;counter&quot;,
+      &quot;help&quot;: &quot;Number of times the database reloaded block data from disk.&quot;,
+      &quot;unit&quot;: &quot;&quot;
+    },
+    // ...
+  ]
+}
+</code></pre><h2 id="&#x67E5;&#x8BE2;--metric-&#x5143;&#x6570;&#x636E;">&#x67E5;&#x8BE2;  Metric &#x5143;&#x6570;&#x636E;</h2>
+<p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4F1A;&#x8FD4;&#x56DE; Metric &#x7684;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982; HELP &#x3001;TYPE&#x3001;UNIT &#x7B49;&#x4FE1;&#x606F;&#x3002;
+&#x5982;&#x679C;&#x6709;&#x7F3A;&#x5931;&#x7684;&#x4F1A;&#x7559;&#x7A7A;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x4E2A;&#x5B9E;&#x9A8C;&#x6027;&#x7684;&#x63A5;&#x53E3;&#x3002;&#x4E0D;&#x8FC7;&#x770B;&#x8D77;&#x6765;&#x6BD4;&#x8F83;&#x6709;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x5728;&#x5C55;&#x793A;&#x9875;&#x9762;&#x4E2D;&#x5C55;&#x793A;&#x67D0;&#x4E2A;&#x6307;&#x6807;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x628A;&#x4ED6;&#x7684; HELP &#x4FE1;&#x606F;&#x62FF;&#x51FA;&#x6765;&#x76F4;&#x63A5;&#x5C55;&#x793A;&#x3002;</p>
+<pre><code>GET /api/v1/metadata
+</code></pre><p>URL query parameters:</p>
+<ul>
+<li>limit=<number>: &#x8981;&#x8FD4;&#x56DE;&#x7684; Metric &#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;.</number></li>
+<li>metric=<string>: &#x8981;&#x67E5;&#x8BE2;&#x7684; Metric &#x540D;&#x5B57;&#xFF0C;&#x5982;&#x679C;&#x4E3A;&#x7A7A;&#x8FD4;&#x56DE;&#x6240;&#x6709;.</string></li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x7531;&#x4E8E;&#x53EA;&#x6307;&#x5B9A;&#x4E86; <code>limit</code> &#x53C2;&#x6570;&#xFF0C;&#x6240;&#x6709;&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x6570;&#x91CF;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#xFF0C;&#x83B7;&#x53D6;&#x5230;&#x4E86; <code>cortex_ring_tokens</code> <code>http_requests_total</code> &#x4E24;&#x4E2A; Metric &#x7684;&#x5143;&#x6570;&#x636E;&#x3002;<code>http_requests_total</code> &#x6709;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x592A;&#x6E05;&#x695A;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x4E00;&#x6837;&#x7684;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x3002;&#x6BCF;&#x4E2A;&#x6307;&#x6807;&#x4F1A;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A; HELP &#x4FE1;&#x606F;&#xFF0C;&#x56E0;&#x4E3A; Prometheus &#x89C4;&#x5B9A;&#x4E86;</p>
+<pre><code>
+curl -G http://localhost:9090/api/v1/metadata?limit=2
+
+{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: {
+    &quot;cortex_ring_tokens&quot;: [
+      {
+        &quot;type&quot;: &quot;gauge&quot;,
+        &quot;help&quot;: &quot;Number of tokens in the ring&quot;,
+        &quot;unit&quot;: &quot;&quot;
+      }
+    ],
+    &quot;http_requests_total&quot;: [
+      {
+        &quot;type&quot;: &quot;counter&quot;,
+        &quot;help&quot;: &quot;Number of HTTP requests&quot;,
+        &quot;unit&quot;: &quot;&quot;
+      },
+      {
+        &quot;type&quot;: &quot;counter&quot;,
+        &quot;help&quot;: &quot;Amount of HTTP requests&quot;,
+        &quot;unit&quot;: &quot;&quot;
+      }
+    ]
+  }
+}
+</code></pre><p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4F1A;&#x8FD4;&#x56DE; Metric <code>http_requests_total</code> &#x7684;&#x5143;&#x6570;&#x636E;&#x3002;</p>
+<pre><code>curl -G http://localhost:9090/api/v1/metadata?metric=http_requests_total
+
+{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;data&quot;: {
+    &quot;http_requests_total&quot;: [
+      {
+        &quot;type&quot;: &quot;counter&quot;,
+        &quot;help&quot;: &quot;Number of HTTP requests&quot;,
+        &quot;unit&quot;: &quot;&quot;
+      },
+      {
+        &quot;type&quot;: &quot;counter&quot;,
+        &quot;help&quot;: &quot;Amount of HTTP requests&quot;,
+        &quot;unit&quot;: &quot;&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="6.5-querying-functions-examples.html" class="navigation navigation-prev " aria-label="Previous page: 6.5 查询示例">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="6.7-querying-http-admin-api.html" class="navigation navigation-next " aria-label="Next page: 6.7 管理员 HTTP API 查询">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6.6 HTTP API 查询","level":"3.4.6","depth":2,"next":{"title":"6.7 管理员 HTTP API 查询","level":"3.4.7","depth":2,"path":"chapter06-PromQL/6.7-querying-http-admin-api.md","ref":"chapter06-PromQL/6.7-querying-http-admin-api.md","articles":[]},"previous":{"title":"6.5 查询示例","level":"3.4.5","depth":2,"path":"chapter06-PromQL/6.5-querying-functions-examples.md","ref":"chapter06-PromQL/6.5-querying-functions-examples.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter06-PromQL/6.6-querying-http-api.md","mtime":"2021-11-20T15:15:59.820Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-20T15:25:02.774Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
