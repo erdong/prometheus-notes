@@ -516,7 +516,85 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.9" data-path="END.html">
+        <li class="chapter " data-level="3.1.9" data-path="3.9-kube-state-metrics.html">
+            
+                <a href="3.9-kube-state-metrics.html">
+            
+                    
+                    3.9 Kubernetes 集群数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="3.10-grafana-metrics.html">
+            
+                <a href="3.10-grafana-metrics.html">
+            
+                    
+                    3.10 Grafana 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="3.11-ping-exporter.html">
+            
+                <a href="3.11-ping-exporter.html">
+            
+                    
+                    3.11 Ping 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.12" data-path="3.12-kafka-exporter.html">
+            
+                <a href="3.12-kafka-exporter.html">
+            
+                    
+                    3.12 Kafka 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.13" data-path="3.13-consul-exporter.html">
+            
+                <a href="3.13-consul-exporter.html">
+            
+                    
+                    3.13 Consul 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.14" data-path="3.17-elasticsearch-exporter.html">
+            
+                <a href="3.17-elasticsearch-exporter.html">
+            
+                    
+                    3.17 Elasticsearch 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.15" data-path="END.html">
             
                 <a href="END.html">
             
@@ -1447,7 +1525,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="ovirt-exporter">oVirt Exporter</h1>
-<p>Ovirt &#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; x86 &#x67B6;&#x6784;&#x4E0A;&#x7684; KVM &#x865A;&#x62DF;&#x5316;&#x6280;&#x672F;&#x7684;&#x5F00;&#x6E90; IaaS &#x4E91;&#x670D;&#x52A1;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x5728;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;&#x4E0A;&#x5B83;&#x4F7F;&#x7528;&#x4E86; Node/Engine &#x5206;&#x79BB;&#x7ED3;&#x6784;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x529F;&#x80FD;&#x7684;&#x5212;&#x5206;&#x4E0E;&#x7BA1;&#x7406;&#x3002;</p>
+<p>oVirt &#x662F;&#x4E00;&#x6B3E;&#x514D;&#x8D39;&#x5F00;&#x6E90;&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6;&#xFF0C;&#x662F; RedHat &#x5546;&#x4E1A;&#x7248;&#x672C;&#x865A;&#x62DF;&#x5316;&#x8F6F;&#x4EF6; RHEV &#x7684;&#x5F00;&#x6E90;&#x7248;&#x672C;&#x3002;</p>
+<p>oVirt &#x57FA;&#x4E8E; kvm&#xFF0C;&#x5E76;&#x6574;&#x5408;&#x4F7F;&#x7528;&#x4E86; libvirt&#x3001;gluster&#x3001;patternfly&#x3001;ansible &#x7B49;&#x4E00;&#x7CFB;&#x5217;&#x4F18;&#x79C0;&#x7684;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;&#xFF0C;oVirt &#x7684;&#x5B9A;&#x4F4D;&#x662F;&#x66FF;&#x4EE3; vmware vsphere&#xFF0C;oVirt &#x76EE;&#x524D;&#x5DF2;&#x7ECF;&#x6210;&#x4E3A;&#x4E86;&#x4F01;&#x4E1A;&#x865A;&#x62DF;&#x5316;&#x73AF;&#x5883;&#x53EF;&#x9009;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x53E6;&#x5916;&#x76F8;&#x6BD4; OpenStack &#x7684;&#x5E9E;&#x5927;&#x548C;&#x590D;&#x6742;&#xFF0C;oVirt &#x5728;&#x4F01;&#x4E1A;&#x79C1;&#x6709;&#x4E91;&#x5EFA;&#x8BBE;&#x4E2D;&#x5177;&#x5907;&#x90E8;&#x7F72;&#x548C;&#x7EF4;&#x62A4;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x7684;&#x4F18;&#x52BF;&#x3002;</p>
+<p>oVirt &#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; x86 &#x67B6;&#x6784;&#x4E0A;&#x7684; KVM &#x865A;&#x62DF;&#x5316;&#x6280;&#x672F;&#x7684;&#x5F00;&#x6E90; IaaS &#x4E91;&#x670D;&#x52A1;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x5728;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;&#x4E0A;&#x5B83;&#x4F7F;&#x7528;&#x4E86; Node/Engine &#x5206;&#x79BB;&#x7ED3;&#x6784;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x529F;&#x80FD;&#x7684;&#x5212;&#x5206;&#x4E0E;&#x7BA1;&#x7406;&#x3002;</p>
 <p>oVirt &#x53EF;&#x4EE5;&#x901A;&#x8FC7; Prometheus &#x6765;&#x76D1;&#x63A7;&#x7EC4;&#x4EF6;&#x7684;&#x8FD0;&#x884C;&#xFF0C;&#x4F7F;&#x7528;&#x7684; exporter &#x4E3A; ovirt_exporter &#xFF0C;GitHub &#x5730;&#x5740;&#x5982;&#x4E0B;&#xFF1A;</p>
 <p><a href="https://github.com/czerwonk/ovirt_exporter" target="_blank">https://github.com/czerwonk/ovirt_exporter</a></p>
 <p>&#x53EF;&#x4EE5;&#x5728; GitHub &#x4E0A;&#x4E0B;&#x8F7D;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF0C;&#x4E0B;&#x8F7D;&#x597D;&#x4EE5;&#x540E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x542F;&#x52A8;&#x811A;&#x672C;&#x6765;&#x542F;&#x52A8;&#x3002;&#x5B89;&#x88C5;&#x5B9E;&#x9645;&#x914D;&#x7F6E;&#x4FEE;&#x6539;&#x90E8;&#x7F72;&#x8DEF;&#x5F84;&#x3001;URL&#x3001;&#x8D26;&#x53F7;&#x548C;&#x5BC6;&#x7801;&#x3002;</p>
@@ -1509,7 +1589,7 @@ WantedBy=multi-user.target
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.5 oVirt信息采集","level":"3.1.5","depth":2,"next":{"title":"3.6 BlackBox 网络探测","level":"3.1.6","depth":2,"path":"chapter03-Exporter/3.6-blackbox-exporter.md","ref":"chapter03-Exporter/3.6-blackbox-exporter.md","articles":[]},"previous":{"title":"3.4 容器信息采集","level":"3.1.4","depth":2,"path":"chapter03-Exporter/3.4-cadvisor.md","ref":"chapter03-Exporter/3.4-cadvisor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter03-Exporter/3.5-ovirt-exporter.md","mtime":"2021-08-10T13:07:43.037Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-20T15:31:39.578Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.5 oVirt信息采集","level":"3.1.5","depth":2,"next":{"title":"3.6 BlackBox 网络探测","level":"3.1.6","depth":2,"path":"chapter03-Exporter/3.6-blackbox-exporter.md","ref":"chapter03-Exporter/3.6-blackbox-exporter.md","articles":[]},"previous":{"title":"3.4 容器信息采集","level":"3.1.4","depth":2,"path":"chapter03-Exporter/3.4-cadvisor.md","ref":"chapter03-Exporter/3.4-cadvisor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter03-Exporter/3.5-ovirt-exporter.md","mtime":"2021-11-28T08:34:27.651Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-28T08:34:44.916Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
