@@ -63,7 +63,6 @@
     * [3.25 Kong 数据采集](chapter03-Exporter/3.25-kong-metrics.md)
     * [3.26 HAProxy 数据采集](chapter03-Exporter/3.26-haproxy-exporter.md)
     * [3.27 Statsd 数据采集](chapter03-Exporter/3.27-statsd-exporter.md)
-
     * [小结](chapter03-Exporter/END.md)
 * [第四章 可视化 todo](chapter04-Visualization/README.md)
     * [4.1 原生可视化界面]()
