@@ -581,7 +581,46 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.14" data-path="3.17-elasticsearch-exporter.html">
+        <li class="chapter " data-level="3.1.14" data-path="3.14-mysql-server-exporter.html">
+            
+                <a href="3.14-mysql-server-exporter.html">
+            
+                    
+                    3.14 MySQL 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.15" data-path="3.15-postgresql-exporter.html">
+            
+                <a href="3.15-postgresql-exporter.html">
+            
+                    
+                    3.15 PostgreSQL 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.16" data-path="3.16-mssql-server-exporter.html">
+            
+                <a href="3.16-mssql-server-exporter.html">
+            
+                    
+                    3.16 Microsoft SQL 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.17" data-path="3.17-elasticsearch-exporter.html">
             
                 <a href="3.17-elasticsearch-exporter.html">
             
@@ -594,7 +633,137 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.15" data-path="END.html">
+        <li class="chapter " data-level="3.1.18" data-path="3.18-jmx-exporter.html">
+            
+                <a href="3.18-jmx-exporter.html">
+            
+                    
+                    3.18 JMX 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.19" data-path="3.19-graphite-exporter.html">
+            
+                <a href="3.19-graphite-exporter.html">
+            
+                    
+                    3.19 Graphite 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.20" data-path="3.20-collectd-exporter.html">
+            
+                <a href="3.20-collectd-exporter.html">
+            
+                    
+                    3.20 Collectd 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.21" data-path="3.21-lustre-exporter.html">
+            
+                <a href="3.21-lustre-exporter.html">
+            
+                    
+                    3.21 Lustre 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.22" data-path="3.22-ceph-exporter.html">
+            
+                <a href="3.22-ceph-exporter.html">
+            
+                    
+                    3.22 Ceph 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.23" data-path="3.23-infiniband-exporter.html">
+            
+                <a href="3.23-infiniband-exporter.html">
+            
+                    
+                    3.23 Infiniband 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.24" data-path="3.24-slurm-exporter.html">
+            
+                <a href="3.24-slurm-exporter.html">
+            
+                    
+                    3.24 Slurm 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.25" data-path="3.25-kong-metrics.html">
+            
+                <a href="3.25-kong-metrics.html">
+            
+                    
+                    3.25 Kong 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.26" data-path="3.26-haproxy-exporter.html">
+            
+                <a href="3.26-haproxy-exporter.html">
+            
+                    
+                    3.26 HAProxy 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.27" data-path="3.27-statsd-exporter.html">
+            
+                <a href="3.27-statsd-exporter.html">
+            
+                    
+                    3.27 Statsd 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.28" data-path="END.html">
             
                 <a href="END.html">
             
@@ -1670,6 +1839,7 @@ basic_auth_users:
 </code></pre><p>&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x914D;&#x7F6E;&#x53EF;&#x4EE5;&#x53C2;&#x8003; <a href="https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md" target="_blank">Web configuration</a></p>
 <h1 id="&#x5EFA;&#x8BAE;">&#x5EFA;&#x8BAE;</h1>
 <p>&#x5728;&#x90E8;&#x7F72;&#x7684;&#x65F6;&#x5019;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; MSI &#x6765;&#x90E8;&#x7F72;&#x65B9;&#x4FBF;&#x4E00;&#x4E9B;&#xFF0C;&#x53E6;&#x5916;&#x5EFA;&#x8BAE;&#x6253;&#x5F00; textfile&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528; <code>TEXTFILE_DIR</code> &#x6216;&#x8005; <code>--collector.textfile.directory</code> &#x53C2;&#x6570;&#x6307;&#x5B9A;&#x597D;&#x76EE;&#x5F55;&#xFF0C;&#x8FD9;&#x6837;&#x65B9;&#x4FBF;&#x540E;&#x671F;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x6807;&#x7684;&#x91C7;&#x96C6;&#x3002;&#x53E6;&#x5916;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x542F;&#x52A8;&#xFF0C;&#x8FD9;&#x6837;&#x540E;&#x671F;&#x5728;&#x589E;&#x52A0;&#x76D1;&#x63A7;&#x9879;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x91CD;&#x65B0;&#x4FEE;&#x6539; Windows &#x670D;&#x52A1;&#x3002;</p>
+<p><a href="3.2-node-exporter.html">&#x2190; Node Exporter</a>| <a href="3.3-windows-exporter.html">Windows Exporter</a> | <a href="3.4-cadvisor.html">cAdvisor &#x5BB9;&#x5668;&#x4FE1;&#x606F;&#x91C7;&#x96C6; &#x2192;</a></p>
 
                                 
                                 </section>
@@ -1713,7 +1883,7 @@ basic_auth_users:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.3 Windows 主机信息采集","level":"3.1.3","depth":2,"next":{"title":"3.4 容器信息采集","level":"3.1.4","depth":2,"path":"chapter03-Exporter/3.4-cadvisor.md","ref":"chapter03-Exporter/3.4-cadvisor.md","articles":[]},"previous":{"title":"3.2 Linux 主机信息采集","level":"3.1.2","depth":2,"path":"chapter03-Exporter/3.2-node-exporter.md","ref":"chapter03-Exporter/3.2-node-exporter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter03-Exporter/3.3-windows-exporter.md","mtime":"2021-11-20T15:15:59.819Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-28T08:59:00.523Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.3 Windows 主机信息采集","level":"3.1.3","depth":2,"next":{"title":"3.4 容器信息采集","level":"3.1.4","depth":2,"path":"chapter03-Exporter/3.4-cadvisor.md","ref":"chapter03-Exporter/3.4-cadvisor.md","articles":[]},"previous":{"title":"3.2 Linux 主机信息采集","level":"3.1.2","depth":2,"path":"chapter03-Exporter/3.2-node-exporter.md","ref":"chapter03-Exporter/3.2-node-exporter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter03-Exporter/3.3-windows-exporter.md","mtime":"2021-12-11T14:11:49.548Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-11T14:13:00.266Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
