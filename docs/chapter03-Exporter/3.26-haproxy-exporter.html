@@ -763,7 +763,124 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.28" data-path="END.html">
+        <li class="chapter " data-level="3.1.28" data-path="3.28-memcached-exporter.html">
+            
+                <a href="3.28-memcached-exporter.html">
+            
+                    
+                    3.28 Memcached 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.29" data-path="3.29-rabbitmq-exporter.html">
+            
+                <a href="3.29-rabbitmq-exporter.html">
+            
+                    
+                    3.29 RabbitMQ 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.30" data-path="3.30-redis-exporter.html">
+            
+                <a href="3.30-redis-exporter.html">
+            
+                    
+                    3.30 Redis 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.31" data-path="3.31-ipmi-exporter.html">
+            
+                <a href="3.31-ipmi-exporter.html">
+            
+                    
+                    3.31 IPMI 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.32" data-path="3.32-proxysql-exporter.html">
+            
+                <a href="3.32-proxysql-exporter.html">
+            
+                    
+                    3.32 ProxySQL 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.33" data-path="3.33-varnish-exporter.html">
+            
+                <a href="3.33-varnish-exporter.html">
+            
+                    
+                    3.33 Varnish 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.34" data-path="3.34-json-exporter.html">
+            
+                <a href="3.34-json-exporter.html">
+            
+                    
+                    3.34 JSON 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.35" data-path="3.25-bind-exporter.md">
+            
+                <span>
+            
+                    
+                    3.35 BIND 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.36" data-path="3.36-telegraf-exporter.md">
+            
+                <span>
+            
+                    
+                    3.36 Telegraf 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.37" data-path="END.html">
             
                 <a href="END.html">
             
@@ -1164,9 +1281,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.7" data-path="../chapter08-ClusterAndHA/8.7-thanos-query.md">
+        <li class="chapter " data-level="4.2.7" data-path="../chapter08-ClusterAndHA/8.7-thanos-query.html">
             
-                <span>
+                <a href="../chapter08-ClusterAndHA/8.7-thanos-query.html">
             
                     
                     8.7 Thanos query
@@ -1177,9 +1294,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.8" data-path="../chapter08-ClusterAndHA/8.8-thanos-sidecar.md">
+        <li class="chapter " data-level="4.2.8" data-path="../chapter08-ClusterAndHA/8.8-thanos-sidecar.html">
             
-                <span>
+                <a href="../chapter08-ClusterAndHA/8.8-thanos-sidecar.html">
             
                     
                     8.8 Thanos sidecar
@@ -1190,9 +1307,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.9" data-path="../chapter08-ClusterAndHA/8.9-thanos-store.md">
+        <li class="chapter " data-level="4.2.9" data-path="../chapter08-ClusterAndHA/8.9-thanos-store.html">
             
-                <span>
+                <a href="../chapter08-ClusterAndHA/8.9-thanos-store.html">
             
                     
                     8.9 Thanos store
@@ -1216,9 +1333,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.11" data-path="../chapter08-ClusterAndHA/8.11-thanos-compactor.html">
+        <li class="chapter " data-level="4.2.11" data-path="../chapter08-ClusterAndHA/8.11-thanos-compactor.md">
             
-                <a href="../chapter08-ClusterAndHA/8.11-thanos-compactor.html">
+                <span>
             
                     
                     8.11 Thanos Compactor
@@ -1693,7 +1810,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="haproxy-exporter">HAProxy Exporter</h1>
+<p>HAProxy Exporter &#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x6293;&#x53D6;HAProxy&#x7EDF;&#x8BA1;&#x6570;&#x636E;&#x5E76;&#x901A;&#x8FC7;HTTP&#x5BFC;&#x51FA;&#x5B83;&#x4EEC;&#x4F9B;Prometheus&#x4F7F;&#x7528;&#x3002;&#x5B98;&#x65B9;&#x5730;&#x5740;&#x662F; <a href="https://github.com/prometheus/haproxy_exporter" target="_blank">https://github.com/prometheus/haproxy_exporter</a> &#xFF0C;&#x5F53;&#x524D;&#x6700;&#x65B0;&#x7248;&#x672C;&#x662F; v0.13.0 &#xFF0C;&#x53D1;&#x5E03;&#x65F6;&#x95F4;&#x662F; 2021 &#x5E74;11 &#x6708; 26 &#x65E5;&#x3002;</p>
+<p>&#x81EA; HAProxy 2.0.0 &#x4EE5;&#x6765;&#xFF0C;&#x4ED6;&#x7684;&#x5B98;&#x65B9;&#x6E90;&#x4EE3;&#x7801;&#x5305;&#x62EC;&#x4E00;&#x4E2A; Prometheus &#x5BFC;&#x51FA;&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x6784;&#x5EFA;&#x671F;&#x95F4;&#x7528;&#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x6784;&#x5EFA;&#x5230;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x4E0D;&#x9700;&#x8981;&#x5BFC;&#x51FA;&#x5668;&#x7684;Prometheus&#x7AEF;&#x70B9;&#x3002;</p>
+<h1 id="&#x5B89;&#x88C5;&#x8FD0;&#x884C;">&#x5B89;&#x88C5;&#x8FD0;&#x884C;</h1>
+<p>HAProxy Exporter &#x8FD0;&#x884C;&#x4E5F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x3002;</p>
+<pre><code>./haproxy_exporter [flags]
+</code></pre><p>&#x6216;&#x8005;&#x4F7F;&#x7528; Docker &#x5BB9;&#x5668;&#x6765;&#x8FD0;&#x884C; </p>
+<pre><code>docker run -p 9101:9101 quay.io/prometheus/haproxy-exporter:v0.13.0 --haproxy.scrape-uri=&quot;http://user:pass@haproxy.example.com/haproxy?stats;csv&quot;
+</code></pre><h1 id="&#x4F7F;&#x7528;">&#x4F7F;&#x7528;</h1>
+<p>&#x5982;&#x679C;&#x4F60;&#x8BBE;&#x7F6E;&#x4E86; <code>stats uri /baz</code> &#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>--haproxy.scrape-uri</code> &#x53C2;&#x6570;&#x7ED9; HAProxy &#x7EDF;&#x8BA1;&#x7AEF;&#x53E3;&#x6307;&#x5B9A;&#x81EA;&#x5B9A;&#x4E49;&#x7684; URL &#x3002;</p>
+<pre><code>haproxy_exporter --haproxy.scrape-uri=&quot;http://localhost:5000/baz?stats;csv&quot;
+</code></pre><p>&#x6216;&#x8005;&#x83B7;&#x53D6;&#x8FDC;&#x7AEF;&#x7684; HAProxy &#xFF0C;</p>
+<pre><code>haproxy_exporter --haproxy.scrape-uri=&quot;http://haproxy.example.com/haproxy?stats;csv&quot;
+</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6700;&#x540E;&#x7684; <code>:csv</code> &#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x6574;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x503C;&#x9700;&#x8981;&#x7528;&#x53CC;&#x5F15;&#x53F7;&#x5F15;&#x8D77;&#x6765;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x7EDF;&#x8BA1;&#x63A5;&#x53E3;&#x6709; basic auth&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x6307;&#x5B9A;</p>
+<pre><code>haproxy_exporter  --haproxy.scrape-uri=&quot;http://user:pass@haproxy.example.com/haproxy?stats;csv&quot;
+</code></pre><p>&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x83B7;&#x53D6;&#x6307;&#x6807;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528; HTTPS &#x7684; URL &#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x542F;&#x7528;&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>--no-haproxy.ssl-verify</code> &#x53C2;&#x6570;&#x5173;&#x6389;&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#x3002;</p>
+<pre><code>haproxy_exporter --no-haproxy.ssl-verify --haproxy.scrape-uri=&quot;https://haproxy.example.com/haproxy?stats;csv&quot;
+</code></pre><p>&#x9664;&#x4E86;&#x4F7F;&#x7528; HTTP &#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; stats socket &#x3002;&#x5728; HAProxy &#x4E2D;&#x542F;&#x7528; stats socket &#x5982;&#x4E0B;:</p>
+<pre><code>stats socket /run/haproxy/admin.sock mode 660 level admin
+</code></pre><p>&#x914D;&#x7F6E;&#x7684;&#x547D;&#x4EE4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>haproxy_exporter --haproxy.scrape-uri=unix:/run/haproxy/admin.sock
+</code></pre><p>HAProxy Exporter &#x4E5F;&#x652F;&#x6301;  TLS &#x548C; basic authentication &#xFF0C;&#x4F7F;&#x7528; <code>--web.config.file</code> &#x53C2;&#x6570;&#xFF0C;&#x683C;&#x5F0F;&#x63CF;&#x8FF0;&#x5728;  exporter-toolkit &#x4ED3;&#x5E93;&#x91CC;&#x3002;</p>
+<h1 id="haproxy-&#x6784;&#x5EFA;&#x76D1;&#x63A7;&#x63D2;&#x4EF6;">HAProxy &#x6784;&#x5EFA;&#x76D1;&#x63A7;&#x63D2;&#x4EF6;</h1>
+<p>&#x5728; HAProxy 2.0.0&#x7248;&#x672C;&#x4E2D;&#xFF0C;&#x5305;&#x542B;&#x4E00;&#x4E2A;Prometheus &#x76D1;&#x63A7;&#x6570;&#x636E;&#x5BFC;&#x51FA;&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6784;&#x5EFA;&#x65F6;&#x5C06;&#x5176;&#x6784;&#x5EFA;&#x5230;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x8FD9;&#x662F;&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53D6;&#x51B3;&#x4E8E;HAProxy&#x7684;&#x7248;&#x672C;:</p>
+<p>&#x5728; HAProxy 2.0.x - 2.3.x &#xFF0C;&#x4F7F;&#x7528; EXTRA_OBJS &#x53C2;&#x6570;&#x6765;&#x8FDB;&#x884C; make &#x6784;&#x5EFA;&#xFF1A;</p>
+<pre><code>make TARGET=linux-glibc EXTRA_OBJS=&quot;contrib/prometheus-exporter/service-prometheus.o&quot;
+</code></pre><p>&#x5728; HAProxy 2.4.x &#x7248;&#x672C; &#xFF0C;&#x4F7F;&#x7528; <code>USE_PROMEX</code> &#x53C2;&#x6570;&#x6765;&#x8FDB;&#x884C; make &#x6784;&#x5EFA;&#xFF1A;</p>
+<pre><code>make TARGET=linux-glibc USE_PROMEX=1
+</code></pre><p>&#x6784;&#x5EFA;&#x6210;&#x529F;&#x4EE5;&#x540E;&#xFF0C;&#x63A5;&#x53EF;&#x4EE5;&#x5728; HAProxy &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;  haproxy.cfg &#x4E2D;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x6765;&#x914D;&#x7F6E;&#x6253;&#x5F00;&#x76D1;&#x63A7;&#x6570;&#x636E;&#x5BFC;&#x51FA;&#x4E86;</p>
+<pre><code>frontend stats
+    bind *:8404
+    http-request use-service prometheus-exporter if { path /metrics }
+    stats enable
+    stats uri /stats
+    stats refresh 10s
+</code></pre><h1 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h1>
+<p>HAProxy &#x63D0;&#x4F9B;&#x4E86; 2 &#x79CD;&#x66B4;&#x9732;&#x76D1;&#x63A7;&#x6570;&#x636E;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x91C7;&#x7528;&#x54EA;&#x4E00;&#x79CD;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x6765;&#x8FDB;&#x884C;&#x9009;&#x62E9;&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -1736,7 +1891,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.26 HAProxy 数据采集","level":"3.1.26","depth":2,"next":{"title":"3.27 Statsd 数据采集","level":"3.1.27","depth":2,"path":"chapter03-Exporter/3.27-statsd-exporter.md","ref":"chapter03-Exporter/3.27-statsd-exporter.md","articles":[]},"previous":{"title":"3.25 Kong 数据采集","level":"3.1.25","depth":2,"path":"chapter03-Exporter/3.25-kong-metrics.md","ref":"chapter03-Exporter/3.25-kong-metrics.md","articles":[]},"dir":"neutral"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter03-Exporter/3.26-haproxy-exporter.md","mtime":"2021-12-11T14:11:49.548Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-11T14:18:29.908Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.26 HAProxy 数据采集","level":"3.1.26","depth":2,"next":{"title":"3.27 Statsd 数据采集","level":"3.1.27","depth":2,"path":"chapter03-Exporter/3.27-statsd-exporter.md","ref":"chapter03-Exporter/3.27-statsd-exporter.md","articles":[]},"previous":{"title":"3.25 Kong 数据采集","level":"3.1.25","depth":2,"path":"chapter03-Exporter/3.25-kong-metrics.md","ref":"chapter03-Exporter/3.25-kong-metrics.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter03-Exporter/3.26-haproxy-exporter.md","mtime":"2022-01-09T12:50:32.746Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-09T12:53:55.295Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
