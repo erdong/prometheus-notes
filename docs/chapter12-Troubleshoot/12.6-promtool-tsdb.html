@@ -1,0 +1,2373 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>12.6 Promtool TSDB 功能 · Prometheus Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Er Dong <erdong@mail.erdong.site>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="12.7-amtool-alert.html" />
+    
+    
+    <link rel="prev" href="12.5-promtool-debug.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://erdong.site" target="_blank" class="custom-link">Erdong's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    [前言]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter00/0.1-release.html">
+            
+                <a href="../chapter00/0.1-release.html">
+            
+                    
+                    发行注记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter00/0.2-contribution.html">
+            
+                <a href="../chapter00/0.2-contribution.html">
+            
+                    
+                    贡献指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅰ 基础篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../chapter01-Basic/">
+            
+                <a href="../chapter01-Basic/">
+            
+                    
+                    第一章 认识 Prometheus
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../chapter01-Basic/1.1-prometheus-introduction.html">
+            
+                <a href="../chapter01-Basic/1.1-prometheus-introduction.html">
+            
+                    
+                    1.1 Prometheus 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../chapter01-Basic/1.2-prometheus-install.html">
+            
+                <a href="../chapter01-Basic/1.2-prometheus-install.html">
+            
+                    
+                    1.2 Prometheus 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../chapter01-Basic/1.3-tsdb-comparison.html">
+            
+                <a href="../chapter01-Basic/1.3-tsdb-comparison.html">
+            
+                    
+                    1.3 时序数据库为什么选 Prometheus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../chapter01-Basic/1.4-glossary.html">
+            
+                <a href="../chapter01-Basic/1.4-glossary.html">
+            
+                    
+                    1.4 术语解释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../chapter01-Basic/1.5-data-model.html">
+            
+                <a href="../chapter01-Basic/1.5-data-model.html">
+            
+                    
+                    1.5 数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../chapter01-Basic/1.6-metric-types.html">
+            
+                <a href="../chapter01-Basic/1.6-metric-types.html">
+            
+                    
+                    1.6 Metric 类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../chapter01-Basic/1.7-job-and-instances.html">
+            
+                <a href="../chapter01-Basic/1.7-job-and-instances.html">
+            
+                    
+                    1.7 Job 和 Instances
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../chapter01-Basic/END.html">
+            
+                <a href="../chapter01-Basic/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../chapter02-TimeSeriesDB/">
+            
+                <a href="../chapter02-TimeSeriesDB/">
+            
+                    
+                    第二章 Prometehus 数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../chapter02-TimeSeriesDB/2.1-getting-started.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.1-getting-started.html">
+            
+                    
+                    2.1 开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../chapter02-TimeSeriesDB/2.2-installation.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.2-installation.html">
+            
+                    
+                    2.2 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../chapter02-TimeSeriesDB/2.3-configuration.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.3-configuration.html">
+            
+                    
+                    2.3 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../chapter02-TimeSeriesDB/2.11-storage.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.11-storage.html">
+            
+                    
+                    2.11 存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../chapter02-TimeSeriesDB/2.13-kafka-adapter.html">
+            
+                <a href="../chapter02-TimeSeriesDB/2.13-kafka-adapter.html">
+            
+                    
+                    2.13 Kafka Adapter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../chapter02-TimeSeriesDB/END.html">
+            
+                <a href="../chapter02-TimeSeriesDB/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part ⅠⅠ 进阶篇</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../chapter03-Exporter/">
+            
+                <a href="../chapter03-Exporter/">
+            
+                    
+                    第三章 采集器 
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../chapter03-Exporter/3.1-pushgateway.html">
+            
+                <a href="../chapter03-Exporter/3.1-pushgateway.html">
+            
+                    
+                    3.1 PushGateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../chapter03-Exporter/3.2-node-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.2-node-exporter.html">
+            
+                    
+                    3.2 Linux 主机信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../chapter03-Exporter/3.3-windows-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.3-windows-exporter.html">
+            
+                    
+                    3.3 Windows 主机信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../chapter03-Exporter/3.4-cadvisor.html">
+            
+                <a href="../chapter03-Exporter/3.4-cadvisor.html">
+            
+                    
+                    3.4 容器信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../chapter03-Exporter/3.5-ovirt-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.5-ovirt-exporter.html">
+            
+                    
+                    3.5 oVirt信息采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../chapter03-Exporter/3.6-blackbox-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.6-blackbox-exporter.html">
+            
+                    
+                    3.6 BlackBox 网络探测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../chapter03-Exporter/3.7-snmp-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.7-snmp-exporter.html">
+            
+                    
+                    3.7 SNMP 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../chapter03-Exporter/3.8-clickhouse-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.8-clickhouse-exporter.html">
+            
+                    
+                    3.8 ClickHouse 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../chapter03-Exporter/3.9-kube-state-metrics.html">
+            
+                <a href="../chapter03-Exporter/3.9-kube-state-metrics.html">
+            
+                    
+                    3.9 Kubernetes 集群数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="../chapter03-Exporter/3.10-grafana-metrics.html">
+            
+                <a href="../chapter03-Exporter/3.10-grafana-metrics.html">
+            
+                    
+                    3.10 Grafana 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="../chapter03-Exporter/3.11-ping-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.11-ping-exporter.html">
+            
+                    
+                    3.11 Ping 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.12" data-path="../chapter03-Exporter/3.12-kafka-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.12-kafka-exporter.html">
+            
+                    
+                    3.12 Kafka 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.13" data-path="../chapter03-Exporter/3.13-consul-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.13-consul-exporter.html">
+            
+                    
+                    3.13 Consul 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.14" data-path="../chapter03-Exporter/3.14-mysql-server-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.14-mysql-server-exporter.html">
+            
+                    
+                    3.14 MySQL 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.15" data-path="../chapter03-Exporter/3.15-postgresql-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.15-postgresql-exporter.html">
+            
+                    
+                    3.15 PostgreSQL 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.16" data-path="../chapter03-Exporter/3.16-mssql-server-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.16-mssql-server-exporter.html">
+            
+                    
+                    3.16 Microsoft SQL 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.17" data-path="../chapter03-Exporter/3.17-elasticsearch-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.17-elasticsearch-exporter.html">
+            
+                    
+                    3.17 Elasticsearch 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.18" data-path="../chapter03-Exporter/3.18-jmx-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.18-jmx-exporter.html">
+            
+                    
+                    3.18 JMX 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.19" data-path="../chapter03-Exporter/3.19-graphite-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.19-graphite-exporter.html">
+            
+                    
+                    3.19 Graphite 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.20" data-path="../chapter03-Exporter/3.20-collectd-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.20-collectd-exporter.html">
+            
+                    
+                    3.20 Collectd 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.21" data-path="../chapter03-Exporter/3.21-lustre-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.21-lustre-exporter.html">
+            
+                    
+                    3.21 Lustre 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.22" data-path="../chapter03-Exporter/3.22-ceph-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.22-ceph-exporter.html">
+            
+                    
+                    3.22 Ceph 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.23" data-path="../chapter03-Exporter/3.23-infiniband-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.23-infiniband-exporter.html">
+            
+                    
+                    3.23 Infiniband 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.24" data-path="../chapter03-Exporter/3.24-slurm-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.24-slurm-exporter.html">
+            
+                    
+                    3.24 Slurm 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.25" data-path="../chapter03-Exporter/3.25-kong-metrics.html">
+            
+                <a href="../chapter03-Exporter/3.25-kong-metrics.html">
+            
+                    
+                    3.25 Kong 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.26" data-path="../chapter03-Exporter/3.26-haproxy-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.26-haproxy-exporter.html">
+            
+                    
+                    3.26 HAProxy 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.27" data-path="../chapter03-Exporter/3.27-statsd-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.27-statsd-exporter.html">
+            
+                    
+                    3.27 Statsd 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.28" data-path="../chapter03-Exporter/3.28-memcached-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.28-memcached-exporter.html">
+            
+                    
+                    3.28 Memcached 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.29" data-path="../chapter03-Exporter/3.29-rabbitmq-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.29-rabbitmq-exporter.html">
+            
+                    
+                    3.29 RabbitMQ 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.30" data-path="../chapter03-Exporter/3.30-redis-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.30-redis-exporter.html">
+            
+                    
+                    3.30 Redis 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.31" data-path="../chapter03-Exporter/3.31-ipmi-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.31-ipmi-exporter.html">
+            
+                    
+                    3.31 IPMI 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.32" data-path="../chapter03-Exporter/3.32-proxysql-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.32-proxysql-exporter.html">
+            
+                    
+                    3.32 ProxySQL 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.33" data-path="../chapter03-Exporter/3.33-varnish-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.33-varnish-exporter.html">
+            
+                    
+                    3.33 Varnish 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.34" data-path="../chapter03-Exporter/3.34-json-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.34-json-exporter.html">
+            
+                    
+                    3.34 JSON 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.35" data-path="../chapter03-Exporter/3.35-bind-exporter.html">
+            
+                <a href="../chapter03-Exporter/3.35-bind-exporter.html">
+            
+                    
+                    3.35 BIND 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.36" data-path="../chapter03-Exporter/3.36-telegraf-exporter.md">
+            
+                <span>
+            
+                    
+                    3.36 Telegraf 数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.37" data-path="../chapter03-Exporter/END.html">
+            
+                <a href="../chapter03-Exporter/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../chapter04-Visualization/README.md">
+            
+                <span>
+            
+                    
+                    第四章 可视化 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" >
+            
+                <span>
+            
+                    
+                    4.1 原生可视化界面
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" >
+            
+                <span>
+            
+                    
+                    4.2 Grafana
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../chapter04-Visualization/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../chapter05-AlarmManager/">
+            
+                <a href="../chapter05-AlarmManager/">
+            
+                    
+                    第五章 告警管理 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" >
+            
+                <span>
+            
+                    
+                    5.1 Alertmanager
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" >
+            
+                <span>
+            
+                    
+                    5.2 Alert 配置
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" >
+            
+                <span>
+            
+                    
+                    5.3 Bosun 
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../chapter05-AlarmManager/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../chapter06-PromQL/">
+            
+                <a href="../chapter06-PromQL/">
+            
+                    
+                    第六章 Prometehus 查询语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../chapter06-PromQL/6.1-querying-basics.html">
+            
+                <a href="../chapter06-PromQL/6.1-querying-basics.html">
+            
+                    
+                    6.1 基础查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../chapter06-PromQL/6.2-querying-operators.html">
+            
+                <a href="../chapter06-PromQL/6.2-querying-operators.html">
+            
+                    
+                    6.2 操作符查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3" data-path="../chapter06-PromQL/6.3-querying-operators-examples.html">
+            
+                <a href="../chapter06-PromQL/6.3-querying-operators-examples.html">
+            
+                    
+                    6.3 操作符查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4" data-path="../chapter06-PromQL/6.4-querying-functions.html">
+            
+                <a href="../chapter06-PromQL/6.4-querying-functions.html">
+            
+                    
+                    6.4 查询函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.5" data-path="../chapter06-PromQL/6.5-querying-functions-examples.html">
+            
+                <a href="../chapter06-PromQL/6.5-querying-functions-examples.html">
+            
+                    
+                    6.5 查询示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.6" data-path="../chapter06-PromQL/6.6-querying-http-api.html">
+            
+                <a href="../chapter06-PromQL/6.6-querying-http-api.html">
+            
+                    
+                    6.6 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.7" data-path="../chapter06-PromQL/6.7-querying-http-admin-api.html">
+            
+                <a href="../chapter06-PromQL/6.7-querying-http-admin-api.html">
+            
+                    
+                    6.7 管理员 HTTP API 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.8" data-path="../chapter06-PromQL/END.html">
+            
+                <a href="../chapter06-PromQL/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part ⅠⅠⅠ 实战篇</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../chapter07-Instrumenting/README.md">
+            
+                <span>
+            
+                    
+                    第七章 插件编写 todo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../chapter07-Instrumenting/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../chapter08-ClusterAndHA/">
+            
+                <a href="../chapter08-ClusterAndHA/">
+            
+                    
+                    第八章 集群与高可用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../chapter08-ClusterAndHA/8.1-minio-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.1-minio-introduction.html">
+            
+                    
+                    8.1 MinIO 搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../chapter08-ClusterAndHA/8.2-minio-cluster.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.2-minio-cluster.html">
+            
+                    
+                    8.2 MinIO 分布式集群
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../chapter08-ClusterAndHA/8.3-minio-parameter-and-limit.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.3-minio-parameter-and-limit.html">
+            
+                    
+                    8.3 MinIO 参数和限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../chapter08-ClusterAndHA/8.4-minio-benchmark.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.4-minio-benchmark.html">
+            
+                    
+                    8.4 MniIO 性能对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../chapter08-ClusterAndHA/8.5-minio-mc-tool.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.5-minio-mc-tool.html">
+            
+                    
+                    8.5 MniIO 客户端工具 mc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../chapter08-ClusterAndHA/8.6-thanos-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.6-thanos-introduction.html">
+            
+                    
+                    8.6 Thanos 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.7" data-path="../chapter08-ClusterAndHA/8.7-thanos-query.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.7-thanos-query.html">
+            
+                    
+                    8.7 Thanos query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.8" data-path="../chapter08-ClusterAndHA/8.8-thanos-sidecar.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.8-thanos-sidecar.html">
+            
+                    
+                    8.8 Thanos sidecar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.9" data-path="../chapter08-ClusterAndHA/8.9-thanos-store.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.9-thanos-store.html">
+            
+                    
+                    8.9 Thanos store
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.10" data-path="../chapter08-ClusterAndHA/8.10-thanos-compactor.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.10-thanos-compactor.html">
+            
+                    
+                    8.10 Thanos Compactor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.11" data-path="../chapter08-ClusterAndHA/8.11-thanos-rule.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.11-thanos-rule.html">
+            
+                    
+                    8.11 Thanos rule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.12" data-path="../chapter08-ClusterAndHA/8.12-thanos-history-query.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.12-thanos-history-query.html">
+            
+                    
+                    8.12 Thanos 历史数据查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.13" data-path="../chapter08-ClusterAndHA/8.13-cortex-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.13-cortex-introduction.html">
+            
+                    
+                    8.13 Cortex 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.14" data-path="../chapter08-ClusterAndHA/8.14-kvass-introduction.html">
+            
+                <a href="../chapter08-ClusterAndHA/8.14-kvass-introduction.html">
+            
+                    
+                    8.14 Kvass 是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.15" data-path="../chapter08-ClusterAndHA/END.html">
+            
+                <a href="../chapter08-ClusterAndHA/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../chapter09-ServiceDiscovery/">
+            
+                <a href="../chapter09-ServiceDiscovery/">
+            
+                    
+                    第九章 服务发现
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../chapter09-ServiceDiscovery/9.1-file-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.1-file-sd.html">
+            
+                    
+                    9.1  静态文件服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../chapter09-ServiceDiscovery/9.2-consul-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.2-consul-sd.html">
+            
+                    
+                    9.2  Consul 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../chapter09-ServiceDiscovery/9.3-consul-kv-backup-restore.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.3-consul-kv-backup-restore.html">
+            
+                    
+                    9.3  Consul key/value 备份和还原
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.4" data-path="../chapter09-ServiceDiscovery/9.4-dns-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.4-dns-sd.html">
+            
+                    
+                    9.4  DNS 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.5" data-path="../chapter09-ServiceDiscovery/9.5-kubernetes-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.5-kubernetes-sd.html">
+            
+                    
+                    9.5  Kubernetes 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.6" data-path="../chapter09-ServiceDiscovery/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../chapter10-BestPractices/">
+            
+                <a href="../chapter10-BestPractices/">
+            
+                    
+                    第十章 最佳实践
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../chapter10-BestPractices/10.1-metrics-label.html">
+            
+                <a href="../chapter10-BestPractices/10.1-metrics-label.html">
+            
+                    
+                    10.1 如何命名指标和标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../chapter10-BestPractices/10.2-monitor-dashboards.html">
+            
+                <a href="../chapter10-BestPractices/10.2-monitor-dashboards.html">
+            
+                    
+                    10.2 监控页面的绘制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../chapter10-BestPractices/10.3-how-to-instrument.html">
+            
+                <a href="../chapter10-BestPractices/10.3-how-to-instrument.html">
+            
+                    
+                    10.3 如何监控测量你的代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../chapter10-BestPractices/10.4-kubernetes.html">
+            
+                <a href="../chapter10-BestPractices/10.4-kubernetes.html">
+            
+                    
+                    10.4 Kubernetes 监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" >
+            
+                <span>
+            
+                    
+                    10.5 无编排系统容器监控
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.6" >
+            
+                <span>
+            
+                    
+                    10.6 Blackbox 网络监控
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.7" data-path="../chapter10-BestPractices/10.8-clickhouse.html">
+            
+                <a href="../chapter10-BestPractices/10.8-clickhouse.html">
+            
+                    
+                    10.8 ClickHouse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.8" data-path="../chapter10-BestPractices/10.9-kafka.html">
+            
+                <a href="../chapter10-BestPractices/10.9-kafka.html">
+            
+                    
+                    10.9 Kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.9" data-path="../chapter10-BestPractices/10.1-node.md">
+            
+                <span>
+            
+                    
+                    10.10 主机监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.10" data-path="../chapter10-BestPractices/10.2-storage.md">
+            
+                <span>
+            
+                    
+                    10.11 存储系统监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.11" data-path="../chapter10-BestPractices/END.md">
+            
+                <span>
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../chapter11-CCSP/">
+            
+                <a href="../chapter11-CCSP/">
+            
+                    
+                    第十一章 云计算服务提供商
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../chapter11-CCSP/11.1-aliyun-cms.html">
+            
+                <a href="../chapter11-CCSP/11.1-aliyun-cms.html">
+            
+                    
+                    11.1 阿里云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../chapter11-CCSP/11.2-huaweicloud-cloudeye.html">
+            
+                <a href="../chapter11-CCSP/11.2-huaweicloud-cloudeye.html">
+            
+                    
+                    11.2 华为云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../chapter11-CCSP/11.3-aws-cloudwatch.html">
+            
+                <a href="../chapter11-CCSP/11.3-aws-cloudwatch.html">
+            
+                    
+                    11.3 AWS 监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../chapter11-CCSP/11.4-tencentcloud.md">
+            
+                <span>
+            
+                    
+                    11.4 腾讯云监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.5" data-path="../chapter11-CCSP/11.5-azure-metrics.html">
+            
+                <a href="../chapter11-CCSP/11.5-azure-metrics.html">
+            
+                    
+                    11.5 Azure监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.6" data-path="../chapter11-CCSP/END.html">
+            
+                <a href="../chapter11-CCSP/END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第十二章 问题排查
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="12.1-prometheus-time.html">
+            
+                <a href="12.1-prometheus-time.html">
+            
+                    
+                    12.1 Prometheus 时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="12.2-prometheus-problem-sets-1.html">
+            
+                <a href="12.2-prometheus-problem-sets-1.html">
+            
+                    
+                    12.2 Prometheus 故障汇总（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="12.3-promtool-check.html">
+            
+                <a href="12.3-promtool-check.html">
+            
+                    
+                    12.3 Promtool Check 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="12.4-promtool-query.html">
+            
+                <a href="12.4-promtool-query.html">
+            
+                    
+                    12.4 Promtool Query 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.5" data-path="12.5-promtool-debug.html">
+            
+                <a href="12.5-promtool-debug.html">
+            
+                    
+                    12.5 Promtool Debug 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.6.6" data-path="12.6-promtool-tsdb.html">
+            
+                <a href="12.6-promtool-tsdb.html">
+            
+                    
+                    12.6 Promtool TSDB 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.7" data-path="12.7-amtool-alert.html">
+            
+                <a href="12.7-amtool-alert.html">
+            
+                    
+                    12.7 amtool Alert 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.8" data-path="12.8-amtool-silence.html">
+            
+                <a href="12.8-amtool-silence.html">
+            
+                    
+                    12.8 amtool Silence 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.9" data-path="12.9-amtool-check-config.html">
+            
+                <a href="12.9-amtool-check-config.html">
+            
+                    
+                    12.9 amtool Check 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.10" data-path="END.html">
+            
+                <a href="END.html">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >12.6 Promtool TSDB 功能</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="prometheus-&#x8FD0;&#x7EF4;&#x5DE5;&#x5177;-promtool-&#xFF08;&#x56DB;&#xFF09;tsdb-&#x529F;&#x80FD;">Prometheus &#x8FD0;&#x7EF4;&#x5DE5;&#x5177; Promtool &#xFF08;&#x56DB;&#xFF09;TSDB &#x529F;&#x80FD;</h1>
+<p>Promtool &#x5728; TSDB &#x65B9;&#x9762;&#x4E00;&#x4E2A;&#x6709; 6 &#x4E2A;&#x5B50;&#x547D;&#x4EE4;&#xFF0C;&#x5206;&#x522B;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x5199;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x3001;&#x5206;&#x6790;&#x3001;&#x5217;&#x51FA;&#x5176;&#x4E2D;&#x7684;&#x5757;&#x3001;dump&#x3001;&#x4ECE; OpenMetric &#x5BFC;&#x5165;&#x6570;&#x636E;&#x5757;&#x3001;&#x4E3A;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5757;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x4F9D;&#x6B21;&#x770B;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>&#x8FD9;&#x5927;&#x6982;&#x662F;&#x7B2C;&#x4E00;&#x7BC7;&#x5199; Promtool TSDB &#x65B9;&#x9762;&#x7684;&#x6587;&#x7AE0;&#x4E86;&#x3002;&#x5728;&#x7F51;&#x7EDC;&#x4E0A;&#x90FD;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x76F8;&#x5173;&#x8D44;&#x6599;&#x3002;</p>
+<h1 id="&#x5199;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;">&#x5199;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;</h1>
+<p>Promtool &#x53EF;&#x4EE5;&#x5BF9; Prometheus &#x8FDB;&#x884C;&#x5199;&#x7684;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#xFF0C;&#x547D;&#x4EE4;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb bench write --help
+usage: promtool tsdb bench write [&lt;flags&gt;] [&lt;file&gt;]
+
+Run a write performance benchmark.
+
+Flags:
+  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
+      --version              Show application version.
+      --enable-feature= ...  Comma separated feature names to enable (only PromQL related). See
+                             https://prometheus.io/docs/prometheus/latest/feature_flags/ for the options and more
+                             details.
+      --out=&quot;benchout&quot;       Set the output path.
+      --metrics=10000        Number of metrics to read.
+      --scrapes=3000         Number of scrapes to simulate.
+
+Args:
+  [&lt;file&gt;]  Input file with samples data, default is (../../tsdb/testdata/20kseries.json).
+</code></pre><p>&#x9996;&#x5148;&#x4ECE;&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x6D4B;&#x8BD5;&#x6240;&#x9700;&#x8981;&#x7684;&#x6570;&#x636E; 20kseries.json &#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5728;&#x6E90;&#x7801;&#x4ED3;&#x5E93;&#x7684; /tsdb/testdata/ &#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x6765;&#x4E0B;&#x8F7D;</p>
+<pre><code>wget https://raw.githubusercontent.com/prometheus/prometheus/main/tsdb/testdata/20kseries.json
+</code></pre><p>&#x4E0B;&#x8F7D;&#x597D;&#x4EE5;&#x540E;&#xFF0C;&#x6307;&#x5B9A; metrics &#x548C; scrapes &#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb bench write --metrics=10000 --scrapes=3000 ./20kseries.json
+level=info ts=2022-07-27T13:21:25.546626055Z caller=head.go:493 msg=&quot;Replaying on-disk memory mappable chunks if any&quot;
+level=info ts=2022-07-27T13:21:25.546734166Z caller=head.go:536 msg=&quot;On-disk memory mappable chunks replay completed&quot; duration=11.815&#xB5;s
+level=info ts=2022-07-27T13:21:25.546766084Z caller=head.go:542 msg=&quot;Replaying WAL, this may take a while&quot;
+level=info ts=2022-07-27T13:21:25.547101874Z caller=head.go:613 msg=&quot;WAL segment loaded&quot; segment=0 maxSegment=0
+level=info ts=2022-07-27T13:21:25.547131383Z caller=head.go:619 msg=&quot;WAL replay completed&quot; checkpoint_replay_duration=38.26&#xB5;s wal_replay_duration=315.491&#xB5;s total_replay_duration=409.177&#xB5;s
+level=info ts=2022-07-27T13:21:25.549132675Z caller=db.go:1467 msg=&quot;Compactions disabled&quot;
+&gt;&gt; start stage=readData
+&gt;&gt; completed stage=readData duration=145.973395ms
+&gt;&gt; start stage=ingestScrapes
+ingestion completed
+&gt;&gt; completed stage=ingestScrapes duration=3.628682202s
+ &gt; total samples: 30000000
+ &gt; samples/sec: 8.267435217071414e+06
+&gt;&gt; start stage=stopStorage
+&gt;&gt; completed stage=stopStorage duration=1.522008202s
+</code></pre><p>&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x4F1A;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x751F;&#x6210;&#x4E00;&#x4E2A; benchout &#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x91CC;&#x8FB9;&#x662F;&#x6D4B;&#x8BD5;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x4E2A;&#x8DEF;&#x5F84;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53C2;&#x6570;&#x6765;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x751F;&#x6210;&#x5230;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x540D;&#x79F0;&#x3002;</p>
+<p>&#x7B80;&#x5355;&#x6765;&#x770B;&#xFF0C;&#x8FD9;&#x6B21;&#x8BFB;&#x6570;&#x636E;&#x6D88;&#x8017;&#x4E86; 145ms &#xFF0C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x6D88;&#x8017;&#x4E86; 1.5s &#x3002;</p>
+<p>&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x89E3;&#x8BFB;&#xFF0C;&#x6211;&#x4EEC;&#x540E;&#x7EED;&#x5728;&#x8FDB;&#x884C;&#x4E13;&#x95E8;&#x7684;&#x8BB2;&#x89E3;&#x3002;</p>
+<h1 id="tsdb-&#x5206;&#x6790;">TSDB &#x5206;&#x6790;</h1>
+<p>Promtool &#x53EF;&#x4EE5;&#x5BF9; Prometheus &#x7684;&#x6570;&#x636E;&#x5757;&#x8FDB;&#x884C;&#x5206;&#x6790;&#xFF0C;&#x5206;&#x6790; churn &#x3001;label &#x5BF9;&#x7684;&#x57FA;&#x6570;&#x548C;&#x538B;&#x7F29;&#x6548;&#x7387;&#xFF0C;&#x547D;&#x4EE4;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb analyze --help
+usage: promtool tsdb analyze [&lt;flags&gt;] [&lt;db path&gt;] [&lt;block id&gt;]
+
+Analyze churn, label pair cardinality and compaction efficiency.
+
+Flags:
+  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
+      --version              Show application version.
+      --enable-feature= ...  Comma separated feature names to enable (only PromQL related). See
+                             https://prometheus.io/docs/prometheus/latest/feature_flags/ for the options and more
+                             details.
+      --limit=20             How many items to show in each list.
+      --extended             Run extended analysis.
+
+Args:
+  [&lt;db path&gt;]   Database path (default is data/).
+  [&lt;block id&gt;]  Block to analyze (default is the last block).
+</code></pre><p>&#x5728;&#x5206;&#x6790;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x6BCF;&#x4E2A;&#x5217;&#x8868;&#x6700;&#x591A;&#x663E;&#x793A;&#x591A;&#x5C11;&#x4E2A;&#x9879;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x7684; data &#x76EE;&#x5F55;&#xFF0C;block id &#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x6307;&#x5B9A;&#xFF0C;&#x4E0D;&#x6307;&#x5B9A;&#x7684;&#x8BDD;&#x4F1A;&#x5206;&#x6790;&#x6700;&#x65B0;&#x7684;&#x90A3;&#x4E2A; block &#x3002;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x4EE5;&#x540E;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x8F93;&#x51FA;&#x3002;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb analyze ./prometheus/data/
+Block ID: 01G8ZXKAHRGF7BV0FTQYZ18FH5
+Duration: 59m55.713s
+Series: 606677
+Label names: 26
+Postings (unique label pairs): 13190
+Postings entries (total label pairs): 7819776
+
+Label pairs most involved in churning:
+329487 workload_user_cattle_io_workloadselector=deployment-appops-pushgateway-flink
+329487 pod_template_hash=6d695f75cf
+329487 kubernetes_namespace=appops
+62797 kubernetes_pod_name=pushgateway-flink-6d695f75cf-2xhfh
+58524 kubernetes_pod_name=pushgateway-flink-6d695f75cf-8fq58
+52495 kubernetes_pod_name=pushgateway-flink-6d695f75cf-d76n7
+51544 kubernetes_pod_name=pushgateway-flink-6d695f75cf-z4bjb
+22074 kubernetes_pod_name=pushgateway-flink-6d695f75cf-9jgdk
+21516 kubernetes_pod_name=pushgateway-flink-6d695f75cf-96hpq
+20426 kubernetes_pod_name=pushgateway-flink-6d695f75cf-9twr2
+20047 kubernetes_pod_name=pushgateway-flink-6d695f75cf-ngzwz
+11819 kubernetes_pod_name=pushgateway-flink-6d695f75cf-8hv9z
+8242 kubernetes_pod_name=pushgateway-flink-6d695f75cf-pddrc
+3783 __name__=flink_taskmanager_Status_JVM_Memory_Heap_Used
+3783 __name__=flink_taskmanager_job_task_checkpointAlignmentTime
+3783 __name__=flink_taskmanager_Status_JVM_ClassLoader_ClassesLoaded
+3783 __name__=flink_taskmanager_Status_JVM_Threads_Count
+3783 __name__=flink_taskmanager_Status_Shuffle_Netty_UsedMemorySegments
+3783 __name__=flink_taskmanager_Status_Flink_Memory_Managed_Used
+3783 __name__=flink_taskmanager_job_task_Shuffle_Netty_Output_Buffers_outputQueueLength
+
+Label names most involved in churning:
+329487 kubernetes_namespace
+329487 kubernetes_pod_name
+329487 workload_user_cattle_io_workloadselector
+329487 __name__
+329487 pod_template_hash
+329487 job
+314352 instance
+314050 host
+314050 tm_id
+185403 task_attempt_num
+185403 task_name
+185403 subtask_index
+185403 job_name
+185403 task_id
+185403 task_attempt_id
+185403 job_id
+15134 operator_name
+15134 operator_id
+66 method
+55 quantile
+
+Most common label pairs:
+606565 kubernetes_namespace=appops
+606565 workload_user_cattle_io_workloadselector=deployment-pushgateway-flink
+606565 pod_template_hash=6d695f75cf
+87063 kubernetes_pod_name=pushgateway-flink-6d695f75cf-ngzwz
+87063 kubernetes_pod_name=pushgateway-flink-6d695f75cf-9jgdk
+87062 kubernetes_pod_name=pushgateway-flink-6d695f75cf-96hpq
+87062 kubernetes_pod_name=pushgateway-flink-6d695f75cf-9twr2
+67920 kubernetes_pod_name=pushgateway-flink-6d695f75cf-2xhfh
+62700 kubernetes_pod_name=pushgateway-flink-6d695f75cf-8fq58
+54174 kubernetes_pod_name=pushgateway-flink-6d695f75cf-d76n7
+53304 kubernetes_pod_name=pushgateway-flink-6d695f75cf-z4bjb
+11892 kubernetes_pod_name=pushgateway-flink-6d695f75cf-8hv9z
+8325 kubernetes_pod_name=pushgateway-flink-6d695f75cf-pddrc
+6965 __name__=flink_taskmanager_job_task_Shuffle_Netty_Input_Buffers_inputFloatingBuffersUsage
+6965 __name__=flink_taskmanager_job_task_numBuffersOut
+6965 __name__=flink_taskmanager_job_task_isBackPressured
+6965 __name__=flink_taskmanager_Status_JVM_ClassLoader_ClassesLoaded
+6965 __name__=flink_taskmanager_job_task_numBuffersOutPerSecond
+6965 __name__=push_time_seconds
+6965 __name__=flink_taskmanager_job_task_buffers_inPoolUsage
+
+Label names with highest cumulative label value length:
+50890 task_name
+42890 tm_id
+34890 operator_id
+34890 task_id
+34890 task_attempt_id
+34890 job_id
+21890 job_name
+18928 job
+18890 operator_name
+13890 host
+5972 __name__
+3890 task_attempt_num
+3890 subtask_index
+3100 instance
+340 kubernetes_pod_name
+40 revision
+38 handler
+35 workload_user_cattle_io_workloadselector
+19 quantile
+16 method
+
+Highest cardinality labels:
+1012 instance
+1002 job
+1000 operator_id
+1000 task_id
+1000 task_attempt_num
+1000 host
+1000 task_name
+1000 tm_id
+1000 job_id
+1000 job_name
+1000 task_attempt_id
+1000 subtask_index
+1000 operator_name
+137 __name__
+10 kubernetes_pod_name
+7 handler
+7 quantile
+4 method
+3 code
+2 version
+
+Highest cardinality metric names:
+6965 my_batch_job_duration_seconds
+6965 flink_taskmanager_Status_Flink_Memory_Managed_Used
+6965 flink_taskmanager_Status_JVM_CPU_Load
+6965 flink_taskmanager_Status_JVM_CPU_Time
+6965 flink_taskmanager_Status_JVM_ClassLoader_ClassesLoaded
+6965 flink_taskmanager_Status_JVM_ClassLoader_ClassesUnloaded
+6965 flink_taskmanager_Status_JVM_GarbageCollector_PS_MarkSweep_Count
+6965 flink_taskmanager_Status_JVM_GarbageCollector_PS_MarkSweep_Time
+6965 flink_taskmanager_Status_JVM_GarbageCollector_PS_Scavenge_Count
+6965 flink_taskmanager_Status_JVM_GarbageCollector_PS_Scavenge_Time
+6965 flink_taskmanager_Status_JVM_Memory_Direct_Count
+6965 flink_taskmanager_Status_JVM_Memory_Direct_MemoryUsed
+6965 flink_taskmanager_Status_JVM_Memory_Direct_TotalCapacity
+6965 flink_taskmanager_Status_JVM_Memory_Heap_Committed
+6965 flink_taskmanager_Status_JVM_Memory_Heap_Max
+6965 flink_taskmanager_Status_JVM_Memory_Heap_Used
+6965 flink_taskmanager_Status_JVM_Memory_Mapped_Count
+6965 flink_taskmanager_Status_JVM_Memory_Mapped_MemoryUsed
+6965 flink_taskmanager_Status_JVM_Memory_Mapped_TotalCapacity
+6965 flink_taskmanager_Status_JVM_Memory_Metaspace_Committed
+</code></pre><h1 id="&#x5217;&#x51FA;-tsdb-&#x6570;&#x636E;&#x5757;">&#x5217;&#x51FA; TSDB &#x6570;&#x636E;&#x5757;</h1>
+<p>&#x4F7F;&#x7528; Promtool &#x8FD8;&#x53EF;&#x4EE5;&#x5217;&#x51FA;&#x5F53;&#x524D; Prometheus &#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x5757;&#x3002;&#x547D;&#x4EE4;&#x7684;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb list --help
+usage: promtool tsdb list [&lt;flags&gt;] [&lt;db path&gt;]
+
+List tsdb blocks.
+
+Flags:
+  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
+      --version              Show application version.
+      --enable-feature= ...  Comma separated feature names to enable (only PromQL related). See
+                             https://prometheus.io/docs/prometheus/latest/feature_flags/ for the options and more
+                             details.
+  -r, --human-readable       Print human readable values.
+
+Args:
+  [&lt;db path&gt;]  Database path (default is data/).
+</code></pre><p>&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x6548;&#x679C;&#xFF0C;&#x5EFA;&#x8BAE;&#x52A0;&#x4E0A; <code>-r</code> &#x53C2;&#x6570;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb list -r ./prometheus-pushgateway/data/
+BLOCK ULID                  MIN TIME                       MAX TIME                       DURATION     NUM SAMPLES  NUM CHUNKS   NUM SERIES   SIZE
+01G8XB6J42S6FTDMAPYV30CTR3  2022-07-26 12:00:03 +0000 UTC  2022-07-26 13:00:00 +0000 UTC  59m56.018s   78421200     435860       435412       92MiB217KiB450B
+01G8XEMDR374M816NZ2NMNS5AQ  2022-07-26 13:00:03 +0000 UTC  2022-07-26 14:00:00 +0000 UTC  59m56.018s   78421200     435860       435412       92MiB217KiB825B
+01G8XJ29C2JVV8PEQFR748C1QR  2022-07-26 14:00:03 +0000 UTC  2022-07-26 15:00:00 +0000 UTC  59m56.018s   78421200     435860       435412       94MiB125KiB158B
+01G8XNG502K46CF1960R1FYEAA  2022-07-26 15:00:03 +0000 UTC  2022-07-26 16:00:00 +0000 UTC  59m56.018s   78421200     435860       435412       92MiB388KiB448B
+01G8XRY0M2CV8J323VWM393JTZ  2022-07-26 16:00:03 +0000 UTC  2022-07-26 17:00:00 +0000 UTC  59m56.018s   78421200     435860       435412       93MiB978KiB543B
+01G8XWBW82NGHBPP6QPZMJ6XAM  2022-07-26 17:00:03 +0000 UTC  2022-07-26 18:00:00 +0000 UTC  59m56.018s   78421200     435860       435412       93MiB979KiB590B
+01G8XZSQW2WY7SG70Z40CW2CZV  2022-07-26 18:00:03 +0000 UTC  2022-07-26 19:00:00 +0000 UTC  59m56.018s   78421200     435860       435412       94MiB719KiB630B
+</code></pre><p>&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230; Block ID&#x3001;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7684;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x548C;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#xFF0C;&#x4E00;&#x5171;&#x5B58;&#x50A8;&#x4E86;&#x591A;&#x957F;&#x65F6;&#x95F4;&#x6BB5; &#x6570;&#x636E;&#xFF0C;Sample &#x7684;&#x6570;&#x91CF;&#xFF0C;Chunk &#x7684;&#x6570;&#x91CF;&#xFF0C;Serie &#x7684;&#x6570;&#x91CF;&#x3001;&#x4EE5;&#x53CA; Block &#x7684;&#x5927;&#x5C0F;&#x3002;</p>
+<h1 id="dump">Dump</h1>
+<p>Promtool &#x8FD8;&#x884C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C; dump&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x4ECE; TSDB &#x4E2D; dump Sample &#x6570;&#x636E;&#x51FA;&#x6765;&#x3002;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb dump --help
+usage: promtool tsdb dump [&lt;flags&gt;] [&lt;db path&gt;]
+
+Dump samples from a TSDB.
+
+Flags:
+  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
+      --version              Show application version.
+      --enable-feature= ...  Comma separated feature names to enable (only PromQL related). See
+                             https://prometheus.io/docs/prometheus/latest/feature_flags/ for the options and more
+                             details.
+      --min-time=-9223372036854775808
+                             Minimum timestamp to dump.
+      --max-time=9223372036854775807
+                             Maximum timestamp to dump.
+
+Args:
+  [&lt;db path&gt;]  Database path (default is data/).
+</code></pre><p>&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4E00;&#x5B9A;&#x8981;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x76EE;&#x5F55; data &#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x53E6;&#x5916;&#x6700;&#x5927;&#x6700;&#x5C0F;&#x65F6;&#x95F4;&#x4E5F;&#x6307;&#x5B9A;&#x4E00;&#x4E0B;&#xFF0C;&#x5426;&#x5219;&#x4F1A; dump &#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6240;&#x6709;&#x7684; Sample &#x6570;&#x636E;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6267;&#x884C;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb dump --min-time=1658927217000 --max-time=1658930818000 ../prometheus-pushgateway/data/
+</code></pre><p>&#x8FD9;&#x4E2A;&#x547D;&#x4EE4; dump &#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x597D;&#x50CF;&#x53EA;&#x4F1A;&#x5728;&#x5C4F;&#x5E55;&#x8F93;&#x51FA;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;&#xFF0C;dump &#x7684;&#x65F6;&#x5019;&#x8BB0;&#x5F97;&#x4EBA;&#x4E3A;&#x5BFC;&#x5165;&#x5230;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x3002;</p>
+<h1 id="&#x4ECE;-openmetric-&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5757;">&#x4ECE; OpenMetric &#x5BFC;&#x5165;&#x6570;&#x636E;&#x5757;</h1>
+<p>Promtool &#x5DE5;&#x5177;&#x8FD8;&#x53EF;&#x4EE5;&#x4ECE; OpenMetrics &#x8F93;&#x5165;&#x5BFC;&#x5165; sample &#x6570;&#x636E;&#x5E76;&#x751F;&#x6210; TSDB &#x6570;&#x636E;&#x5757;&#x3002;
+&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x662F;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x76D1;&#x63A7;&#x7CFB;&#x7EDF;&#x6216;&#x8005;&#x65F6;&#x5E8F;&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x95F4;&#x8FC1;&#x79FB;&#x6570;&#x636E;&#x4F7F;&#x7528;&#x7684; &#xFF0C;&#x5148;&#x5C06;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x6210; OpenMetric &#x683C;&#x5F0F;&#xFF0C;&#x7136;&#x540E;&#x5C06; OpenMetric &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5BFC;&#x5165;&#x5230; Prometheus &#x7684; TSDB &#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x53C2;&#x6570;&#x5982;&#x4E0B;:</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb create-blocks-from openmetrics --help
+usage: promtool tsdb create-blocks-from openmetrics &lt;input file&gt; [&lt;output directory&gt;]
+
+Import samples from OpenMetrics input and produce TSDB blocks. Please refer to the storage docs for more details.
+
+Flags:
+  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
+      --version              Show application version.
+      --enable-feature= ...  Comma separated feature names to enable (only PromQL related). See
+                             https://prometheus.io/docs/prometheus/latest/feature_flags/ for the options and more
+                             details.
+  -r, --human-readable       Print human readable values.
+  -q, --quiet                Do not print created blocks.
+
+Args:
+  &lt;input file&gt;          OpenMetrics file to read samples from.
+  [&lt;output directory&gt;]  Output directory for generated blocks.
+</code></pre><p>&#x8FD9;&#x4E2A;&#x6211;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#xFF0C;&#x53C2;&#x6570;&#x63D0;&#x793A;&#x8BA9;&#x53C2;&#x8003;&#x5B58;&#x50A8;&#x6587;&#x6863;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x7EC6;&#x8282;&#xFF0C;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x6587;&#x6863; <a href="https://prometheus.io/docs/prometheus/latest/storage/" target="_blank">https://prometheus.io/docs/prometheus/latest/storage/</a> &#x3002;&#x5927;&#x5BB6;&#x81EA;&#x884C;&#x5B66;&#x4E60;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x6709;&#x73AF;&#x5883;&#x4E86;&#x5728;&#x5199;&#x6587;&#x7AE0;&#x3002;</p>
+<h1 id="&#x4E3A;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5757;">&#x4E3A;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5757;</h1>
+<p>&#x5F53;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x4EE5;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x662F;&#x6CA1;&#x6709;&#x5386;&#x53F2;&#x6570;&#x636E;&#x7684;&#x3002;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x6570;&#x636E;&#x53EA;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x5F00;&#x59CB;&#x5B58;&#x50A8;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#xFF0C;Promtool &#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x7684;&#x5386;&#x53F2;&#x6570;&#x636E;&#x3002;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb create-blocks-from rules --help
+usage: promtool tsdb create-blocks-from rules --start=START [&lt;flags&gt;] &lt;rule-files&gt;...
+
+Create blocks of data for new recording rules.
+
+Flags:
+  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
+      --version              Show application version.
+      --enable-feature= ...  Comma separated feature names to enable (only PromQL related). See
+                             https://prometheus.io/docs/prometheus/latest/feature_flags/ for the options and
+                             more details.
+  -r, --human-readable       Print human readable values.
+  -q, --quiet                Do not print created blocks.
+      --url=http://localhost:9090
+                             The URL for the Prometheus API with the data where the rule will be backfilled
+                             from.
+      --start=START          The time to start backfilling the new rule from. Must be a RFC3339 formatted date
+                             or Unix timestamp. Required.
+      --end=END              If an end time is provided, all recording rules in the rule files provided will
+                             be backfilled to the end time. Default will backfill up to 3 hours ago. Must be a
+                             RFC3339 formatted date or Unix timestamp.
+      --output-dir=&quot;data/&quot;   Output directory for generated blocks.
+      --eval-interval=60s    How frequently to evaluate rules when backfilling if a value is not set in the
+                             recording rule files.
+
+Args:
+  &lt;rule-files&gt;  A list of one or more files containing recording rules to be backfilled. All recording rules
+                listed in the files will be backfilled. Alerting rules are not evaluated.
+</code></pre><p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;&#x547D;&#x4EE4;&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684; Prometheus &#x89C4;&#x5219;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x6307;&#x5B9A;&#x8981;&#x751F;&#x6210;&#x7684;&#x5386;&#x53F2;&#x6570;&#x636E;&#x7684;&#x65F6;&#x95F4;&#x8303;&#x56F4;&#xFF0C;</p>
+<pre><code>[root@Erdong-Test ~]# ./promtool tsdb create-blocks-from rules \
+    --start 1617079873 \
+    --end 1617097873 \
+    --url http://mypromserver.com:9090 \
+    rules.yaml rules2.yaml
+</code></pre><p>&#x547D;&#x4EE4; <code>promtool tsdb create-blocks-from rules</code> &#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x8BE5;&#x76EE;&#x5F55;&#x4E2D;&#x5305;&#x542B;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x6587;&#x4EF6;&#x4E2D;&#x6240;&#x6709;&#x89C4;&#x5219;&#x7684;&#x5386;&#x53F2;&#x89C4;&#x5219;&#x6570;&#x636E;&#x5757;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8F93;&#x51FA;&#x76EE;&#x5F55;&#x4E3A;data/&#x3002;&#x4E3A;&#x4E86;&#x5229;&#x7528;&#x8FD9;&#x4E9B;&#x65B0;&#x7684;&#x5757;&#x6570;&#x636E;&#xFF0C;&#x5FC5;&#x987B;&#x5C06;&#x8FD9;&#x4E9B;&#x5757;&#x79FB;&#x52A8;&#x5230;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684; Prometheus &#x5B9E;&#x4F8B;&#x6570;&#x636E;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x7136;&#x540E;&#x5728; Prometheus &#x5B9E;&#x4F8B;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x53C2;&#x6570; <code>--storage.tsdb.allow-overlapping-blocks</code> &#x8BBE;&#x4E3A;&#x542F;&#x7528;&#x3002;&#x4E4B;&#x540E; Prometheus &#x4F1A;&#x5728;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x538B;&#x7F29;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x5C06;&#x65B0;&#x5757;&#x4E0E;&#x73B0;&#x6709;&#x5757;&#x5408;&#x5E76;&#x3002;&#x8FD9;&#x6837;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x6587;&#x4EF6;&#x751F;&#x6210;&#x7684;&#x5386;&#x53F2;&#x6570;&#x636E;&#x5C31;&#x53EF;&#x4EE5;&#x5728; Prometheus &#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x4E86;&#x3002;</p>
+<p>&#x521B;&#x5EFA;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x7684;&#x5386;&#x53F2;&#x6570;&#x636E;&#x6709;&#x4E00;&#x4E9B;&#x9650;&#x5236;&#xFF0C;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x591A;&#x6B21;&#x6267;&#x884C;&#x751F;&#x6210;&#x5386;&#x53F2;&#x6570;&#x636E; &#xFF0C;&#x4E14;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x548C;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x91CD;&#x53E0;&#xFF0C;&#x5219;&#x6BCF;&#x6B21;&#x8FD0;&#x884C;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x751F;&#x6210;&#x5386;&#x53F2;&#x6570;&#x636E;&#x65F6;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x5305;&#x542B;&#x76F8;&#x540C;&#x6570;&#x636E;&#x7684;&#x5757;&#x3002;</li>
+</ul>
+<ul>
+<li><p>&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x89C4;&#x5219;&#x90FD;&#x5C06;&#x88AB;&#x8BC4;&#x4F30;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x5728;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E;&#x4E86;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#xFF0C;&#x8BE5;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x4F18;&#x5148;&#x4E8E; tsdb create-blocks-from rules &#x547D;&#x4EE4;&#x4E2D;&#x7684; <code>--eval-interval</code> &#x53C2;&#x6570;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x544A;&#x8B66;&#x89C4;&#x5219;&#x5728;&#x8BB0;&#x5F55;&#x89C4;&#x5219;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x544A;&#x8B66;&#x89C4;&#x5219;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p>
+</li>
+<li><p>&#x540C;&#x4E00;&#x7EC4;&#x4E2D;&#x7684;&#x89C4;&#x5219;&#x65E0;&#x6CD5;&#x770B;&#x5230;&#x4E4B;&#x524D;&#x89C4;&#x5219;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x652F;&#x6301;&#x5F15;&#x7528;&#x6B63;&#x5728;&#x751F;&#x6210;&#x5386;&#x53F2;&#x6570;&#x636E;&#x7684;&#x5176;&#x4ED6;&#x89C4;&#x5219;&#x7684;&#x89C4;&#x5219;&#x3002;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;&#x591A;&#x6B21;&#x751F;&#x6210;&#x5386;&#x53F2;&#x6570;&#x636E;&#x5E76;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4F9D;&#x8D56;&#x6570;&#x636E;(&#x5E76;&#x5C06;&#x4F9D;&#x8D56;&#x6570;&#x636E;&#x79FB;&#x52A8;&#x5230; Prometheus &#x670D;&#x52A1;&#x5668;&#x6570;&#x636E;&#x76EE;&#x5F55;&#xFF0C;&#x4EE5;&#x4FBF;&#x4ECE; Prometheus API &#x8BBF;&#x95EE;&#x5B83;)&#x3002;</p>
+</li>
+</ul>
+<h1 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h1>
+<p>4 &#x7BC7;&#x7684;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;&#x7CFB;&#x5217;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x3002;&#x7B2C; 4 &#x7BC7;&#x5728;&#x5199;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9664;&#x4E86;&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF0C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x8D44;&#x6599;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x9519;&#x8BEF;&#x7684;&#x5730;&#x65B9;&#x8BF7;&#x8054;&#x7CFB;&#x6211;&#x4FEE;&#x6539;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="12.5-promtool-debug.html" class="navigation navigation-prev " aria-label="Previous page: 12.5 Promtool Debug 功能">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="12.7-amtool-alert.html" class="navigation navigation-next " aria-label="Next page: 12.7 amtool Alert 功能">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"12.6 Promtool TSDB 功能","level":"4.6.6","depth":2,"next":{"title":"12.7 amtool Alert 功能","level":"4.6.7","depth":2,"path":"chapter12-Troubleshoot/12.7-amtool-alert.md","ref":"chapter12-Troubleshoot/12.7-amtool-alert.md","articles":[]},"previous":{"title":"12.5 Promtool Debug 功能","level":"4.6.5","depth":2,"path":"chapter12-Troubleshoot/12.5-promtool-debug.md","ref":"chapter12-Troubleshoot/12.5-promtool-debug.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter12-Troubleshoot/12.6-promtool-tsdb.md","mtime":"2022-07-30T12:26:08.216Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-30T12:26:13.945Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

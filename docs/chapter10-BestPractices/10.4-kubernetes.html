@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>10.4 Kubernetes监控 · Prometheus Notes</title>
+        <title>10.4 Kubernetes 监控 · Prometheus Notes</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -66,7 +66,7 @@
 
     
     
-    <link rel="prev" href="10.3-docker.md" />
+    <link rel="prev" href="10.3-how-to-instrument.html" />
     
 
     </head>
@@ -1467,7 +1467,20 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3.5" data-path="../chapter09-ServiceDiscovery/END.md">
+        <li class="chapter " data-level="4.3.5" data-path="../chapter09-ServiceDiscovery/9.5-kubernetes-sd.html">
+            
+                <a href="../chapter09-ServiceDiscovery/9.5-kubernetes-sd.html">
+            
+                    
+                    9.5  Kubernetes 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.6" data-path="../chapter09-ServiceDiscovery/END.md">
             
                 <span>
             
@@ -1504,7 +1517,7 @@
                 <a href="10.1-metrics-label.html">
             
                     
-                    10.1 主机监控
+                    10.1 如何命名指标和标签
             
                 </a>
             
@@ -1517,7 +1530,7 @@
                 <a href="10.2-monitor-dashboards.html">
             
                     
-                    10.2 主机监控
+                    10.2 监控页面的绘制
             
                 </a>
             
@@ -1530,7 +1543,7 @@
                 <a href="10.3-how-to-instrument.html">
             
                     
-                    10.3 主机监控
+                    10.3 如何监控测量你的代码
             
                 </a>
             
@@ -1538,51 +1551,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4.4" data-path="10.1-node.md">
-            
-                <span>
-            
-                    
-                    10.1 主机监控
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.4.5" data-path="10.2-storage.md">
-            
-                <span>
-            
-                    
-                    10.2 存储系统监控
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.4.6" data-path="10.3-docker.md">
-            
-                <span>
-            
-                    
-                    10.3 无编排系统容器监控
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="4.4.7" data-path="10.4-kubernetes.html">
+        <li class="chapter active" data-level="4.4.4" data-path="10.4-kubernetes.html">
             
                 <a href="10.4-kubernetes.html">
             
                     
-                    10.4 Kubernetes监控
+                    10.4 Kubernetes 监控
             
                 </a>
             
@@ -1590,12 +1564,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4.8" >
+        <li class="chapter " data-level="4.4.5" >
             
                 <span>
             
                     
-                    10.5 Blackbox 网络监控
+                    10.5 无编排系统容器监控
             
                 </span>
             
@@ -1603,7 +1577,20 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4.9" data-path="10.8-clickhouse.html">
+        <li class="chapter " data-level="4.4.6" >
+            
+                <span>
+            
+                    
+                    10.6 Blackbox 网络监控
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.7" data-path="10.8-clickhouse.html">
             
                 <a href="10.8-clickhouse.html">
             
@@ -1616,12 +1603,38 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4.10" data-path="10.9-kafka.html">
+        <li class="chapter " data-level="4.4.8" data-path="10.9-kafka.html">
             
                 <a href="10.9-kafka.html">
             
                     
                     10.9 Kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.9" data-path="10.1-node.md">
+            
+                <span>
+            
+                    
+                    10.10 主机监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.10" data-path="10.2-storage.md">
+            
+                <span>
+            
+                    
+                    10.11 存储系统监控
             
                 </a>
             
@@ -1784,7 +1797,98 @@
             
         </li>
     
-        <li class="chapter " data-level="4.6.3" data-path="../chapter12-Troubleshoot/END.html">
+        <li class="chapter " data-level="4.6.3" data-path="../chapter12-Troubleshoot/12.3-promtool-check.html">
+            
+                <a href="../chapter12-Troubleshoot/12.3-promtool-check.html">
+            
+                    
+                    12.3 Promtool Check 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="../chapter12-Troubleshoot/12.4-promtool-query.html">
+            
+                <a href="../chapter12-Troubleshoot/12.4-promtool-query.html">
+            
+                    
+                    12.4 Promtool Query 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.5" data-path="../chapter12-Troubleshoot/12.5-promtool-debug.html">
+            
+                <a href="../chapter12-Troubleshoot/12.5-promtool-debug.html">
+            
+                    
+                    12.5 Promtool Debug 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.6" data-path="../chapter12-Troubleshoot/12.6-promtool-tsdb.html">
+            
+                <a href="../chapter12-Troubleshoot/12.6-promtool-tsdb.html">
+            
+                    
+                    12.6 Promtool TSDB 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.7" data-path="../chapter12-Troubleshoot/12.7-amtool-alert.html">
+            
+                <a href="../chapter12-Troubleshoot/12.7-amtool-alert.html">
+            
+                    
+                    12.7 amtool Alert 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.8" data-path="../chapter12-Troubleshoot/12.8-amtool-silence.html">
+            
+                <a href="../chapter12-Troubleshoot/12.8-amtool-silence.html">
+            
+                    
+                    12.8 amtool Silence 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.9" data-path="../chapter12-Troubleshoot/12.9-amtool-check-config.html">
+            
+                <a href="../chapter12-Troubleshoot/12.9-amtool-check-config.html">
+            
+                    
+                    12.9 amtool Check 功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.10" data-path="../chapter12-Troubleshoot/END.html">
             
                 <a href="../chapter12-Troubleshoot/END.html">
             
@@ -1832,7 +1936,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >10.4 Kubernetes监控</a>
+        <a href=".." >10.4 Kubernetes 监控</a>
     </h1>
 </div>
 
@@ -1914,7 +2018,7 @@ OOMkilled</p>
 
             
                 
-                <a href="10.3-docker.md" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 10.3 无编排系统容器监控">
+                <a href="10.3-how-to-instrument.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 10.3 如何监控测量你的代码">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1926,7 +2030,7 @@ OOMkilled</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10.4 Kubernetes监控","level":"4.4.7","depth":2,"next":{"title":"10.5 Blackbox 网络监控","level":"4.4.8","depth":2,"ref":"","articles":[]},"previous":{"title":"10.3 无编排系统容器监控","level":"4.4.6","depth":2,"path":"chapter10-BestPractices/10.3-docker.md","ref":"chapter10-BestPractices/10.3-docker.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter10-BestPractices/10.4-kubernetes.md","mtime":"2021-10-11T02:00:44.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-18T14:35:30.950Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10.4 Kubernetes 监控","level":"4.4.4","depth":2,"next":{"title":"10.5 无编排系统容器监控","level":"4.4.5","depth":2,"ref":"","articles":[]},"previous":{"title":"10.3 如何监控测量你的代码","level":"4.4.3","depth":2,"path":"chapter10-BestPractices/10.3-how-to-instrument.md","ref":"chapter10-BestPractices/10.3-how-to-instrument.md","articles":[]},"dir":"ltr"},"config":{"plugins":["pageview-count","back-to-top-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"pageview-count":{},"back-to-top-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Er Dong <erdong@mail.erdong.site>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Prometheus Notes","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Erdong's Blog":"https://erdong.site"}},"gitbook":"*","description":"This is a note of prometheus","extension":null},"file":{"path":"chapter10-BestPractices/10.4-kubernetes.md","mtime":"2021-10-11T02:00:44.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-30T12:26:13.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
