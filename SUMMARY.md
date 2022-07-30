@@ -16,6 +16,9 @@
     * [1.5 数据模型](chapter01-Basic/1.5-data-model.md)
     * [1.6 Metric 类型](chapter01-Basic/1.6-metric-types.md)
     * [1.7 Job 和 Instances](chapter01-Basic/1.7-job-and-instances.md)
+    * [1.8 Prometheus 的 API 稳定性保障](chapter01-Basic/1.8-api-stability.md)
+    * [1.9 Prometheus 发布 LTS 长期支持版本](chapter01-Basic/1.9-long-term-support.md)
+    * [1.10 Prometheus 启动时被禁止的功能特性](chapter01-Basic/1.10-feature-flags.md)
     * [小结](chapter01-Basic/END.md)
 * [第二章 Prometehus 数据库](chapter02-TimeSeriesDB/README.md)
     * [2.1 开始](chapter02-TimeSeriesDB/2.1-getting-started.md)
@@ -119,7 +122,7 @@
     * [10.4 Kubernetes 监控](chapter10-BestPractices/10.4-kubernetes.md)
     * [10.5 无编排系统容器监控]()
     * [10.6 Blackbox 网络监控]()
-    * 
+    * [10.7 ]()
     * [10.8 ClickHouse](chapter10-BestPractices/10.8-clickhouse.md)
     * [10.9 Kafka](chapter10-BestPractices/10.9-kafka.md)
     * [10.10 主机监控](chapter10-BestPractices/10.1-node.md)

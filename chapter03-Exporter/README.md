@@ -6,7 +6,7 @@ https://github.com/starsliao/Prometheus
 
 Node exporter and windows exporter dashboard 
 
-* 第三章 采集器
+* 第三章 Prometheus 采集器
     * [3.1 PushGateway](3.1-pushgateway.md)
     * [3.2 Linux 主机信息采集](3.2-node-exporter.md)
     * [3.3 Windows 主机信息采集](3.3-windows-exporter.md)

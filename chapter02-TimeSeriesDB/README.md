@@ -6,5 +6,5 @@
     * [2.1 开始](2.1-getting-started.md)
     * [2.2 安装](2.2-installation.md)
     * [2.3 配置](2.3-configuration.md)
-     * [2.11 存储](2.11-storage.md)
+    * [2.11 存储](2.11-storage.md)
     * [小结](END.md)
