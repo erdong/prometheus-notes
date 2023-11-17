@@ -169,7 +169,7 @@
 如果你遇到了问题，欢迎提 [Github Issue](https://github.com/erdong/prometheus-notes/issues) , 大家一起交流。
 
 
-# Prometheus Notes Stargazers over time
+# Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/erdong/prometheus-notes.svg)](https://starchart.cc/erdong/prometheus-notes)
 
