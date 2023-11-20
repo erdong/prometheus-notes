@@ -108,6 +108,7 @@
     * [8.12 Thanos Rule](chapter08-ClusterAndHA/8.12-thanos-rule.md)
     * [8.13 Cortex  是什么](chapter08-ClusterAndHA/8.13-cortex-introduction.md)
     * [8.14 Kvass  是什么](chapter08-ClusterAndHA/8.14-kvass-introduction.md)
+    * [8.15 VictoriaMetrics  是什么](chapter08-ClusterAndHA/8.15-victoriametrics-introduction.md)
     * [8.16 Thanos 历史数据查询](chapter08-ClusterAndHA/8.16-thanos-history-query.md)
     * [小结](chapter08-ClusterAndHA/END.md)
 * [第九章 服务发现](chapter09-ServiceDiscovery/README.md)
