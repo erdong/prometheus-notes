@@ -158,8 +158,7 @@
     * [12.10 amtool Check 功能](chapter12-Troubleshoot/12.10-amtool-check-config.md)
     * [12.11 pprof](chapter12-Troubleshoot/12.11-pprof.md)
     * [小结](chapter12-Troubleshoot/END.md)
-<details>
-<summary>* [第十三章 发行注记](chapter13-Release/README.md)</summary>
+* [第十三章 发行注记](chapter13-Release/README.md)
     * [13.1 Release 2.0.0](chapter13-Release/13.1-release-2-0-0.md)
     * [13.2 Release 2.1.0](chapter13-Release/13.2-release-2-1-0.md)
     * [13.3 Release 2.2.0](chapter13-Release/13.3-release-2-2-0.md)
@@ -200,7 +199,7 @@
     * [13.38 Release 2.37.0](chapter13-Release/13.8-release-2-37-0.md)
     * [13.39 Release 2.38.0](chapter13-Release/13.8-release-2-38-0.md)
     * [小结](chapter13-Release/END.md)
-</details>
+
 持续更新中~~~
 
 目录中的每篇文章可能会经常进行排序上的调整，请尽量从根目录来查找，而不是保留固定的 URL 来使用。
