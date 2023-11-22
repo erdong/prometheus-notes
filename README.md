@@ -200,6 +200,7 @@
     * [13.37 Release 2.36.0](chapter13-Release/13.37-release-2-36-0.md)
     * [13.38 Release 2.37.0](chapter13-Release/13.38-release-2-37-0.md)
     * [13.39 Release 2.38.0](chapter13-Release/13.39-release-2-38-0.md)
+    * [13.40 Release 2.39.0](chapter13-Release/13.40-release-2-39-0.md)
     * [小结](chapter13-Release/END.md)
 
 持续更新中~~~
